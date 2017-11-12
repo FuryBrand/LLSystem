@@ -1,0 +1,17 @@
+<?php
+include('../controller/navbar.php');
+$navList=nav_list();
+$arr=array();
+$navs=array();
+for($i=0;$i<count($navList);$i++){
+	array_push($arr,$navList[$i]);
+	for($j=0;$j<count($navList);$j++){
+		if($navList[$i]['id']==$navList[$j]['pid']){
+			array_push($arr,$navList[$j]);
+		}
+	}
+	array_push($navs,$arr);
+	$arr=array();
+}
+var_dump($navs);
+?>
