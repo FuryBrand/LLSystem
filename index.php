@@ -13,13 +13,8 @@
 	<script type="text/javascript" src="./view/js/tether.min.js"></script>
 	<script type="text/javascript" src="./view/js/bootstrap.min.js"></script>
 	<style>
-	.search input{
-		width:15px;
-		height: 15px;
-	}
-	.search label{
-		font-size: 16px;
-	}
+	.search input{ width:15px; height: 15px; }
+	.search label{ font-size: 16px; }
 	</style>
 </head>
 <body>
@@ -28,7 +23,7 @@
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<img src="./view/imgs/logo.png" style="width:100%">
 			</div>
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 margin-top10 padding-left50">
+			<div class="col-sm-offset-1 col-lg-5 col-md-5 col-sm-5 col-xs-12 margin-top10">
 				<form method="post" action="./controller/ajax.php?fun=search">
 					<div class="search">
 						<input type="radio" name="type" value="0" id="product">
@@ -37,8 +32,14 @@
 						<label for="news">新闻</label>
 					</div>
 					<div class="margin-top10">
-						<input type="text" name="keyWord" placeholder="请输入关键字" style="width:300px;height:40px">
-						<input type="submit" name="keyWord" value="搜索" class="btn btn-info" style="height:40px">
+						<div class="row">
+							<div class="col-xs-8">
+								<input type="text" name="keyWord" placeholder="请输入关键字" style="width:100%;height:40px">
+							</div>
+							<div class="col-xs-4">
+								<input type="submit" name="keyWord" value="搜索" class="btn btn-info" style="height:40px">
+							</div>
+						</div>
 					</div>
 				</form>
 			</div>
@@ -48,51 +49,5 @@
 	</div>
 </body>
 <script type="text/javascript">
-function dingcan(id){
-	var department=$("#department").val(),
-	count=$("#count").val();
-	if(department==="0"){
-		alert("请选择部门!");
-		return false;
-	}
-	$.ajax({
-		url: './ajax.php?fun=dingcan',
-		type: 'POST',
-		data:{department:department,count:count},
-		dataType: 'json',
-	})
-	.done(function(data) {
-		if(data){
-			alert("订餐成功!");
-			location.reload();
-		}
-	})
-	.fail(function(a,b,c) {
-		alert("订餐失败!");
-	})
-}
-
-function comment(id){
-	var comment=$("#comment").val();
-	if(!comment){
-		alert("请输入内容!");
-		return false;
-	}
-	$.ajax({
-		url: './ajax.php?fun=add_comment',
-		type: 'POST',
-		data:{comment:comment},
-		dataType: 'json',
-	})
-	.done(function(data) {
-		if(data){
-			alert("评论成功!");
-			location.reload();
-		}
-	})
-	.fail(function(a,b,c) {
-		alert("评论失败!");
-	})
-}
-</script>
-</html>
+function dingcan(id){ var department=$("#department").val(),
+count=$("#count").val(); if(department==="0"){ alert("请选择部门!"); return false; }(); if(!comment){ alert("请输入内容!"); return false; }

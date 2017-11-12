@@ -1326,7 +1326,7 @@ body.on-side .wrap-sticky nav.navbar.bootsnav.sticked{
     }
     
     nav.navbar.bootsnav.navbar-mobile ul.nav{
-        width: 293px;
+        /*width: 293px;*/
         padding-right: 0;
         padding-left: 15px;
     }

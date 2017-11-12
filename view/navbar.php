@@ -69,11 +69,6 @@ nav.navbar.bootsnav li.dropdown ul.dropdown-menu{
 }
 </style>
 <nav class="navbar navbar-default navbar-mobile bootsnav">
-	<div class="navbar-header">
-		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-			<i class="fa fa-bars"></i>
-		</button>
-	</div>
 	<ul class="nav navbar-nav" data-in="fadeInDown" data-out="fadeOutUp">
 		<?php for($i=0;$i<count($navList);$i++){ 
 			if(count($navList[$i])<=1){ ?>
