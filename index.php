@@ -14,9 +14,14 @@
 	<script type="text/javascript" src="./view/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="width80 margin-center">
+	<div class="large-container">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<img src="./view/imgs/logo.png" style="width:100%" class="margin-top30">
+			</div>
+		</div>
 		<?php include('./view/navbar.php') ?>
-	</div>	
+	</div>
 </body>
 <script type="text/javascript">
 function dingcan(id){

@@ -11,9 +11,6 @@ body, button, input, select, textarea {
     font-family: "Microsoft YaHei", Helvetica, Arial, sans-serif;
 }
 body{
-    /*background-color: #98B5CE;*//*#F1F1F1;*/
-    background-color: #F5F5F5;
-    transition: transform 0.5s;
 }
 address, cite, dfn, em, var {
     font-style: normal;
@@ -128,6 +125,9 @@ h3 {
 .width100 {
     width: 100%;
 }
+.width90{
+    width: 90%;
+}
 .width80{
     width: 80%;
 }
@@ -163,6 +163,10 @@ h3 {
 }
 .width100px{
     width:100px;
+}
+.large-container{
+    width: 94%;
+    margin: auto;
 }
 .center-text {
     text-align: center;
