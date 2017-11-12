@@ -13,7 +13,6 @@ $navList=nav_list();
 }
 nav.navbar.bootsnav{
 	border: none;
-	margin-bottom: 150px;
 }
 .navbar-nav{
 	float: left;

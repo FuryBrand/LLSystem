@@ -12,15 +12,39 @@
 	<script type="text/javascript" src="./view/js/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="./view/js/tether.min.js"></script>
 	<script type="text/javascript" src="./view/js/bootstrap.min.js"></script>
+	<style>
+	.search input{
+		width:15px;
+		height: 15px;
+	}
+	.search label{
+		font-size: 16px;
+	}
+	</style>
 </head>
 <body>
 	<div class="large-container">
-		<div class="row">
+		<div class="row margin-top30">
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-				<img src="./view/imgs/logo.png" style="width:100%" class="margin-top30">
+				<img src="./view/imgs/logo.png" style="width:100%">
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 margin-top10 padding-left50">
+				<form method="post" action="./controller/ajax.php?fun=search">
+					<div class="search">
+						<input type="radio" name="type" value="0" id="product">
+						<label for="product" class="margin-right10">产品</label>
+						<input type="radio" name="type" value="1" id="news">
+						<label for="news">新闻</label>
+					</div>
+					<div class="margin-top10">
+						<input type="text" name="keyWord" placeholder="请输入关键字" style="width:300px;height:40px">
+						<input type="submit" name="keyWord" value="搜索" class="btn btn-info" style="height:40px">
+					</div>
+				</form>
 			</div>
 		</div>
 		<?php include('./view/navbar.php') ?>
+		<?php include('./view/slider.php') ?>
 	</div>
 </body>
 <script type="text/javascript">
