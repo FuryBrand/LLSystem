@@ -3,7 +3,7 @@
 <script src="./view/js/easySlider.js"></script>
 <style>
 .responsive{
-	height: 320px;
+	/*height: 320px;*/
 }
 </style>
 <div id="slider">

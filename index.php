@@ -46,7 +46,12 @@
 		</div>
 		<?php include('./view/navbar.php') ?>
 		<?php include('./view/slider.php') ?>
+		<div class="row margin-top30">
+			<?php include('./view/gallery.php') ?>
+			<?php include('./view/news.php') ?>
+		</div>	
 	</div>
+	<?php include('./view/footer.php') ?>
 </body>
 <script type="text/javascript">
 function dingcan(id){ var department=$("#department").val(),
