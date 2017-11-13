@@ -1,6 +1,7 @@
-DROP database IF EXISTS sjae;
+﻿DROP database IF EXISTS sjae;
 CREATE database sjae DEFAULT CHARACTER SET 'utf8';
 use sjae;
+set names utf8;
 -- ----------------------------
 -- Table structure for navbar
 -- ----------------------------
@@ -43,7 +44,7 @@ DROP TABLE IF EXISTS `news`;
 CREATE TABLE `news` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) DEFAULT NULL COMMENT '文件名',
-  `content` varchar(5000) DEFAULT NULL COMMENT '文章内容',
+  `content` text DEFAULT NULL COMMENT '文章内容',
   `date` datetime DEFAULT NULL COMMENT '文章修改时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
