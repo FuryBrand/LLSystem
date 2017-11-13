@@ -1,17 +1,16 @@
 <?php
 //1.执行sql语句
 function run_sql($sql,$select=false){
-    $conn=mysql_connect("127.0.0.1:3306", "root", "") or die("Unable to connect!");
-    mysql_query("SET NAMES 'UTF8'"); //设置存入的字符串格式
-    mysql_select_db("sjae") or die("Unable to select database!");
+    $conn=mysqli_connect("127.0.0.1:3306", "root", "","sjae") or die("Unable to connect!");
+    mysqli_query($conn,"SET NAMES 'UTF8'"); //设置存入的字符串格式
     try
     {
-        $rs=mysql_query($sql,$conn);
-        mysql_close($conn);
+        $rs=mysqli_query($conn,$sql);
+        mysqli_close($conn);
         if($rs){
             if($select){
                 $res=array();
-                while($o=mysql_fetch_assoc($rs)){
+                while($o=mysqli_fetch_assoc($rs)){
                     array_push($res,$o);
                 }
                 return $res;

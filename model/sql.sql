@@ -1,4 +1,4 @@
-﻿DROP database IF EXISTS sjae;
+DROP database IF EXISTS sjae;
 CREATE database sjae DEFAULT CHARACTER SET 'utf8';
 use sjae;
 set names utf8;
@@ -44,10 +44,19 @@ DROP TABLE IF EXISTS `news`;
 CREATE TABLE `news` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) DEFAULT NULL COMMENT '文件名',
-  `content` text DEFAULT NULL COMMENT '文章内容',
-  `date` datetime DEFAULT NULL COMMENT '文章修改时间',
+  `content` varchar(100) DEFAULT NULL COMMENT '文章内容的html路径',
+  `create_date` datetime DEFAULT NULL COMMENT '文章修改时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+-- ----------------------------
+-- Table data for news
+-- ----------------------------
+INSERT INTO `news` (`id`, `title`, `content`, `date`) VALUES (1, '北京市委书记蔡奇一行莅临盛达杰森视察调研', '\\resource\\news\\1.html', '2017-09-25 15:27:23');
+INSERT INTO `news` (`id`, `title`, `content`, `date`) VALUES (2, 'NAURA GO | 砥砺奋进中的国产集成电路装备产业', '\\resource\\news\\2.html', '2017-09-28 15:27:23');
+INSERT INTO `news` (`id`, `title`, `content`, `date`) VALUES (3, '和NAURA一起 | 在IC China带给产业无限可能', '\\resource\\news\\3.html', '2017-10-17 16:27:23');
+INSERT INTO `news` (`id`, `title`, `content`, `date`) VALUES (4, '盛达杰森主导编写的SEMI 光伏标准进入最终审核环节', '\\resource\\news\\4.html', '2017-10-24 16:27:23');
+INSERT INTO `news` (`id`, `title`, `content`, `date`) VALUES (5, '盛达杰森创参加2017年中国集成电路制造年会', '\\resource\\news\\5.html', '2017-08-25 15:27:23');
+INSERT INTO `news` (`id`, `title`, `content`, `date`) VALUES (6, '盛达杰森为中国IGBT生产商提供关键工艺设备解决方案', '\\resource\\news\\6.html', '2017-11-13 16:27:23');
 -- ----------------------------
 -- Table structure for produces
 -- ----------------------------
