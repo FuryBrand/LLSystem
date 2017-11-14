@@ -1,6 +1,5 @@
 <?php
-session_start();
-include("./model.php");
+include_once("../model/admin_login.php");
 $fun=$_GET['fun'];
 $res="";
 switch ($fun){
@@ -15,6 +14,16 @@ switch ($fun){
   $department=$_POST["department"];
   $count=$_POST["count"];
   $res=add_dingcan($department,$count);
+  break;
+  case "login":
+  $uname=$_POST["uname"];
+  $pwd=$_POST["pwd"];
+  $res=get_user($uname,$pwd);
+  if(count($res)!=1){
+    $res=["succ"=>false,"errcode"=>-1];
+  }else{
+   $res=["succ"=>true,"errcode"=>-1];
+  }
   break;
 }
 echo json_encode($res);

@@ -69,3 +69,16 @@ CREATE TABLE `produces` (
   `html_path` varchar(100) DEFAULT NULL COMMENT 'html的文件路径',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+-- 导出  表 sjae.admin_login 结构
+CREATE TABLE IF NOT EXISTS `admin_login` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL COMMENT '登录名',
+  `pwd` text NOT NULL COMMENT '密码',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='后台登录表';
+
+-- 正在导出表  sjae.admin_login 的数据：~0 rows (大约)
+/*!40000 ALTER TABLE `admin_login` DISABLE KEYS */;
+INSERT INTO `admin_login` (`id`, `name`, `pwd`) VALUES
+  (1, 'll', '3049a1f0f1c808cdaa4fbed0e01649b1');
