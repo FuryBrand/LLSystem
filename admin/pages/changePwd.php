@@ -1,4 +1,4 @@
-	<?php include('/islogin.php') ?>
+	<?php include_once('/islogin.php') ?>
 	<style>
 		.changepwd{
 			width: 400px;

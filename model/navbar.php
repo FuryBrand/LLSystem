@@ -1,24 +1,21 @@
-<?php include(dirname(__FILE__)."\base.php");?>
+<?php include_once(dirname(__FILE__)."\base.php");?>
 <?php
 ////////针对单一问题的特定方法///////
 function get_nav(){
     return db_select_all("*","navbar");
 }
-function add_comment($content){
-    $content=strip_tags($content);
-    $arrStr=array('content');
-    $arrContent=array($content);
-    return db_insert("comment",$arrStr,$arrContent);
+function add_nav($text,$href,$pid){
+    return db_insert("navbar",['name','href','pid'],[$text,$href,$pid]);
 }
-function get_all_department(){
-    return db_select_all("*","department");
+function delete_nav($id){
+    return db_delete("navbar",$id);
 }
-function add_dingcan($department,$count){
-    return db_insert("foodcount",['department','count'],[intval($department),intval($count)]);
+function update_nav($name,$href,$id){
+	$sql="UPDATE navbar SET name='".$name."' ,href='".$href."' WHERE id='".$id."'";
+    return run_sql($sql);
 }
-function each_depart_count(){
-    $sql="SELECT * from foodcount where date>'".date('Y/m/d 00:00:00')."'";
-    return run_sql($sql,true);
+function get_second_nav($pid){
+	return db_select("*","navbar",'pid',$pid);
 }
 //$db=db_select("*","index_comment","content","中文");
 //$db=db_update("index_comment","content","呵呵",1);

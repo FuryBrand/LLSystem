@@ -45,9 +45,13 @@
           <div class="left-side-inner">
             <!--sidebar nav start-->
             <ul class="nav nav-pills nav-stacked custom-nav">
-              <li class="active"><a href="./index.php?page=changePwd"><i class="fa fa-key"></i><span>修改密码</span></a></li>
+              <li><a href="./index.php?page=welcome"><i class="fa fa-smile-o"></i><span>欢迎使用</span></a></li>
+              <li><a href="./index.php?page=changeNav"><i class="fa fa-list-ul"></i><span>导航栏</span></a></li>
+              <li><a href="./index.php?page=slide"><i class="fa fa-film"></i><span>轮播图</span></a></li>
+              <li><a href="./index.php?page=news"><i class="fa fa-columns"></i><span>新闻页</span></a></li>
+              <li><a href="./index.php?page=prodPic"><i class="fa fa-picture-o"></i><span>产品展示图</span></a></li>
+              <li><a href="./index.php?page=changePwd"><i class="fa fa-key"></i><span>修改密码</span></a></li>
               <li><a href="#" onclick="delCookie('user')"><i class="fa fa-sign-in"></i> <span>安全退出</span></a></li>
-
             </ul>
             <!--sidebar nav end-->
 
@@ -68,11 +72,23 @@
               include("./pages/changePwd.php");
               break;
               default:
-              header("Localtion: ./index.php");
+              include("./pages/welcome.php");
+              break;
+              case 'changeNav':
+              include("./pages/changeNav.php");
+              break;
+              case 'slide':
+              include("./pages/slide.php");
+              break;
+              case 'news':
+              include("./pages/news.php");
+              break;
+              case 'prodPic':
+              include("./pages/prodPic.php");
               break;
             }
           }else{
-            header("Localtion: ./index.php");
+            include("./pages/welcome.php");
           }
           ?>
         </div>

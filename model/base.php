@@ -35,8 +35,6 @@ function run_sql($sql,$select=false){
 //2.查询
 function db_select($select,$tableName,$field,$value) {
     $sql="select ".$select." from `".$tableName."` where `".$field."`= '".$value."'"; 
-    var_dump($sql);
-    die();
     return run_sql($sql,true);
 }
 
