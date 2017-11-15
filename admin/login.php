@@ -35,88 +35,74 @@
                 <button class="btn btn-lg btn-login btn-block" onclick="login()">
                     <i class="fa fa-check"></i>
                 </button>
+            </div>
 
-            <!--todo:暂时关闭了注册<div class="registration">
-                Not a member yet?
-                <a class="" href="registration.html">
-                    Signup
-                </a>
-            </div>-->
-            <!--todo:暂时关闭了记住我<label class="checkbox">
-                <input type="checkbox" value="remember-me"> Remember me
-                <span class="pull-right">
-                    <a data-toggle="modal" href="#myModal"> Forgot Password?</a>
+            <!-- Modal -->
+            <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Forgot Password ?</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Enter your e-mail address below to reset your password.</p>
+                            <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
 
-                </span>
-            </label>-->
-
-        </div>
-
-        <!-- Modal -->
-        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Forgot Password ?</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Enter your e-mail address below to reset your password.</p>
-                        <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
-
-                    </div>
-                    <div class="modal-footer">
-                        <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
-                        <button class="btn btn-primary" type="button">Submit</button>
+                        </div>
+                        <div class="modal-footer">
+                            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+                            <button class="btn btn-primary" type="button">Submit</button>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- modal -->
+
         </div>
-        <!-- modal -->
 
     </div>
 
-</div>
 
 
+    <!-- Placed js at the end of the document so the pages load faster -->
 
-<!-- Placed js at the end of the document so the pages load faster -->
-
-<!-- Placed js at the end of the document so the pages load faster -->
-<script src="js/jquery-1.10.2.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/modernizr.min.js"></script>
-<script type="text/javascript">
-function login(id){
-    var uname=$("#uname").val();
-    var pwd=$("#pwd").val();
-    $.ajax({
-        url: '../controller/ajax.php?fun=login',
-        type: 'POST',
-        dataType: 'json',
-        data:{uname:uname,pwd:pwd}
-    })
-    .done(function(data) {
-        if(data.succ){
-            setCookie('login',uname,1)
-            window.location.href="./index.php";
-        }else{
-            alert("登录失败,请重试!");
-            window.location.reload();
+    <!-- Placed js at the end of the document so the pages load faster -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/modernizr.min.js"></script>
+    <script type="text/javascript">
+        function login(id){
+            var uname=$("#uname").val();
+            var pwd=$("#pwd").val();
+            $.ajax({
+                url: '../controller/ajax.php?fun=login',
+                type: 'POST',
+                dataType: 'json',
+                data:{uname:uname,pwd:pwd}
+            })
+            .done(function(data) {
+                if(data.succ){
+                    setCookie('user',uname,1)
+                    window.location.href="./index.php";
+                }else{
+                    alert("登录失败,请重试!");
+                    window.location.reload();
+                }
+            })
+            .fail(function(a,b,c) {
+                alert("登录错误!");
+                console.log(a.responseText);
+            })
         }
-    })
-    .fail(function(a,b,c) {
-        alert("登录错误!");
-        console.log(a.responseText);
-    })
-}
-function setCookie(name,value,expirehour)
-{
-    var d = new Date();
-    d.setTime(d.getTime() + (expirehour*60*60*1000));
-    var expires = "expires="+d.toUTCString();
-    document.cookie = name + "=" + value + "; " + expires;
-}
-</script>
+
+        function setCookie(name,value,expirehour)
+        {
+            var d = new Date();
+            d.setTime(d.getTime() + (expirehour*60*60*1000));
+            var expires = "expires="+d.toUTCString();
+            document.cookie = name + "=" + value + "; " + expires+"; path=/";
+        }
+    </script>
 </body>
 </html>

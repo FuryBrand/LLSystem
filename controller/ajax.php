@@ -3,8 +3,11 @@ include_once("../model/admin_login.php");
 $fun=$_GET['fun'];
 $res="";
 switch ($fun){
-  case "get_comment":
-  $res=get_comment();
+  case "changepwd":
+  $newpwd=$_POST["newpwd"];
+  $uname=$_COOKIE['user'];
+  $res=update_pwd($uname,$newpwd);
+  $res=['succ'=>$res];
   break;
   case "add_comment":
   $comment=$_POST['comment'];
