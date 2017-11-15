@@ -47,7 +47,7 @@
             <ul class="nav nav-pills nav-stacked custom-nav">
               <li><a href="./index.php?page=welcome"><i class="fa fa-smile-o"></i><span>欢迎使用</span></a></li>
               <li><a href="./index.php?page=changeNav"><i class="fa fa-list-ul"></i><span>导航栏</span></a></li>
-              <li><a href="./index.php?page=slide"><i class="fa fa-film"></i><span>轮播图</span></a></li>
+              <li><a href="./index.php?page=sliderUpload"><i class="fa fa-film"></i><span>轮播图</span></a></li>
               <li><a href="./index.php?page=news"><i class="fa fa-columns"></i><span>新闻页</span></a></li>
               <li><a href="./index.php?page=prodPic"><i class="fa fa-picture-o"></i><span>产品展示图</span></a></li>
               <li><a href="./index.php?page=changePwd"><i class="fa fa-key"></i><span>修改密码</span></a></li>
@@ -77,8 +77,8 @@
               case 'changeNav':
               include("./pages/changeNav.php");
               break;
-              case 'slide':
-              include("./pages/slide.php");
+              case 'sliderUpload':
+              include("./pages/sliderUpload.php");
               break;
               case 'news':
               include("./pages/news.php");

@@ -2,6 +2,7 @@
 include($_SERVER['DOCUMENT_ROOT'].'/LLsystem/config.php');
 include_once(Root_Path."/model/admin_login.php");
 include_once(Root_Path."/model/navbar.php");
+include_once(Root_Path."/model/navbar.php");
 $fun=$_GET['fun'];
 $res="";
 switch ($fun){
@@ -44,6 +45,17 @@ switch ($fun){
  $pid=$_POST["pid"];
  $res=get_second_nav($pid);
  break;
+ case "add_slider":
+ //$url=$_POST['url'];
+ if(array_key_exists('file',$_FILES)){
+  $file = $_FILES['file'];
+  $upload_path=Root_Path."/admin/images/slider/";//记录路径
+  $extension=explode(".",$file['name'])[1];
+  $fileName=time().'.'.$extension;
+  move_uploaded_file($file['tmp_name'],$upload_path.$fileName);
+}
+  //$res=add_bug($title,$des,$url,$level);
+break; 
 }
 echo json_encode($res);
 ?>
