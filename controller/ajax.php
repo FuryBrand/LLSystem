@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'].'/LLsystem/config.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/LLsystem/config.php');
 include_once(Root_Path."/model/admin_login.php");
 include_once(Root_Path."/model/navbar.php");
 include_once(Root_Path."/model/slideshow.php");
@@ -63,9 +63,15 @@ switch ($fun){
 }
 break;
  case "add_slider_Info":
- $pid=$_POST["pid"];
- $res=get_second_nav($pid);
- break; 
+ $url=$_POST["url"];
+ $path=$_POST["path"];
+ $res=add_slideshow([$path,$url]);
+ break;
+ break;
+ case "del_slideshow":
+ $id=$_POST["id"];
+ $res=del_slideshow($id);
+ break;  
 }
 echo json_encode($res);
 ?>

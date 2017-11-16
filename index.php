@@ -13,8 +13,8 @@
 	<script type="text/javascript" src="./view/js/tether.min.js"></script>
 	<script type="text/javascript" src="./view/js/bootstrap.min.js"></script>
 	<style>
-	.search input{ width:15px; height: 15px; }
-	.search label{ font-size: 16px; }
+		.search input{ width:15px; height: 15px; }
+		.search label{ font-size: 16px; }
 	</style>
 </head>
 <body>
@@ -54,5 +54,5 @@
 	<?php include('./view/footer.php') ?>
 </body>
 <script type="text/javascript">
-function dingcan(id){ var department=$("#department").val(),
-count=$("#count").val(); if(department==="0"){ alert("请选择部门!"); return false; }(); if(!comment){ alert("请输入内容!"); return false; }
+
+</script>

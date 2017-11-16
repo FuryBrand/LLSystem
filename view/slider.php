@@ -1,40 +1,49 @@
+<?php
+include_once($_SERVER['DOCUMENT_ROOT'].'/LLsystem/config.php');
+include_once(Root_Path."/model/slideshow.php");
+?>
+<?php 
+$all_slides=get_all_slideshow();
+?>
 <link rel="stylesheet" href="./view/css/normalize.css">
 <link rel="stylesheet" href="./view/css/easySlider.css">
 <script src="./view/js/easySlider.js"></script>
 <style>
-.responsive{
-	/*height: 320px;*/
-}
+	.responsive{
+		/*height: 320px;*/
+	}
 </style>
 <div id="slider">
 	<ul class="slides">
-		<li><img class="responsive" src="./view/imgs/1.png"></li>
-		<li><img class="responsive" src="./view/imgs/2.png"></li>
-		<li><img class="responsive" src="./view/imgs/3.png"></li>
-		<li><img class="responsive" src="./view/imgs/4.png"></li>
+		<?php for($i=0;$i<count($all_slides);$i++){ ?>
+		<li>
+			<a href="<?php echo $all_slides[$i]['url'] ?>" target="_blank">
+				<img class="responsive" src="./admin/images/slider/<?php echo $all_slides[$i]['path'] ?>">
+			</a>
+		</li>
+		<?php } ?>
 	</ul>
 	<ul class="controls">
 		<li><img src="./view/imgs/prev.png" alt="previous"></li>
 		<li><img src="./view/imgs/next.png" alt="next"></li>
 	</ul>
 	<ul class="pagination">
-		<li class="active"></li>
-		<li></li>
-		<li></li>
-		<li></li>
+		<?php for($i=0;$i<count($all_slides);$i++){?>
+		<li class="<?php $i==0 ? print 'active': print '' ?>"></li>
+		<?php } ?>
 	</ul>
 </div>
 <script>
-$(function() {
-	$("#slider").easySlider( {
-		slideSpeed: 500,
-		autoSlide: true,
-		paginationSpacing: "15px",
-		paginationDiameter: "10px",
-		paginationPositionFromBottom: "10px",
-		slidesClass: ".slides",
-		controlsClass: ".controls",
-		paginationClass: ".pagination"					
+	$(function() {
+		$("#slider").easySlider( {
+			slideSpeed: 500,
+			autoSlide: true,
+			paginationSpacing: "15px",
+			paginationDiameter: "10px",
+			paginationPositionFromBottom: "10px",
+			slidesClass: ".slides",
+			controlsClass: ".controls",
+			paginationClass: ".pagination"					
+		});
 	});
-});
 </script>
