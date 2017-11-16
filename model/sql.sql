@@ -69,18 +69,10 @@ INSERT INTO `produces` (`id`, `title`, `type`, `father_id`, `html_path`) VALUES 
 INSERT INTO `produces` (`id`, `title`, `type`, `father_id`, `html_path`) VALUES (7, 'sgt-1000', 2, 6, NULL);
 INSERT INTO `produces` (`id`, `title`, `type`, `father_id`, `html_path`) VALUES (8, '装卸机器人', 1, 5, NULL);
 INSERT INTO `produces` (`id`, `title`, `type`, `father_id`, `html_path`) VALUES (9, '方大国公司', 1, NULL, NULL);
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
--- ----------------------------
--- Table data for produces
--- ----------------------------
-INSERT INTO `produces` (`id`, `title`, `type`, `father_id`, `html_path`) VALUES
-  (1, '第1条数据', NULL, NULL, NULL),
-  (2, '第2条数据', NULL, NULL, NULL),
-  (3, '第3条数据', NULL, NULL, NULL),
-  (4, '第4条数据', NULL, NULL, NULL);
 
 -- 导出  表 sjae.admin_login 结构
-CREATE TABLE IF NOT EXISTS `admin_login` (
+DROP TABLE IF EXISTS `admin_login`;
+CREATE TABLE `admin_login` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL COMMENT '登录名',
   `pwd` text NOT NULL COMMENT '密码',
