@@ -13,7 +13,7 @@ function del_slideshow($id){
 function update_slideshow($setField,$setVal,$id){
     return db_update("slideshow",$setField,$setVal,$id);
 }
-//lwx:返回指定新闻页面
+//lwx:返回指定轮播图
 function get_slideshow_by_id($id){
     return db_select("*","slideshow","id",id);
 }
