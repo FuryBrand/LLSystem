@@ -10,18 +10,27 @@ function del_produces($id){
     return db_delete("produces",$id);
 }
 //lwx:改
-function update_news($setField,$setVal,$id){
-    return db_update("news",$setField,$setVal,$id);
+function update_produces($setField,$setVal,$id){
+    return db_update("produces",$setField,$setVal,$id);
 }
 //lwx:返回指定新闻页面
-function get_news_by_id($id){
-    return db_select("*","news","id",id);
+function get_produces_by_id($id){
+    return db_select("*","produces","id",id);
 }
 
 ////////针对单一问题的特定方法///////
 //lwx:确认该id是否可以被删除
 function can_del($id){
-    $sql="SELECT * FROM news ORDER BY create_date DESC LIMIT 6";
+    //判断指定id是否为产品
+    $sql1 = "SELECT * FROM produces WHERE id=$id AND type=2";
+    $sql2 = "SELECT * FROM produces WHERE father_id = $id";
+    if(count(run_sql($sql1,true))==0){
+        return true;
+    } else if(count(run_sql($sql2,true))==0){
+        return true;
+    } else {
+        return false;
+    }
 }
 //lwx:获取最新的6条新闻
 function get_lastest_news(){
