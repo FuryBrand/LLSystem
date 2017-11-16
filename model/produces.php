@@ -10,9 +10,9 @@ function del_produces($id){
     return db_delete("produces",$id);
 }
 //lwx:改
-<<<<<<< HEAD
-function update_produces($setField,$setVal,$id){
-    return db_update("produces",$setField,$setVal,$id);
+function update_produces($type,$title,$html_path,$id){
+    $sql="UPDATE produces SET type='".$type."', title='".$title."' ,html_path='".$html_path."' WHERE id='".$id."'";
+    return run_sql($sql);
 }
 //lwx:返回指定新闻页面
 function get_produces_by_id($id){
@@ -47,15 +47,6 @@ function get_news_counts(){
 function get_paged_news($startIndex,$pageSize){
     $sql="SELECT * FROM news ORDER BY create_date DESC LIMIT $startIndex,$pageSize";
     return run_sql($sql,true);
-=======
-function update_produces($type,$title,$html_path,$id){
-    $sql="UPDATE produces SET type='".$type."', title='".$title."' ,html_path='".$html_path."' WHERE id='".$id."'";
-    return run_sql($sql);
-}
-//lwx:返回指定新闻页面
-function get_all_produces(){
-    return db_select_all("*","produces");
->>>>>>> 558503803c1d87790629d8278044feb1a0199e90
 }
 ?>
 

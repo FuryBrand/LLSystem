@@ -56,7 +56,6 @@ CREATE TABLE `produces` (
   `father_id` int(11) DEFAULT NULL COMMENT '父级id',
   `html_path` varchar(100) DEFAULT NULL COMMENT 'html的文件路径',
   PRIMARY KEY (`id`)
-<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 -- ----------------------------
 -- Table data for produces
@@ -70,7 +69,6 @@ INSERT INTO `produces` (`id`, `title`, `type`, `father_id`, `html_path`) VALUES 
 INSERT INTO `produces` (`id`, `title`, `type`, `father_id`, `html_path`) VALUES (7, 'sgt-1000', 2, 6, NULL);
 INSERT INTO `produces` (`id`, `title`, `type`, `father_id`, `html_path`) VALUES (8, '装卸机器人', 1, 5, NULL);
 INSERT INTO `produces` (`id`, `title`, `type`, `father_id`, `html_path`) VALUES (9, '方大国公司', 1, NULL, NULL);
-=======
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 -- ----------------------------
 -- Table data for produces
@@ -81,7 +79,6 @@ INSERT INTO `produces` (`id`, `title`, `type`, `father_id`, `html_path`) VALUES
   (3, '第3条数据', NULL, NULL, NULL),
   (4, '第4条数据', NULL, NULL, NULL);
 
->>>>>>> 558503803c1d87790629d8278044feb1a0199e90
 -- 导出  表 sjae.admin_login 结构
 CREATE TABLE IF NOT EXISTS `admin_login` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
