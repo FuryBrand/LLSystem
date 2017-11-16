@@ -3,7 +3,6 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/LLsystem/config.php');
 include_once(Root_Path."/model/admin_login.php");
 include_once(Root_Path."/model/navbar.php");
 include_once(Root_Path."/model/slideshow.php");
-include_once(Root_Path."/model/produces.php");
 $fun=$_GET['fun'];
 $res="";
 switch ($fun){
@@ -63,34 +62,16 @@ switch ($fun){
   $res=["succ"=>flase,"errcode"=>2];//2表示未找到文件
 }
 break;
-case "add_slider_Info":
-$url=$_POST["url"];
-$path=$_POST["path"];
-$res=add_slideshow([$path,$url]);
-break;
-break;
-case "del_slideshow":
-$id=$_POST["id"];
-$res=del_slideshow($id);
-break;
-case "update_produces":
-//上传图片到文件夹
-$id=$_POST["id"];
-$extension=$_POST["ext"];
-if(array_key_exists('pic',$_FILES)){
-  $file = $_FILES['pic'];
-  $upload_path=Root_Path."/admin/images/produce/";//记录路径
-  $extension=explode(".",$file['name'])[1];
-  $fileName=$id.'.'.$extension;
-  move_uploaded_file($file['tmp_name'],$upload_path.$fileName);
-}
-
-//写入内容到数据库
-$title=$_POST["title"];
-$html_path=$_POST["html_path"];
-$res=update_produces($extension,$title,$html_path,$id);
-$res=['succ'=>$res];
-break;    
+ case "add_slider_Info":
+ $url=$_POST["url"];
+ $path=$_POST["path"];
+ $res=add_slideshow([$path,$url]);
+ break;
+ break;
+ case "del_slideshow":
+ $id=$_POST["id"];
+ $res=del_slideshow($id);
+ break;  
 }
 echo json_encode($res);
 ?>
