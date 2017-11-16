@@ -14,18 +14,7 @@ CREATE TABLE IF NOT EXISTS `navbar` (
   `href` text COMMENT '导航栏链接',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='导航栏';
--- ----------------------------
--- Table data for navbar
--- ----------------------------
-INSERT INTO `navbar` (`id`, `name`, `group`, `pid`, `href`) VALUES
-	(1, '首页', 0, 0, NULL),
-	(2, '关于盛达杰森', 1, 0, NULL),
-	(3, '企业概况', 0, 2, NULL),
-	(4, '价值理念', 0, 2, NULL),
-	(5, '发展历程', 0, 2, NULL),
-	(6, '产品&服务', 0, 0, NULL),
-	(7, '半导体装备', 0, 6, NULL),
-	(8, '真空装备', 0, 6, NULL);
+
 -- ----------------------------
 -- Table structure for slideshow
 -- ----------------------------
@@ -63,11 +52,19 @@ DROP TABLE IF EXISTS `produces`;
 CREATE TABLE `produces` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) DEFAULT NULL COMMENT '产品或类别的名称',
-  `type` int(1) DEFAULT NULL COMMENT '1分类2产品',
+  `type` varchar(50) DEFAULT NULL COMMENT '图片扩展名',
   `father_id` int(11) DEFAULT NULL COMMENT '父级id',
   `html_path` varchar(100) DEFAULT NULL COMMENT 'html的文件路径',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+-- ----------------------------
+-- Table data for produces
+-- ----------------------------
+INSERT INTO `produces` (`id`, `title`, `type`, `father_id`, `html_path`) VALUES
+  (1, '第1条数据', NULL, NULL, NULL),
+  (2, '第2条数据', NULL, NULL, NULL),
+  (3, '第3条数据', NULL, NULL, NULL),
+  (4, '第4条数据', NULL, NULL, NULL);
 
 -- 导出  表 sjae.admin_login 结构
 CREATE TABLE IF NOT EXISTS `admin_login` (
