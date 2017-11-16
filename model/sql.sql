@@ -32,7 +32,6 @@ INSERT INTO `navbar` (`id`, `name`, `group`, `pid`, `href`) VALUES
 DROP TABLE IF EXISTS `slideshow`;
 CREATE TABLE `slideshow` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `file_name` varchar(50) DEFAULT NULL COMMENT '标题',
   `path` varchar(100) DEFAULT NULL COMMENT '保存路径',
   `url` varchar(100) DEFAULT NULL COMMENT '关联的链接',
   PRIMARY KEY (`id`)
