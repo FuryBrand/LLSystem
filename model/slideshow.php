@@ -2,7 +2,7 @@
 <?php
 //lwx:增
 function add_slideshow($valArr){
-    $nameArr = array("file_name", "path", "url");
+    $nameArr = array("path", "url");
     return db_insert("slideshow",$nameArr,$valArr);
 }
 //lwx:删
