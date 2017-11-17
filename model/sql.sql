@@ -34,6 +34,7 @@ CREATE TABLE `news` (
   `title` varchar(50) DEFAULT NULL COMMENT '文件名',
   `content` varchar(100) DEFAULT NULL COMMENT '文章内容的html路径',
   `create_date` datetime DEFAULT NULL COMMENT '文章修改时间',
+  `type` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 -- ----------------------------
