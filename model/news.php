@@ -15,7 +15,8 @@ function update_news($setField,$setVal,$id){
 }
 //lwx:返回指定新闻页面
 function get_news_by_id($id){
-    return db_select("*","news","id",id);
+    $sql = "SELECT n.id,n.title,n.content,n.create_date,n.type,f.name FROM news n LEFT JOIN fk_news_type f ON n.type=f.id WHERE n.id=$id";
+    return run_sql($sql,true);
 }
 
 ////////针对单一问题的特定方法///////
