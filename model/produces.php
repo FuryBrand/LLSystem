@@ -24,6 +24,22 @@ function get_all_produces(){
     return db_select_all("*","produces");
 }
 ////////针对单一问题的特定方法///////
-
+//判断指定id是否为产品，是否为空的类别，是否可以被删除
+function can_del($id){
+    $sql1 = "SELECT * FROM produces WHERE id=$id AND type=2";
+    $sql2 = "SELECT * FROM produces WHERE father_id = $id";
+    if(count(run_sql($sql1,true))==0){
+        return true;
+    } else if(count(run_sql($sql2,true))==0){
+        return true;
+    } else {
+        return false;
+    }
+}
+//lwx：根据关键字查询匹配的产品标题
+function search_produces_by_title($input){
+    $sql="SELECT * FROM produces WHERE type=2 AND title LIKE '%$input%'";
+    return run_sql($sql,true);
+}
 ?>
 

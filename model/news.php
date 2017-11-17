@@ -2,7 +2,7 @@
 <?php
 //lwx:增
 function add_news($valArr){
-    $nameArr = array("title", "content", "create_date");
+    $nameArr = array("title", "content", "create_date","type");
     return db_insert("news",$nameArr,$valArr);
 }
 //lwx:删
@@ -32,6 +32,11 @@ function get_news_counts(){
 //lwx:分页查询
 function get_paged_news($startIndex,$pageSize){
     $sql="SELECT * FROM news ORDER BY create_date DESC LIMIT $startIndex,$pageSize";
+    return run_sql($sql,true);
+}
+//lwx：根据关键字查询匹配的新闻标题
+function search_news_by_title($input){
+    $sql="SELECT * FROM news WHERE title LIKE '%$input%'";
     return run_sql($sql,true);
 }
 ?>
