@@ -83,3 +83,11 @@ CREATE TABLE `admin_login` (
 /*!40000 ALTER TABLE `admin_login` DISABLE KEYS */;
 INSERT INTO `admin_login` (`id`, `name`, `pwd`) VALUES
   (1, 'll', '3049a1f0f1c808cdaa4fbed0e01649b1');
+
+
+-- 导出  表 sjae.news_type 结构
+CREATE TABLE IF NOT EXISTS `news_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL DEFAULT '0' COMMENT '新闻名称',
+  PRIMARY KEY (`id`)
+) EN
