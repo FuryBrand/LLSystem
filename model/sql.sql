@@ -87,7 +87,7 @@ INSERT INTO `admin_login` (`id`, `name`, `pwd`) VALUES
 
 
 -- 导出  表 sjae.news_type 结构
-CREATE TABLE IF NOT EXISTS `news_type` (
+CREATE TABLE IF NOT EXISTS `fk_news_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL DEFAULT '0' COMMENT '新闻名称',
   PRIMARY KEY (`id`)
