@@ -90,4 +90,4 @@ CREATE TABLE IF NOT EXISTS `news_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL DEFAULT '0' COMMENT '新闻名称',
   PRIMARY KEY (`id`)
-) EN
+) 
