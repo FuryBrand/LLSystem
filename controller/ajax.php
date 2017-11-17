@@ -4,6 +4,7 @@ include_once(Root_Path."/model/admin_login.php");
 include_once(Root_Path."/model/navbar.php");
 include_once(Root_Path."/model/slideshow.php");
 include_once(Root_Path."/model/produces.php");
+include_once(Root_Path."/model/fk_news_type.php");
 $fun=$_GET['fun'];
 $res="";
 switch ($fun){
@@ -50,17 +51,16 @@ switch ($fun){
  //$url=$_POST['url'];
  if(array_key_exists('file',$_FILES)){
   $file = $_FILES['file'];
-  $upload_path=Root_Path."/admin/images/slider/";//记录路径
   $extension=explode(".",$file['name'])[1];
   $fileName=time().'.'.$extension;
-  move_uploaded_file($file['tmp_name'],$upload_path.$fileName);
-  if(is_file($upload_path.$fileName)){
+  move_uploaded_file($file['tmp_name'],PHP_Slider_Img.$fileName);
+  if(is_file(PHP_Slider_Img.$fileName)){
     $res=["succ"=>true,"fileName"=>$fileName];
   }else{
-    $res=["succ"=>flase,"errcode"=>1];//1表示上传失败
+    $res=["succ"=>false,"errcode"=>1];//1表示上传失败
   }
 }else{
-  $res=["succ"=>flase,"errcode"=>2];//2表示未找到文件
+  $res=["succ"=>false,"errcode"=>2];//2表示未找到文件
 }
 break;
 case "add_slider_Info":
@@ -79,10 +79,9 @@ $id=$_POST["id"];
 $extension=$_POST["ext"];
 if(array_key_exists('pic',$_FILES)){
   $file = $_FILES['pic'];
-  $upload_path=Root_Path."/admin/images/produce/";//记录路径
   $extension=explode(".",$file['name'])[1];
   $fileName=$id.'.'.$extension;
-  move_uploaded_file($file['tmp_name'],$upload_path.$fileName);
+  move_uploaded_file($file['tmp_name'],PHP_Produce_Img_Path.$fileName);
 }
 
 //写入内容到数据库
@@ -90,7 +89,23 @@ $title=$_POST["title"];
 $html_path=$_POST["html_path"];
 $res=update_produces($extension,$title,$html_path,$id);
 $res=['succ'=>$res];
-break;    
+break;
+case "add_news_type":
+$name=$_POST["name"];
+$res=add_fk_news_type([$name]);
+$res=['succ'=>$res];
+break;
+case "update_news_type":
+$name=$_POST["name"];
+$id=$_POST["id"];
+$res=update_fk_news_type($name,$id);
+$res=['succ'=>$res];
+break;
+case "del_news_type":
+$id=$_POST["id"];
+$res=del_fk_news_type($id);
+$res=['succ'=>$res];
+break;     
 }
 echo json_encode($res);
 ?>

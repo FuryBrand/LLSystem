@@ -44,14 +44,15 @@
 
           <div class="left-side-inner">
             <!--sidebar nav start-->
-            <ul class="nav nav-pills nav-stacked custom-nav">
-              <li><a href="./index.php?page=welcome"><i class="fa fa-smile-o"></i><span>欢迎使用</span></a></li>
-              <li><a href="./index.php?page=changeNav"><i class="fa fa-list-ul"></i><span>导航栏</span></a></li>
-              <li><a href="./index.php?page=sliderUpload"><i class="fa fa-film"></i><span>轮播图</span></a></li>
-              <li><a href="./index.php?page=news"><i class="fa fa-columns"></i><span>新闻页</span></a></li>
-              <li><a href="./index.php?page=prodPic"><i class="fa fa-picture-o"></i><span>产品展示图</span></a></li>
-              <li><a href="./index.php?page=changePwd"><i class="fa fa-key"></i><span>修改密码</span></a></li>
-              <li><a href="#" onclick="delCookie('user')"><i class="fa fa-sign-in"></i> <span>安全退出</span></a></li>
+            <ul class="nav nav-pills nav-stacked custom-nav" id="navBar">
+              <li id="welcome"><a href="./index.php?page=welcome"><i class="fa fa-smile-o"></i><span>欢迎使用</span></a></li>
+              <li id="changeNav"><a href="./index.php?page=changeNav"><i class="fa fa-list-ul"></i><span>导航栏</span></a></li>
+              <li id="sliderUpload"><a href="./index.php?page=sliderUpload"><i class="fa fa-film"></i><span>轮播图</span></a></li>
+              <li id="newsType"><a href="./index.php?page=newsType"><i class="fa fa-pencil"></i><span>新闻分类</span></a></li>
+              <li id="news"><a href="./index.php?page=news"><i class="fa fa-columns"></i><span>新闻页</span></a></li>
+              <li id="prodPic"><a href="./index.php?page=prodPic"><i class="fa fa-picture-o"></i><span>产品展示图</span></a></li>
+              <li id="changePwd"><a href="./index.php?page=changePwd"><i class="fa fa-key"></i><span>修改密码</span></a></li>
+              <li id=""><a href="#" onclick="delCookie('user')"><i class="fa fa-sign-in"></i> <span>安全退出</span></a></li>
             </ul>
             <!--sidebar nav end-->
 
@@ -85,6 +86,9 @@
               break;
               case 'prodPic':
               include("./pages/prodPic.php");
+              break;
+              case 'newsType':
+              include("./pages/newsType.php");
               break;
             }
           }else{
@@ -135,6 +139,18 @@
         else
           return null;
       }
-    </script>
-  </body>
-  </html>
+
+      function GetQueryString(name)
+      {
+       var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+       var r = window.location.search.substr(1).match(reg);
+       if(r!=null)return  unescape(r[2]); return null;
+     }
+
+     $(function(){
+      var page=GetQueryString('page');
+      $("#"+page).addClass("active");
+    });
+   </script>
+ </body>
+ </html>

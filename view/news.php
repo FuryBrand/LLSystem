@@ -1,22 +1,41 @@
-<?php ?>
+<?php
+include_once('model/news.php');
+$news_list=get_lastest_news();
+?>
 <style>
-.news-title{
-	border-bottom:1px solid #f6f6f6;
-	font-size: 17px;
-	height: 50px;
-	line-height: 50px;
-	padding-left:20px;
-}
-.title {
-	font-size:19px;
-	border-bottom:1px solid #f6f6f6;
-	height:28px;
-	line-height:28px;
-}
+	.news-title{
+		border-bottom:1px solid #ddd;
+		font-size: 16px;
+		height: 50px;
+		line-height: 50px;
+		padding-left:20px;
+	}
+	.title {
+		font-size:18px;
+		border-bottom:1px solid #ddd;
+		height:28px;
+		line-height:28px;
+	}
+	.news a{
+		color: #333;
+		text-decoration: none;
+	}
+	.news a:hover{
+		color: #0094ff;
+	}
 </style>
-<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-	<h3 class="title"><span style="border-bottom:2px solid #0094ff">新闻中心</span></h4>
-	<?php for($i=0;$i<6;$i++){ ?>
-	<div class="news-title">第<?php echo $i ?>条新闻 <span style="margin-left:30px">2017-7-7</span></div>
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 news">
+	<h3 class="title"><span style="border-bottom:2px solid #0094ff">最新资讯</span></h3>
+	<?php for($i=0;$i<count($news_list);$i++){ ?>
+	<div class="news-title row">
+		<div class="col-xs-9">
+			<a href="<?php echo $news_list[$i]['content'] ?>" target="_blank">
+				<?php echo $news_list[$i]['title'] ?>
+			</a>
+		</div>
+		<div class="col-xs-3" style="font-size:14px">
+			<?php echo date("Y-m-d",strtotime($news_list[$i]['create_date'])) ?>
+		</div>
+	</div>
 	<?php } ?>
 </div>

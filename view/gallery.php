@@ -39,7 +39,7 @@ $produces=get_all_produces();
 		<div class="gallery">
 			<div class="wrap">
 				<a href="<?php echo $produces[$i]['html_path'] ?>" target="_blank">
-					<img src="./admin/images/produce/<?php echo $i+1 ?>.<?php echo $produces[$i]['type'] ?>" >
+					<img src="<?php print Produce_Img.($i+1) ?>.<?php echo $produces[$i]['type'] ?>" >
 					<div class="text"><?php echo $produces[$i]['title'] ?></div>
 				</a>
 			</div>
