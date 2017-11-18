@@ -1,7 +1,7 @@
 	<?php
 	include_once($_SERVER['DOCUMENT_ROOT'].'/LLsystem/config.php');
-	include_once(Root_Path."/model/produces.php");
-	$produces=get_all_produces();
+	include_once(Root_Path."/model/products.php");
+	$products=get_all_products();
 	?>
 	<style type="text/css">
 		.relative{
@@ -29,27 +29,27 @@
 		<div class='col-lg-4'>链接地址</div>
 		<div class='col-lg-1'>操作</div>
 	</div>
-	<?php for($i=1;$i<=count($produces);$i++){ ?>
+	<?php for($i=1;$i<=count($products);$i++){ ?>
 	<div class="row" style="margin-bottom:20px;">
 		<form enctype="multipart/form-data" id="form<?php echo$i ?>">
 			<div class='col-lg-3 relative'>
-				<img src="./images/produce/<?php echo $i ?>.<?php echo $produces[$i-1]['type'] ?>" id="img<?php echo$i ?>">
+				<img src="<?php echo Product_Img.$i ?>.<?php echo $products[$i-1]['type'] ?>" id="img<?php echo$i ?>">
 				<input name="pic" id="pic<?php echo$i ?>" type="file" id="pic<?php echo$i ?>" onchange="preview(<?php echo$i ?>,this)">
 			</div>
 			<div class='col-lg-3'>
-				<input name="title" type="text" style="" id="title<?php echo$i ?>" value="<?php echo $produces[$i-1]['title'] ?>">
+				<input name="title" type="text" style="" id="title<?php echo$i ?>" value="<?php echo $products[$i-1]['title'] ?>">
 			</div>
 			<div class='col-lg-4'>
-				<input name="html_path" type="text"  id="html_path<?php echo$i ?>" value="<?php echo $produces[$i-1]['html_path'] ?>">
+				<input name="html_path" type="text"  id="html_path<?php echo$i ?>" value="<?php echo $products[$i-1]['html_path'] ?>">
 			</div>
 			<div class='col-lg-1'>
-				<input type="button" id="btn<?php echo$i ?>" class="btn btn-warning" value="修改" onclick="update_produces_pic(<?php echo $i ?>,'<?php echo $produces[$i-1]['type'] ?>')"/>
+				<input type="button" id="btn<?php echo$i ?>" class="btn btn-warning" value="修改" onclick="update_products_pic(<?php echo $i ?>,'<?php echo $products[$i-1]['type'] ?>')"/>
 			</div>	
 		</form>
 	</div>
 	<?php } ?>
 	<script type="text/javascript">
-		function update_produces_pic(id,ext) {
+		function update_products_pic(id,ext) {
 			var formData = new FormData();
 			formData.append("pic", $("#pic"+id).get(0).files[0]);
 			formData.append("title", $("#title"+id).val());
@@ -58,7 +58,7 @@
 			formData.append("ext", ext);		
 			$.ajax({
 				type: "POST",
-				url: "../controller/ajax.php?fun=update_produces",
+				url: "../controller/ajax.php?fun=update_products",
 				dataType: 'json',
 				processData: false,
 				contentType: false,  

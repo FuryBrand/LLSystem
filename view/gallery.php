@@ -1,7 +1,7 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/LLsystem/config.php');
-include_once(Root_Path."/model/produces.php");
-$produces=get_all_produces();
+include_once(Root_Path."/model/products.php");
+$products=get_all_products();
 ?>
 <style>
 	.gallery{
@@ -35,12 +35,12 @@ $produces=get_all_produces();
 </style>
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 	<div style="font-size:0">
-		<?php for($i=0;$i<count($produces);$i++){ ?>
+		<?php for($i=0;$i<count($products);$i++){ ?>
 		<div class="gallery">
 			<div class="wrap">
-				<a href="<?php echo $produces[$i]['html_path'] ?>" target="_blank">
-					<img src="<?php print Produce_Img.($i+1) ?>.<?php echo $produces[$i]['type'] ?>" >
-					<div class="text"><?php echo $produces[$i]['title'] ?></div>
+				<a href="<?php echo $products[$i]['html_path'] ?>" target="_blank">
+					<img src="<?php print Product_Img.($i+1) ?>.<?php echo $products[$i]['type'] ?>" >
+					<div class="text"><?php echo $products[$i]['title'] ?></div>
 				</a>
 			</div>
 		</div>

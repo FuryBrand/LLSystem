@@ -3,7 +3,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/LLsystem/config.php');
 include_once(Root_Path."/model/admin_login.php");
 include_once(Root_Path."/model/navbar.php");
 include_once(Root_Path."/model/slideshow.php");
-include_once(Root_Path."/model/produces.php");
+include_once(Root_Path."/model/products.php");
 include_once(Root_Path."/model/fk_news_type.php");
 $fun=$_GET['fun'];
 $res="";
@@ -73,7 +73,7 @@ case "del_slideshow":
 $id=$_POST["id"];
 $res=del_slideshow($id);
 break;
-case "update_produces":
+case "update_products":
 //上传图片到文件夹
 $id=$_POST["id"];
 $extension=$_POST["ext"];
@@ -81,13 +81,13 @@ if(array_key_exists('pic',$_FILES)){
   $file = $_FILES['pic'];
   $extension=explode(".",$file['name'])[1];
   $fileName=$id.'.'.$extension;
-  move_uploaded_file($file['tmp_name'],PHP_Produce_Img_Path.$fileName);
+  move_uploaded_file($file['tmp_name'],PHP_Product_Img_Path.$fileName);
 }
 
 //写入内容到数据库
 $title=$_POST["title"];
 $html_path=$_POST["html_path"];
-$res=update_produces($extension,$title,$html_path,$id);
+$res=update_products($extension,$title,$html_path,$id);
 $res=['succ'=>$res];
 break;
 case "add_news_type":
