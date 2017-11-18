@@ -69,4 +69,17 @@ function db_delete($table,$id){
     $sql="delete from ".$table." where id=".$id;
     return run_sql($sql,false);
 }
+//7.分页查询
+function db_pages($table,$where=false,$orderby=false,$startIndex,$pageSize){
+    if($where==false&&$orderby!=false){
+        $sql="SELECT * FROM $table ORDER BY $orderby LIMIT $startIndex,$pageSize";
+    }else if($where!=false&&$orderby==false){
+        $sql="SELECT * FROM $table WHERE $where LIMIT $startIndex,$pageSize";
+    }else if($where==false&&$orderby==false){
+        $sql="SELECT * FROM $table LIMIT $startIndex,$pageSize";
+    }else if($where!=false&&$orderby!=false){
+        $sql="SELECT * FROM $table WHERE $where ORDER BY $orderby LIMIT $startIndex,$pageSize";
+    }
+    return run_sql($sql,true);
+}
 ?>
