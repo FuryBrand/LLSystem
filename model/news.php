@@ -10,10 +10,15 @@ function del_news($id){
     return db_delete("news",$id);
 }
 //lwx:改
-function update_news($setField,$setVal,$id){
+function update_news($id,$title,$type,$thumb){
+    $sql="UPDATE news SET type='".$type."', title='".$title."' ,thumb='".$thumb."' WHERE id='".$id."'";
+    return run_sql($sql,true);
+}
+//lwx:改一个字段
+function update_onepro_news($setField,$setVal,$id){
     return db_update("news",$setField,$setVal,$id);
 }
-//lwx:返回指定新闻页面
+    //lwx:返回指定新闻页面
 function get_news_by_id($id){
     $sql = "SELECT n.id,n.title,n.content,n.create_date,n.type,f.name FROM news n LEFT JOIN fk_news_type f ON n.type=f.id WHERE n.id=$id";
     return run_sql($sql,true);

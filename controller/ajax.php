@@ -5,6 +5,7 @@ include_once(Root_Path."/model/navbar.php");
 include_once(Root_Path."/model/slideshow.php");
 include_once(Root_Path."/model/products.php");
 include_once(Root_Path."/model/fk_news_type.php");
+include_once(Root_Path."/model/news.php");
 $fun=$_GET['fun'];
 $res="";
 switch ($fun){
@@ -22,7 +23,7 @@ switch ($fun){
     $res=["succ"=>false,"errcode"=>-1];
   }else{
    $res=["succ"=>true,"errcode"=>-1];
- }
+  }
  break;
  case "add_nav":
  $name=$_POST["name"];
@@ -106,6 +107,28 @@ $id=$_POST["id"];
 $res=del_fk_news_type($id);
 $res=['succ'=>$res];
 break;     
+//lwx:新闻编辑
+case "upddate_news":
+  $id = $_POST["id"];
+  $title = $_POST["title"];
+  $type = $_POST["type"];
+  $thumb = $_POST["thumb"];
+  $res=update_news($id,$title,$type,$thumb);
+  $res=['succ'=>$res];
+  break;
+  //lwx:新闻内容保存到html文件中
+  case "saveContent":
+  $content=$_POST['content'];
+  $id=$_POST['id'];
+  $fileName = date("Y-m-d-H-i-s");
+  $fullName = "./$fileName.html";
+  $file = fopen($fullName, "w") or die("Unable to open file!");
+  fwrite($file, $content);
+  fclose($file);
+       //保存到数据库中
+       update_onepro_news("content",$fullName,$id);
+  $res=true;
+  break;  
 }
 echo json_encode($res);
 ?>
