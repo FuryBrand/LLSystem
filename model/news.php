@@ -2,7 +2,7 @@
 <?php
 //lwx:增
 function add_news($valArr){
-    $nameArr = array("title", "content", "create_date","type");
+    $nameArr = array("title","content","type","thumb");
     return db_insert("news",$nameArr,$valArr);
 }
 //lwx:删
@@ -18,7 +18,7 @@ function update_news($id,$title,$type,$thumb){
 function update_onepro_news($setField,$setVal,$id){
     return db_update("news",$setField,$setVal,$id);
 }
-    //lwx:返回指定新闻页面
+//lwx:返回指定新闻页面
 function get_news_by_id($id){
     $sql = "SELECT n.id,n.title,n.content,n.create_date,n.type,f.name FROM news n LEFT JOIN fk_news_type f ON n.type=f.id WHERE n.id=$id";
     return run_sql($sql,true);
@@ -26,6 +26,11 @@ function get_news_by_id($id){
 //lwx:返回指定类型的新闻页面
 function get_news_by_type($typeid){
     $sql = "SELECT * FROM news WHERE type=$typeid";
+    return run_sql($sql,true);
+}
+//lwx:返回所有新闻
+function get_all_news(){
+    $sql = "SELECT a.id,a.title,a.content,a.create_date,a.type,a.thumb,b.name FROM news a LEFT JOIN fk_news_type b ON a.type=b.id";
     return run_sql($sql,true);
 }
 

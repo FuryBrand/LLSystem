@@ -108,7 +108,7 @@ $res=del_fk_news_type($id);
 $res=['succ'=>$res];
 break;     
 //lwx:新闻编辑
-case "upddate_news":
+case "update_news":
   $id = $_POST["id"];
   $title = $_POST["title"];
   $type = $_POST["type"];
@@ -119,16 +119,29 @@ case "upddate_news":
   //lwx:新闻内容保存到html文件中
   case "saveContent":
   $content=$_POST['content'];
-  $id=$_POST['id'];
-  $fileName = date("Y-m-d-H-i-s");
-  $fullName = "./$fileName.html";
-  $file = fopen($fullName, "w") or die("Unable to open file!");
+  $filepath=$_POST['path'];
+  $file = fopen($filepath, "w") or die("Unable to open file!");
   fwrite($file, $content);
   fclose($file);
-       //保存到数据库中
-       update_onepro_news("content",$fullName,$id);
   $res=true;
-  break;  
+  break; 
+  //lwx:根据id删除新闻
+  case "del_news_by_id":
+  $id = $_POST["id"];
+  $res=del_news($id);
+  $res=['succ'=>$res];
+  break;
+  //lwx:增加新闻
+  case "add_news":
+  $title = $_POST["title"];
+  $type = $_POST["type"];
+  $thumb = $_POST["thumb"];
+  $fileName = date("Y-m-d-H-i-s");
+  $content = "./$fileName.html";
+  $val=array($title,$content,$type,$thumb);
+  $res=add_news($val);
+  $res=['succ'=>$res];
+  break;
 }
 echo json_encode($res);
 ?>
