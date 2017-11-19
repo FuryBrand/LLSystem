@@ -142,6 +142,20 @@ case "update_news":
   $res=add_news($val);
   $res=['succ'=>$res];
   break;
+  //lwx:搜索框
+  case "search":
+  $type = $_POST["type"];//0产品，1新闻
+  $keyword = $_POST["keyWord"];
+  $url = null;
+  if($type=="1"){
+    $url = Project_Folder_Name."\\\\news_list.php";
+    echo '<script>location.href="'.$url.'?keyword='.$keyword.'"</script>';
+  } else {
+    $url = Project_Folder_Name."\\\\productsall_list.php";
+    echo '<script>location.href="'.$url.'?keyword='.$keyword.'"</script>';
+  }
+  return;
+  break;
 }
 echo json_encode($res);
 ?>

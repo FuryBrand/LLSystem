@@ -1,6 +1,6 @@
 <?php 
 define('Root_Path',dirname(__FILE__));
-define('Project_Folder_Name',"/LLsystem");
+define('Project_Folder_Name',"/LLSystem");
 //前台html用
 define('Product_Img',"./admin/images/product/");
 define('Slider_Img',"./admin/images/slider/");

@@ -5,7 +5,7 @@
 	<div class="col-sm-offset-1 col-lg-5 col-md-5 col-sm-5 col-xs-12 margin-top10">
 		<form method="post" action="./controller/ajax.php?fun=search">
 			<div class="search">
-				<input type="radio" name="type" value="0" id="product">
+				<input type="radio" name="type" value="0" id="product" checked>
 				<label for="product" class="margin-right10">产品</label>
 				<input type="radio" name="type" value="1" id="news">
 				<label for="news">新闻</label>

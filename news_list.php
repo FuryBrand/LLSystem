@@ -1,6 +1,16 @@
 <?php 
 include_once($_SERVER['DOCUMENT_ROOT'].'/LLsystem/config.php');
 include_once(Root_Path."/model/fk_news_type.php");
+include_once(Root_Path."/model/news.php");
+$keyword = false;
+if(array_key_exists("keyword",$_GET)){
+	$keyword=$_GET["keyword"];
+}
+if($keyword){
+	//根据关键字检索
+
+}else{
+}
 $news_type=get_fk_news_type();
 ?>
 <link href="./view/css/bootstrap.min.css" rel="stylesheet">
