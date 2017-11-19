@@ -55,6 +55,13 @@
                   <li id="newsAdd"><a href="./index.php?page=newsAdd">添加</a></li>
                 </ul>
               </li>
+              <li class="menu-list"><a href=""><i class="fa fa-archive"></i> <span>产品管理</span></a>
+                <ul class="sub-menu-list">
+                  <li id="productsallType"><a href="./index.php?page=productsallType">分类</a></li>
+                  <li id="productsallList"><a href="./index.php?page=productsallList">列表</a></li>
+                  <li id="productsallAdd"><a href="./index.php?page=productsallAdd">添加</a></li>
+                </ul>
+              </li>
 
               <li id="prodPic"><a href="./index.php?page=prodPic"><i class="fa fa-picture-o"></i><span>产品展示图</span></a></li>
               <li id="changePwd"><a href="./index.php?page=changePwd"><i class="fa fa-key"></i><span>修改密码</span></a></li>
@@ -101,6 +108,15 @@
               break;
               case 'newsAdd':
               include("./pages/newsAdd.php");
+              break;
+              case 'productsallType':
+              include("./pages/productsallType.php");
+              break;
+              case 'productsallList':
+              include("./pages/productsallList.php");
+              break;
+              case 'productsallAdd':
+              include("./pages/productsallAdd.php");
               break;
             }
           }else{

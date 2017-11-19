@@ -6,6 +6,7 @@ include_once(Root_Path."/model/slideshow.php");
 include_once(Root_Path."/model/products.php");
 include_once(Root_Path."/model/fk_news_type.php");
 include_once(Root_Path."/model/news.php");
+include_once(Root_Path."/model/productsall.php");
 $fun=$_GET['fun'];
 $res="";
 switch ($fun){
@@ -156,20 +157,55 @@ $type = $_POST["type"];
 $res=add_news($title,$picName,$type,$htmlName);
 $res=['succ'=>$res];
 break;
- //lwx:搜索框
- case "search":
- $type = $_POST["type"];//0产品，1新闻
- $keyword = $_POST["keyWord"];
- $url = null;
- if($type=="1"){
-   $url = Project_Folder_Name."\\\\news_list.php";
-   echo '<script>location.href="'.$url.'?keyword='.$keyword.'"</script>';
- } else {
-   $url = Project_Folder_Name."\\\\productsall_list.php";
-   echo '<script>location.href="'.$url.'?keyword='.$keyword.'"</script>';
+//lwx:搜索框
+case "search":
+$type = $_POST["type"];//0产品，1新闻
+$keyword = $_POST["keyWord"];
+$url = null;
+if($type=="1"){
+  $url = Project_Folder_Name."\\\\news_list.php";
+  echo '<script>location.href="'.$url.'?keyword='.$keyword.'"</script>';
+} else {
+  $url = Project_Folder_Name."\\\\productsall_list.php";
+  echo '<script>location.href="'.$url.'?keyword='.$keyword.'"</script>';
+}
+return;
+break;
+//lwx:通过id删除产品
+case "del_productsall_byid":
+$id=$_POST["id"];
+$res=del_productsall($id);
+$res=['succ'=>$res];
+break;
+//lwx:获取指定公司下的产品系列
+case "get_series_from_productsall":
+$id=$_POST["id"];
+$res=get_series_from_productsall_by_companyid($id);
+$res=['succ'=>$res];
+break;
+ //lwx:增加产品
+case "add_productsall":
+//保存图片到文件夹
+$fileName = time();
+$picName="";
+if(array_key_exists('thumb',$_FILES)){
+  $file = $_FILES['thumb'];
+  $extension=explode(".",$file['name'])[1];
+  $picName=$fileName.'.'.$extension;
+  move_uploaded_file($file['tmp_name'],PHP_News_Thumb.$picName);
  }
- return;
- break;
+//保存详细信息到html文件
+$content=$_POST['content'];
+$htmlName=$fileName.".html";
+$file = fopen(PHP_News_File.$fileName.".html", "w") or die("Unable to open file!");
+fwrite($file, $content);
+fclose($file);
+//保存到数据库
+$title = $_POST["title"];
+$series = $_POST["series"];
+$res=add_news($title,2,$series,$htmlName,$picName);
+$res=['succ'=>$res];
+break;
 }
 echo json_encode($res);
 ?>
