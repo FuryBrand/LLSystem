@@ -33,7 +33,7 @@ CREATE TABLE `news` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) DEFAULT NULL COMMENT '文件名',
   `content` varchar(100) DEFAULT NULL COMMENT '文章内容的html路径',
-  `create_date` datetime DEFAULT NULL COMMENT '文章修改时间',
+  `create_date` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '文章修改时间',
   `type` int(11) DEFAULT NULL COMMENT '新闻类型',
   `thumb` text COMMENT '新闻缩略图',
   PRIMARY KEY (`id`)

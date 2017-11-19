@@ -23,7 +23,7 @@ switch ($fun){
     $res=["succ"=>false,"errcode"=>-1];
   }else{
    $res=["succ"=>true,"errcode"=>-1];
-  }
+ }
  break;
  case "add_nav":
  $name=$_POST["name"];
@@ -109,39 +109,53 @@ $res=['succ'=>$res];
 break;     
 //lwx:新闻编辑
 case "update_news":
-  $id = $_POST["id"];
-  $title = $_POST["title"];
-  $type = $_POST["type"];
-  $thumb = $_POST["thumb"];
-  $res=update_news($id,$title,$type,$thumb);
-  $res=['succ'=>$res];
-  break;
+$id = $_POST["id"];
+$title = $_POST["title"];
+$type = $_POST["type"];
+$thumb = $_POST["thumb"];
+$res=update_news($id,$title,$type,$thumb);
+$res=['succ'=>$res];
+break;
   //lwx:新闻内容保存到html文件中
-  case "saveContent":
-  $content=$_POST['content'];
-  $filepath=$_POST['path'];
-  $file = fopen($filepath, "w") or die("Unable to open file!");
-  fwrite($file, $content);
-  fclose($file);
-  $res=true;
-  break; 
+case "saveContent":
+$content=$_POST['content'];
+$filepath=$_POST['path'];
+$file = fopen($filepath, "w") or die("Unable to open file!");
+fwrite($file, $content);
+fclose($file);
+$res=true;
+break; 
   //lwx:根据id删除新闻
-  case "del_news_by_id":
-  $id = $_POST["id"];
-  $res=del_news($id);
-  $res=['succ'=>$res];
-  break;
+case "del_news_by_id":
+$id = $_POST["id"];
+$res=del_news($id);
+$res=['succ'=>$res];
+break;
   //lwx:增加新闻
-  case "add_news":
-  $title = $_POST["title"];
-  $type = $_POST["type"];
-  $thumb = $_POST["thumb"];
-  $fileName = date("Y-m-d-H-i-s");
-  $content = "./$fileName.html";
-  $val=array($title,$content,$type,$thumb);
-  $res=add_news($val);
-  $res=['succ'=>$res];
-  break;
+case "add_news":
+//保存图片到文件夹
+$fileName = time();
+$picName="";
+if(array_key_exists('thumb',$_FILES)){
+  $file = $_FILES['thumb'];
+  $extension=explode(".",$file['name'])[1];
+  $picName=$fileName.'.'.$extension;
+  move_uploaded_file($file['tmp_name'],PHP_News_Thumb.$picName);
+}
+
+//保存详细信息到html文件
+$content=$_POST['content'];
+$htmlName=$fileName.".html";
+$file = fopen(PHP_News_File.$fileName.".html", "w") or die("Unable to open file!");
+fwrite($file, $content);
+fclose($file);
+
+//保存到数据库
+$title = $_POST["title"];
+$type = $_POST["type"];
+$res=add_news($title,$picName,$type,$htmlName);
+$res=['succ'=>$res];
+break;
 }
 echo json_encode($res);
 ?>

@@ -22,7 +22,7 @@ $news_type=get_fk_news_type();
 		border-left:1px solid #ddd;
 		border-right:1px solid #ddd;
 	}
-	.active{
+	.types .active{
 		border-left:3px solid #008cd6 !important;
 		color:#008cd6;
 	}
