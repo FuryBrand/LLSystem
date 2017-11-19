@@ -6,6 +6,7 @@ define('Product_Img',"./admin/images/product/");
 define('Slider_Img',"./admin/images/slider/");
 define('News_Thumb',"./resource/newsThumb/");
 define('News_File',"./resource/newsFile/");
+define('News_Page_Size',6);
 //后端php用
 
 define('PHP_Product_Img_Path',Root_Path."/admin/images/product/");

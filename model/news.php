@@ -42,9 +42,14 @@ function get_lastest_news(){
     return run_sql($sql,true);
 }
 //lwx:返回新闻数量
-function get_news_counts(){
-    $sql="SELECT COUNT(*) FROM news";
-    return run_sql($sql,true);
+function get_news_counts($type=0){
+    $sql="SELECT COUNT(*) as count FROM news";
+    if($type!=0){
+        $sql=$sql+" WHERE type=".$type;
+    }
+    $countStr=run_sql($sql,true);
+    $countStr=$countStr[0]['count'];
+    return intval($countStr);
 }
 //lwx:分页查询
 function get_paged_news($startIndex,$pageSize){
