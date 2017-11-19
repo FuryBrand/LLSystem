@@ -16,7 +16,7 @@
   <link href="css/style.css" rel="stylesheet">
   <link href="css/style-responsive.css" rel="stylesheet">
 
-
+  <script src="js/jquery-1.10.2.min.js"></script>
 
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -48,8 +48,14 @@
               <li id="welcome"><a href="./index.php?page=welcome"><i class="fa fa-smile-o"></i><span>欢迎使用</span></a></li>
               <li id="changeNav"><a href="./index.php?page=changeNav"><i class="fa fa-list-ul"></i><span>导航栏</span></a></li>
               <li id="sliderUpload"><a href="./index.php?page=sliderUpload"><i class="fa fa-film"></i><span>轮播图</span></a></li>
-              <li id="newsType"><a href="./index.php?page=newsType"><i class="fa fa-pencil"></i><span>新闻分类</span></a></li>
-              <li id="news"><a href="./index.php?page=news"><i class="fa fa-columns"></i><span>新闻页</span></a></li>
+              <li class="menu-list"><a href=""><i class="fa fa-columns"></i> <span>新闻管理</span></a>
+                <ul class="sub-menu-list">
+                  <li id="newsType"><a href="./index.php?page=newsType">分类</a></li>
+                  <li id="newsList"><a href="./index.php?page=newsList">列表</a></li>
+                  <li id="newsAdd"><a href="./index.php?page=newsAdd">添加</a></li>
+                </ul>
+              </li>
+
               <li id="prodPic"><a href="./index.php?page=prodPic"><i class="fa fa-picture-o"></i><span>产品展示图</span></a></li>
               <li id="changePwd"><a href="./index.php?page=changePwd"><i class="fa fa-key"></i><span>修改密码</span></a></li>
               <li id=""><a href="#" onclick="delCookie('user')"><i class="fa fa-sign-in"></i> <span>安全退出</span></a></li>
@@ -82,13 +88,19 @@
               include("./pages/sliderUpload.php");
               break;
               case 'news':
-              include("./pages/news.php");
+              include("./pages/article.php");
               break;
               case 'prodPic':
               include("./pages/prodPic.php");
               break;
               case 'newsType':
               include("./pages/newsType.php");
+              break;
+              case 'newsList':
+              include("./pages/newsList.php");
+              break;
+              case 'newsAdd':
+              include("./pages/newsAdd.php");
               break;
             }
           }else{
@@ -111,7 +123,6 @@
     </section>
 
     <!-- Placed js at the end of the document so the pages load faster -->
-    <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
     <script src="js/jquery-migrate-1.2.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -121,36 +132,36 @@
     <script src="js/scripts.js"></script>
 
     <script type="text/javascript">
-      function delCookie(name)
-      {
-        var exp = new Date();
-        exp.setTime(exp.getTime() + (-1 * 24 * 60 * 60 * 1000));
-        var cval=getCookie(name);
-        if(cval!=null){
-          document.cookie= name + "="+cval+"; expires="+exp.toGMTString()+"; path=/";
-        }
-        window.location.href='./login.php';
+    function delCookie(name)
+    {
+      var exp = new Date();
+      exp.setTime(exp.getTime() + (-1 * 24 * 60 * 60 * 1000));
+      var cval=getCookie(name);
+      if(cval!=null){
+        document.cookie= name + "="+cval+"; expires="+exp.toGMTString()+"; path=/";
       }
-      function getCookie(name)
-      {
-        var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
-        if(arr=document.cookie.match(reg))
-          return unescape(arr[2]);
-        else
-          return null;
-      }
+      window.location.href='./login.php';
+    }
+    function getCookie(name)
+    {
+      var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+      if(arr=document.cookie.match(reg))
+        return unescape(arr[2]);
+      else
+        return null;
+    }
 
-      function GetQueryString(name)
-      {
-       var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-       var r = window.location.search.substr(1).match(reg);
-       if(r!=null)return  unescape(r[2]); return null;
-     }
+    function GetQueryString(name)
+    {
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     var r = window.location.search.substr(1).match(reg);
+     if(r!=null)return  unescape(r[2]); return null;
+   }
 
-     $(function(){
-      var page=GetQueryString('page');
-      $("#"+page).addClass("active");
-    });
+   $(function(){
+    var page=GetQueryString('page');
+    $("#"+page).addClass("active").parents(".menu-list").addClass('nav-active');
+  });
    </script>
  </body>
  </html>

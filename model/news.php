@@ -1,8 +1,9 @@
 <?php include_once(dirname(__FILE__)."\base.php");?>
 <?php
 //lwx:增
-function add_news($valArr){
+function add_news($title,$content,$type,$thumb){
     $nameArr = array("title","content","type","thumb");
+    $valArr=array($title,$content,$type,$thumb);
     return db_insert("news",$nameArr,$valArr);
 }
 //lwx:删
