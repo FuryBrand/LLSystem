@@ -153,7 +153,7 @@ fclose($file);
 //保存到数据库
 $title = $_POST["title"];
 $type = $_POST["type"];
-$res=add_news($title,$picName,$type,$htmlName);
+$res=add_news($title,$htmlName,$type,$picName);
 $res=['succ'=>$res];
 break;
  //lwx:搜索框
