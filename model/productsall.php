@@ -2,7 +2,7 @@
 <?php
 //lwx:增
 function add_productsall($valArr){
-    $nameArr = array("title", "type", "father_id","html_path");
+    $nameArr = array("title", "type", "father_id","html_path","thumb");
     return db_insert("news",$nameArr,$valArr);
 }
 //lwx:删，删之前判断是否可删 can_del($id)
@@ -20,7 +20,7 @@ function get_productsall_by_id($id){
 }
 ////////针对单一问题的特定方法///////
 //判断指定id是否为产品，是否为空的类别，是否可以被删除
-function can_del($id){
+function can_del_from_productsall($id){
     $sql1 = "SELECT * FROM productsall WHERE id=$id AND type=2";
     $sql2 = "SELECT * FROM productsall WHERE father_id = $id";
     if(count(run_sql($sql1,true))==0){
@@ -58,6 +58,22 @@ function get_paged_productsall($startIndex,$pageSize){
 //lwx:指定条件分页查询（指定产品类型）
 function get_paged_productsall_by_fatherid($type,$startIndex,$pageSize){
     return db_pages('productsall','father_id=$type',false,$startIndex,$pageSize);
+}
+//lwx:
+//id:id;    title:型号名;  html_path:html路径;   productType:所属分类;   company:所属公司
+function get_all_productsall_forAdminPage(){
+    $sql="SELECT c.id,c.title,c.html_path,c.productType,d.title company FROM(SELECT a.id,a.title,a.html_path,b.title productType,b.father_id pid FROM productsall a LEFT JOIN productsall b ON a.father_id=b.id WHERE a.type=2) c LEFT JOIN productsall d ON c.pid=d.id ORDER BY company,c.productType";
+    return run_sql($sql,true);
+}
+//lwx:返回company
+function get_company_from_productsall(){
+    $sql="SELECT id,title FROM productsall WHERE type=1 AND father_id IS null";
+    return run_sql($sql,true);
+}
+//lwx:返回指定company下的系列
+function get_series_from_productsall_by_companyid($id){
+    $sql = "SELECT id,title FROM productsall WHERE father_id=$id";
+    return run_sql($sql,true);
 }
 ?>
 

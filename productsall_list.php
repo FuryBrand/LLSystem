@@ -2,7 +2,16 @@
 include_once($_SERVER['DOCUMENT_ROOT'].'/LLsystem/config.php');
 include_once(Root_Path.'/controller/productsall.php');
 $productsall_type=productsall_type_list();
-//var_dump($productsall_type);
+$keyword = false;
+if(array_key_exists("keyword",$_GET)){
+	$keyword=$_GET["keyword"];
+}
+if($keyword){
+	//根据关键字检索
+
+}else{
+	//默认返回全部的列表
+}
 ?>
 <link href="./view/css/bootstrap.min.css" rel="stylesheet">
 <link href="./view/css/news_list.css" rel="styleSheet" />

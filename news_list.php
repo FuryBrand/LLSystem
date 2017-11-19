@@ -10,6 +10,7 @@ if($keyword){
 	//根据关键字检索
 
 }else{
+	//默认返回全部的列表
 }
 $news_type=get_fk_news_type();
 ?>
