@@ -5,7 +5,7 @@ $news_list=get_lastest_news();
 <style>
 	.news-title{
 		border-bottom:1px solid #ddd;
-		font-size: 16px;
+		font-size: 15px;
 		height: 50px;
 		line-height: 50px;
 		padding-left:20px;

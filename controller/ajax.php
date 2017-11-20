@@ -169,11 +169,11 @@ $type = $_POST["type"];//0产品，1新闻
 $keyword = $_POST["keyWord"];
 $url = null;
 if($type=="1"){
-  $url = Project_Folder_Name."\\\\news_list.php";
-  echo '<script>location.href="'.$url.'?keyword='.$keyword.'"</script>';
+  $url = Project_Folder_Name."\\news_list.php?keyword=".$keyword;
+  header('Location: '.$url);
 } else {
-  $url = Project_Folder_Name."\\\\productsall_list.php";
-  echo '<script>location.href="'.$url.'?keyword='.$keyword.'"</script>';
+  $url = Project_Folder_Name."\\productsall_list.php?keyword=".$keyword;
+  header('Location: '.$url);
 }
 return;
 break;
