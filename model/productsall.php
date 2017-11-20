@@ -5,6 +5,11 @@ function add_productsall($valArr){
     $nameArr = array("title", "type", "father_id","html_path","thumb");
     return db_insert("productsall",$nameArr,$valArr);
 }
+//lwx:添加产品所属的公司
+function add_company_productsall($title){
+    $sql = "INSERT INTO productsall (title,type) VALUES ('$title',1)";
+    return run_sql($sql);
+}
 //lwx:删，删之前判断是否可删 can_del($id)
 function del_productsall($id){
     return db_delete("productsall",$id);
@@ -14,6 +19,11 @@ function update_productsall($type,$title,$html_path,$id){
     $sql="UPDATE productsall SET type='".$type."', title='".$title."' ,html_path='".$html_path."' WHERE id='".$id."'";
     return run_sql($sql);
 }
+//lwx:改某一字段
+function update_onefiled_productsall($id,$filed,$val){
+    $sql="UPDATE productsall SET ".$filed."='".$val."' WHERE id='".$id."'";
+    return run_sql($sql);
+}
 //lwx:返回指定产品页面
 function get_productsall_by_id($id){
     return db_select("*","productsall","id",id);
@@ -21,14 +31,12 @@ function get_productsall_by_id($id){
 ////////针对单一问题的特定方法///////
 //判断指定id是否为产品，是否为空的类别，是否可以被删除
 function can_del_from_productsall($id){
-    $sql1 = "SELECT * FROM productsall WHERE id=$id AND type=2";
+    //$sql1 = "SELECT * FROM productsall WHERE id=$id AND type=2";
     $sql2 = "SELECT * FROM productsall WHERE father_id = $id";
-    if(count(run_sql($sql1,true))==0){
-        return true;
-    } else if(count(run_sql($sql2,true))==0){
-        return true;
-    } else {
+    if(count(run_sql($sql2,true))>0){
         return false;
+    } else {
+        return true;
     }
 }
 //lwx：根据关键字查询匹配的产品标题

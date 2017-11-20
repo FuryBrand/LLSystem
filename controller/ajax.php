@@ -212,6 +212,30 @@ $id=$_POST["id"];
 $res=del_news($id);
 $res=['succ'=>$res];
 break;
+//lwx:修改产品所属的公司类型的名称
+case "update_company_by_id":
+$id=$_POST["id"];
+$title=$_POST["title"];
+$res = update_onefiled_productsall($id,"title",$title);
+$res=['succ'=>$res];
+break;
+//lwx:增加产品所属的公司类型
+case "add_company":
+$title=$_POST["title"];
+$res = add_company_productsall($title);
+$res=['succ'=>$res];
+break;
+//lwx:删除产品所属的公司类型
+case "del_company":
+$id=$_POST["id"];
+$can = can_del_from_productsall($id);
+if($can=="true"){
+  del_productsall($id);
+  $res=['succ'=>$res];
+}else{
+  $res=['cannotdel'=>$res];
+}
+break;
 }
 echo json_encode($res);
 ?>
