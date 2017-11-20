@@ -6,12 +6,6 @@ $keyword = false;
 if(array_key_exists("keyword",$_GET)){
 	$keyword=$_GET["keyword"];
 }
-if($keyword){
-	//根据关键字检索
-
-}else{
-	//默认返回全部的列表
-}
 //当前页面新闻类型
 $page_news_type=0;
 $hasType=array_key_exists('type', $_GET);
@@ -26,12 +20,24 @@ if($hasType){//当选择了新闻类型时
 	$page_news_type=$_GET['type'];
 	$news_count=get_news_counts($page_news_type);
 	//获取分页新闻列表
-	$news_list=get_paged_news($current_page,News_Page_Size,$page_news_type);
-}else{
+	if($keyword){
+	//按照关键字搜索的情况
+		$news_list=search_news_by_title($keyword);
+	}else{
+	//非关键字的情况
+		$news_list=get_paged_news($current_page,News_Page_Size,$page_news_type);
+	}
+}else{//没有新闻类型时
 	//加载所有新闻
-	$news_count=get_news_counts();
-	//获取分页新闻列表
-	$news_list=get_paged_news($current_page,News_Page_Size);
+	$news_count=get_news_counts();	
+	if($keyword){
+	//按照关键字搜索的情况
+		$news_list=search_news_by_title($keyword);
+	}else{
+	//非关键字的情况
+		//获取分页新闻列表
+		$news_list=get_paged_news($current_page,News_Page_Size);
+	}
 }
 
 //新闻总页数

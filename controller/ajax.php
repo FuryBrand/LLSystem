@@ -108,31 +108,37 @@ $id=$_POST["id"];
 $res=del_fk_news_type($id);
 $res=['succ'=>$res];
 break;     
-//lwx:新闻编辑
+//ly:新闻编辑修改lwx
 case "update_news":
-$id = $_POST["id"];
-$title = $_POST["title"];
-$type = $_POST["type"];
-$thumb = $_POST["thumb"];
-$res=update_news($id,$title,$type,$thumb);
-$res=['succ'=>$res];
-break;
-  //lwx:新闻内容保存到html文件中
-case "saveContent":
+//保存图片到文件夹
+$fileName = $_POST['thumbName'];
+$fileName = explode(".",$fileName)[0];
+if(array_key_exists('thumb',$_FILES)){
+  $file = $_FILES['thumb'];
+  $extension=explode(".",$file['name'])[1];
+  $picName=$fileName.'.'.$extension;
+  move_uploaded_file($file['tmp_name'],PHP_News_Thumb.$picName);
+}
+
+//保存详细信息到html文件
 $content=$_POST['content'];
-$filepath=$_POST['path'];
-$file = fopen($filepath, "w") or die("Unable to open file!");
+$htmlName=$fileName.".html";
+$file = fopen(PHP_News_File.$fileName.".html", "w") or die("Unable to open file!");
 fwrite($file, $content);
 fclose($file);
-$res=true;
-break; 
+
+//保存到数据库
+$title = $_POST["title"];
+$type = $_POST["type"];
+$res=update_news($_POST['id'],$title,$type);
+$res=['succ'=>$res];
+break;
   //lwx:根据id删除新闻
 case "del_news_by_id":
 $id = $_POST["id"];
 $res=del_news($id);
 $res=['succ'=>$res];
 break;
-  //lwx:增加新闻
 case "add_news":
 //保存图片到文件夹
 $fileName = time();
@@ -163,11 +169,11 @@ $type = $_POST["type"];//0产品，1新闻
 $keyword = $_POST["keyWord"];
 $url = null;
 if($type=="1"){
-  $url = Project_Folder_Name."\\\\news_list.php";
-  echo '<script>location.href="'.$url.'?keyword='.$keyword.'"</script>';
+  $url = Project_Folder_Name."\\news_list.php?keyword=".$keyword;
+  header('Location: '.$url);
 } else {
-  $url = Project_Folder_Name."\\\\productsall_list.php";
-  echo '<script>location.href="'.$url.'?keyword='.$keyword.'"</script>';
+  $url = Project_Folder_Name."\\productsall_list.php?keyword=".$keyword;
+  header('Location: '.$url);
 }
 return;
 break;
@@ -193,7 +199,7 @@ if(array_key_exists('thumb',$_FILES)){
   $extension=explode(".",$file['name'])[1];
   $picName=$fileName.'.'.$extension;
   move_uploaded_file($file['tmp_name'],PHP_productsall_Thumb.$picName);
- }
+}
 //保存详细信息到html文件
 $content=$_POST['content'];
 $htmlName=$fileName.".html";

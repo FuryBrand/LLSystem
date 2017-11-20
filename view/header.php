@@ -16,7 +16,7 @@
 						<input type="text" name="keyWord" placeholder="请输入关键字" style="width:100%;height:40px">
 					</div>
 					<div class="col-xs-4">
-						<input type="submit" name="keyWord" value="搜索" class="btn btn-info" style="height:40px">
+						<input type="submit" value="搜索" class="btn btn-info" style="height:40px">
 					</div>
 				</div>
 			</div>
