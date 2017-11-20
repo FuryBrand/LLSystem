@@ -81,6 +81,7 @@ CREATE TABLE `productsall` (
   `type` varchar(50) DEFAULT NULL COMMENT '1为分类2为产品',
   `father_id` int(11) DEFAULT NULL COMMENT '父级id',
   `html_path` varchar(100) DEFAULT NULL COMMENT 'html的文件路径',
+  `thumb` text COMMENT '产品缩略图',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 -- ----------------------------

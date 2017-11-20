@@ -3,7 +3,7 @@
 //lwx:增
 function add_productsall($valArr){
     $nameArr = array("title", "type", "father_id","html_path","thumb");
-    return db_insert("news",$nameArr,$valArr);
+    return db_insert("productsall",$nameArr,$valArr);
 }
 //lwx:删，删之前判断是否可删 can_del($id)
 function del_productsall($id){

@@ -27,3 +27,29 @@ $news=get_all_news();
 		<?php } ?>
 	</div>
 </div>
+<script type="text/javascript">
+	function update_news(id){
+
+	}
+	function del_news(id){
+		if(window.confirm("确认删除这条内容吗？")){
+			$.ajax({
+				url: '../controller/ajax.php?fun=del_news_byid',
+				type:'POST',
+				dataType:'json',
+				data:{"id":id}
+			})
+			.done(function(data){
+				if(data.succ>0){
+					window.location.reload();
+				}else{
+					alert("删除失败，请重试！");
+				}
+			})
+			.fail(function(a,b,c){
+				alert("删除错误！");
+				console.log(a.responseText);
+			})
+		}
+	}
+</script>

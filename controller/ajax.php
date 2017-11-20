@@ -192,18 +192,24 @@ if(array_key_exists('thumb',$_FILES)){
   $file = $_FILES['thumb'];
   $extension=explode(".",$file['name'])[1];
   $picName=$fileName.'.'.$extension;
-  move_uploaded_file($file['tmp_name'],PHP_News_Thumb.$picName);
+  move_uploaded_file($file['tmp_name'],PHP_productsall_Thumb.$picName);
  }
 //保存详细信息到html文件
 $content=$_POST['content'];
 $htmlName=$fileName.".html";
-$file = fopen(PHP_News_File.$fileName.".html", "w") or die("Unable to open file!");
+$file = fopen(PHP_productsall_File.$fileName.".html", "w") or die("Unable to open file!");
 fwrite($file, $content);
 fclose($file);
 //保存到数据库
 $title = $_POST["title"];
 $series = $_POST["series"];
-$res=add_news($title,2,$series,$htmlName,$picName);
+$valArr = array($title,"2",$series,$htmlName,$picName);
+$res=add_productsall($valArr);
+$res=['succ'=>$res];
+break;
+case "del_news_byid":
+$id=$_POST["id"];
+$res=del_news($id);
 $res=['succ'=>$res];
 break;
 }
