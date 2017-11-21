@@ -69,5 +69,9 @@ function search_news_by_title($input){
 	$sql="SELECT * FROM news WHERE title LIKE '%$input%'";
 	return run_sql($sql,true);
 }
+//lwx:根据条件分页查询（指定新闻标题）
+function get_paged_news_by_title($title,$startIndex,$pageSize){
+    return db_pages('news','title LIKE $title',false,$startIndex,$pageSize);
+}
 ?>
 
