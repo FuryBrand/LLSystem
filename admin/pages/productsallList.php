@@ -32,7 +32,7 @@ $productsall=get_all_productsall_forAdminPage();
 </div>
 <script type="text/javascript">
 	function update_productsall(id){
-
+		window.location.href="./index.php?page=productsallAdd&id="+id;
 	}
 	function del_productsall(id){
 		if(window.confirm("确认删除这条内容吗？")){

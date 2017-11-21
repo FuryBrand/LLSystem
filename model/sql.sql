@@ -80,22 +80,23 @@ CREATE TABLE `productsall` (
   `title` varchar(50) DEFAULT NULL COMMENT '产品或类别的名称',
   `type` varchar(50) DEFAULT NULL COMMENT '1为分类2为产品',
   `father_id` int(11) DEFAULT NULL COMMENT '父级id',
-  `html_path` varchar(100) DEFAULT NULL COMMENT 'html的文件路径',
+  `content` varchar(100) DEFAULT NULL COMMENT 'html的文件路径',
+  `create_date` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '文章修改时间',
   `thumb` text COMMENT '产品缩略图',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 -- ----------------------------
 -- Table data for products
 -- ----------------------------
-INSERT INTO `productsall` (`id`, `title`, `type`, `father_id`, `html_path`) VALUES (1, '天观测公司', 1, NULL, NULL);
-INSERT INTO `productsall` (`id`, `title`, `type`, `father_id`, `html_path`) VALUES (2, '焊接机器人', 1, 1, NULL);
-INSERT INTO `productsall` (`id`, `title`, `type`, `father_id`, `html_path`) VALUES (3, 'tgc-100', 2, 2, NULL);
-INSERT INTO `productsall` (`id`, `title`, `type`, `father_id`, `html_path`) VALUES (4, 'tgc-120', 2, 2, NULL);
-INSERT INTO `productsall` (`id`, `title`, `type`, `father_id`, `html_path`) VALUES (5, '塞格特公司', 1, NULL, NULL);
-INSERT INTO `productsall` (`id`, `title`, `type`, `father_id`, `html_path`) VALUES (6, '搬运机器人', 1, 5, NULL);
-INSERT INTO `productsall` (`id`, `title`, `type`, `father_id`, `html_path`) VALUES (7, 'sgt-1000', 2, 6, NULL);
-INSERT INTO `productsall` (`id`, `title`, `type`, `father_id`, `html_path`) VALUES (8, '装卸机器人', 1, 5, NULL);
-INSERT INTO `productsall` (`id`, `title`, `type`, `father_id`, `html_path`) VALUES (9, '方大国公司', 1, NULL, NULL);
+INSERT INTO `productsall` (`id`, `title`, `type`, `father_id`, `content`) VALUES (1, '天观测公司', 1, NULL, NULL);
+INSERT INTO `productsall` (`id`, `title`, `type`, `father_id`, `content`) VALUES (2, '焊接机器人', 1, 1, NULL);
+INSERT INTO `productsall` (`id`, `title`, `type`, `father_id`, `content`) VALUES (3, 'tgc-100', 2, 2, NULL);
+INSERT INTO `productsall` (`id`, `title`, `type`, `father_id`, `content`) VALUES (4, 'tgc-120', 2, 2, NULL);
+INSERT INTO `productsall` (`id`, `title`, `type`, `father_id`, `content`) VALUES (5, '塞格特公司', 1, NULL, NULL);
+INSERT INTO `productsall` (`id`, `title`, `type`, `father_id`, `content`) VALUES (6, '搬运机器人', 1, 5, NULL);
+INSERT INTO `productsall` (`id`, `title`, `type`, `father_id`, `content`) VALUES (7, 'sgt-1000', 2, 6, NULL);
+INSERT INTO `productsall` (`id`, `title`, `type`, `father_id`, `content`) VALUES (8, '装卸机器人', 1, 5, NULL);
+INSERT INTO `productsall` (`id`, `title`, `type`, `father_id`, `content`) VALUES (9, '方大国公司', 1, NULL, NULL);
 -- 导出  表 sjae.admin_login 结构
 DROP TABLE IF EXISTS `admin_login`;
 CREATE TABLE `admin_login` (

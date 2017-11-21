@@ -2,6 +2,13 @@
 <?php include_once(Root_Path.'\model\productsall.php') ?>
 <?php
 $company=get_company_from_productsall();
+$is_edit=false;
+if(array_key_exists('id', $_GET)){
+	$is_edit=true;
+	$productsall=get_productsall_by_id($_GET['id']);
+	$seriesid=get_fatherid_productsall($_GET['id']);
+	$companyid=get_fatherid_productsall($seriesid[0]['father_id']);
+}
 ?>
 <link href="./UEditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
 <script type="text/javascript" src="./UEditor/third-party/template.min.js"></script>
@@ -21,7 +28,7 @@ $company=get_company_from_productsall();
 		<div class="row">
 			<div class="col-xs-2">产品名称:</div>
 			<div class="col-xs-6">
-				<input name="title" type="text" style="width:100%;" class="form-control" id="title" placeholder="">
+				<input name="title" type="text" style="width:100%;" class="form-control" id="title" placeholder="" value="<?php $is_edit? print $productsall[0]['title']:print '' ?>">
 			</div>
 		</div>
 		<div class="row">
@@ -30,7 +37,7 @@ $company=get_company_from_productsall();
 				<select id="company" onchange="selectCompany()">
 					<option>-请选择所属公司-</option>
 					<?php for($i=0;$i<count($company);$i++){ ?>
-					<option value="<?php echo $company[$i]['id'] ?>"><?php echo $company[$i]['title'] ?></option>
+					<option value="<?php echo $company[$i]['id'] ?>" <?php $is_edit&&$company[$i]['id']==$companyid[0]['id']? print 'selected':print '' ?> ><?php echo $company[$i]['title'] ?></option>
 					<?php } ?>
 				</select>
 				<select id="series">
