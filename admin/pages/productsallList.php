@@ -3,17 +3,22 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/LLsystem/config.php');
 include_once(Root_Path."/model/productsall.php");
 $productsall=get_all_productsall_forAdminPage();
 ?>
+<style>
+.row *{
+	font-size: 16px;
+}
+</style>
 <div id="tab" class="tab-content">
 	<!--获取新闻列表-->
 	<div class="tab-pane fade in active" id="productsallList">
-		<div class="row">
+		<div class="row" style="margin-bottom:15px;">
 			<div class="col-xs-5">标题</div>
 			<div class="col-xs-2">所属系列</div>
 			<div class="col-xs-2">所属公司</div>
 			<div class="col-xs-2">操作</div>
 		</div>
 		<?php for($i=0; $i<count($productsall); $i++){ ?>
-		<div class="row">
+		<div class="row" style="margin-bottom:15px;">
 			<div class="col-xs-5"><?php echo $productsall[$i]['title'] ?></div>
 			<div class="col-xs-2"><?php echo $productsall[$i]['productType'] ?></div>
 			<div class="col-xs-2"><?php echo $productsall[$i]['company'] ?></div>
