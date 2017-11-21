@@ -242,6 +242,31 @@ if($can=="true"){
   $res=['cannotdel'=>$res];
 }
 break;
+//lwx:删除产品所属
+case "del_series":
+$id = $_POST["id"];
+$can = can_del_from_productsall($id);
+if($can=="true"){
+  del_productsall($id);
+  $res=['succ'=>$res];
+}else{
+  $res=['cannotdel'=>$res];
+}
+break;
+//lwx:添加系列
+case "new_series":
+$seriesval = $_POST["seriesval"];
+$pid = $_POST["pid"];
+$res = add_series_productsall($seriesval,$pid);
+$res=['succ'=>$res];
+break;
+//lwx:编辑系列
+case "edit_series":
+$id = $_POST["seriesid"];
+$title = $_POST["editSeries"];
+$res = update_onefiled_productsall($id,"title",$title);
+$res=['succ'=>$res];
+break;
 }
 echo json_encode($res);
 ?>

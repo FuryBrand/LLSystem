@@ -10,6 +10,11 @@ function add_company_productsall($title){
     $sql = "INSERT INTO productsall (title,type) VALUES ('$title',1)";
     return run_sql($sql);
 }
+//lwx:添加产品所属的系列
+function add_series_productsall($title,$father_id){
+    $sql = "INSERT INTO productsall (title,type,father_id) VALUES ('$title',1,'$father_id')";
+    return run_sql($sql);
+}
 //lwx:删，删之前判断是否可删 can_del($id)
 function del_productsall($id){
     return db_delete("productsall",$id);
