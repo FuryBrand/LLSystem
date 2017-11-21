@@ -49,6 +49,10 @@ function search_productsall_by_title($input){
     $sql="SELECT * FROM productsall WHERE type=2 AND title LIKE '%$input%'";
     return run_sql($sql,true);
 }
+//lwx:根据关键字查询匹配的产品标题并分页
+function search_paged_productsall_by_title($title,$startIndex,$pageSize){
+    return run_sql("peoductsall","title LIKE $title",false,$startIndex,$pageSize);
+}
 //lwx:返回分类信息
 function get_productsall_type(){
     $sql = "SELECT id,title,father_id FROM productsall WHERE type=1 ORDER BY father_id";
@@ -90,6 +94,11 @@ function get_series_from_productsall_by_companyid($id){
 }
 function get_fatherid_productsall($id){
     $sql = "SELECT father_id FROM productsall WHERE id=$id";
+    return run_sql($sql,true);
+}
+//获取某个类型下的产品条数
+function get_count_by_fatherId($father_id){
+    $sql = "SELECT COUNT(*) FROM productsall WHERE father_id=$father_id";
     return run_sql($sql,true);
 }
 ?>

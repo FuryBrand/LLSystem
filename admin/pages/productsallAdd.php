@@ -8,6 +8,7 @@ if(array_key_exists('id', $_GET)){
 	$productsall=get_productsall_by_id($_GET['id']);
 	$seriesid=get_fatherid_productsall($_GET['id']);
 	$companyid=get_fatherid_productsall($seriesid[0]['father_id']);
+	$series=get_series_from_productsall_by_companyid($companyid[0]['father_id']);
 }
 ?>
 <link href="./UEditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
@@ -37,11 +38,17 @@ if(array_key_exists('id', $_GET)){
 				<select id="company" onchange="selectCompany()">
 					<option>-请选择所属公司-</option>
 					<?php for($i=0;$i<count($company);$i++){ ?>
-					<option value="<?php echo $company[$i]['id'] ?>" <?php $is_edit&&$company[$i]['id']==$companyid[0]['id']? print 'selected':print '' ?> ><?php echo $company[$i]['title'] ?></option>
+					<option value="<?php echo $company[$i]['id']?>" <?php $is_edit&&$company[$i]['id']==$companyid[0]['father_id']? print 'selected':print ''; ?> > <?php echo $company[$i]['title'] ?></option>
 					<?php } ?>
 				</select>
 				<select id="series">
 					<option>-请选择所属系列-</option>
+
+					<?php 
+					if(is_edit){
+						for($i=0;$i<count($series);$i++){ ?>
+					<option value="<?php echo $series[$i]['id']?>" <?php $is_edit&&$series[$i]['id']==$seriesid[0]['father_id']? print 'selected':print ''; ?> > <?php echo $series[$i]['title'] ?></option>
+					<?php }} ?>
 				</select>
 			</div>
 			
@@ -49,18 +56,25 @@ if(array_key_exists('id', $_GET)){
 		<div class="row">
 			<div class="col-xs-2">上传标题图片:</div>
 			<div class="col-xs-2">
-				<img src="./images/upload.png" style="width:100%" id="thumb">
+				<img src="<?php $is_edit? print '.'.productsall_Thumb.$productsall[0]['thumb']:print './images/upload.png' ?>"  style="width:100%" id="thumb">
 				<input name="thumb" id="thumbFile" type="file" onchange="preview(this)">
 			</div>
 		</div>
 		<div style="margin-bottom:15px">产品内容</div>
 		<div id="editor" style="width:100%;"></div>
-		<input type="button" id="upload" class="btn btn-info" style="width:98%;margin:15px auto;height:50px;font-size:18px;line-height:38px" value="添  加"/>
+		<input type="button" id="upload" class="btn btn-info" style="width:98%;margin:15px auto;height:50px;font-size:18px;line-height:38px" value="<?php $is_edit? print '修 改':print '添 加' ?>"/>
 	</div>
 </form>
 <script type="text/javascript">
     //实例化编辑器
     var um = UM.getEditor('editor',{zIndex:0});
+	<?php if($is_edit){
+    	$conent='.'.productsall_File.$productsall[0]["content"];
+    	?>
+    	um.ready(function() { //因此要加一个ready方法,当他完成加载时再向ue中写入文件
+    		um.setContent('<?php echo file_get_contents($conent)?>'); 
+    	});
+    	<?php } ?>
     	/*um.ready(function() { //因此要加一个ready方法,当他完成加载时再向ue中写入文件
     		um.setContent('<?php echo file_get_contents("./contents.html")?>'); 
     	});*/
