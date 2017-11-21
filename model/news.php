@@ -70,7 +70,8 @@ function search_news_by_title($input){
 	return run_sql($sql,true);
 }
 //lwx:根据条件分页查询（指定新闻标题）
-function get_paged_news_by_title($title,$startIndex,$pageSize){
+function get_paged_news_by_title($page,$pageSize,$title){
+	$startIndex=($page-1)*$pageSize;
     return db_pages('news','title LIKE $title',false,$startIndex,$pageSize);
 }
 ?>
