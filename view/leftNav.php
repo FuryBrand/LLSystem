@@ -11,10 +11,10 @@ if(!isset($back)){
 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
 	<ul class="types">
 		<li style="background-color:#008cd6;color:white;border:0">资讯类别</li>
-		<a href="./news_list.php?type=0"><li style="cursor:pointer" class="<?php $page_news_type==0? print 'active': print '' ?>">全部</li></a>
+		<a href="./article_list.php?type=0"><li style="cursor:pointer" class="<?php $page_article_type==0? print 'active': print '' ?>">全部</li></a>
 		<?php for($i=0;$i<count($news_type);$i++){?>
-		<a href="./news_list.php?type=<?php echo $news_type[$i]['id'] ?>" >
-			<li style="cursor:pointer" class="<?php $page_news_type==$news_type[$i]['id']? print 'active': print '' ?>">
+		<a href="./article_list.php?type=<?php echo $news_type[$i]['id'] ?>" >
+			<li style="cursor:pointer" class="<?php $page_article_type==$news_type[$i]['id']? print 'active': print '' ?>">
 				<?php echo $news_type[$i]['name'] ?>
 			</li>
 		</a>
