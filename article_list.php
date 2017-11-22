@@ -1,6 +1,5 @@
 <?php 
-include_once('./controller/news_list.php');
-//include_once('./controller/productAll_list.php');
+include_once('./controller/article_list.php');
 ?>
 <link href="./view/css/bootstrap.min.css" rel="stylesheet">
 <link href="./view/css/news_list.css" rel="styleSheet" />
@@ -38,17 +37,19 @@ include_once('./controller/news_list.php');
 		<?php include_once('./view/leftNav.php') ?>
 		<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
 			<div class="panel panel-default news-left-up" style="margin-bottom:10px">
-				<?php for($i=0;$i<count($article_list);$i++){ ?>
+				<?php for($i=0;$i<count($article_list);$i++){ 
+					$href="./article_detail.php?isNews=".$isNews."&id=".$article_list[$i]['id']."&type=".$page_article_type;
+				?>
 				<div style="margin:0 30px 0 27px" class="panel-body">
-					<a href="./article_detail.php?id=<?php echo $article_list[$i]['id'] ?>">
+					<a href="<?php echo $href ?>">
 						<h4><?php echo $article_list[$i]['title'] ?></h4>
 					</a>
-					<a href="./article_detail.php?id=<?php echo $article_list[$i]['id'] ?>">
+					<a style="display:block;text-align:center" href="<?php echo $href ?>">
 						<img src="<?php echo News_Thumb.$article_list[$i]['thumb'] ?>" style="width:100%;" />
 					</a>
 					<div class="clearfix">
 						<span class="left"><?php echo date("Y-m-d",strtotime($article_list[$i]['create_date'])) ?></span>
-						<a class="right" href="./article_detail?id=<?php echo $article_list[$i]['id'] ?>">阅读全文 &gt;</a>
+						<a class="right" href="<?php echo $href ?>">阅读全文 &gt;</a>
 					</div>
 					<hr style="display:<?php $i==(count($article_list)-1)? print 'none' : print 'block' ?>"/>
 				</div>
@@ -59,13 +60,13 @@ include_once('./controller/news_list.php');
 					<ul class="list-inline text-center">
 						<nav>
 							<ul class="pagination" style="margin:0 auto">
-								<li><a href="./article_list.php?page=1&amp;type=<?php echo $page_article_type ?>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+								<li><a href="./article_list.php?isNews=<?php echo $isNews ?>&amp;keyword=<?php echo $keyword ?>&amp;page=1&amp;type=<?php echo $page_article_type ?>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
 								<?php for($i=0;$i<$pages;$i++){ ?>
 								<li class="<?php ($i+1)==$current_page? print 'active' : print '' ?>">
-									<a href="./article_list.php?page=<?php echo ($i+1).'&type='.$page_article_type ?>"><?php echo ($i+1) ?></a>
+									<a href="./article_list.php?isNews=<?php echo $isNews ?>&amp;keyword=<?php echo $keyword ?>&amp;page=<?php echo ($i+1).'&type='.$page_article_type ?>"><?php echo ($i+1) ?></a>
 								</li>
 								<?php } ?>
-								<li><a href="./article_list.php?page=<?php echo $pages ?>&amp;type=<?php echo $page_article_type ?>" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+								<li><a href="./article_list.php?isNews=<?php echo $isNews ?>&amp;keyword=<?php echo $keyword ?>&amp;page=<?php echo $pages ?>&amp;type=<?php echo $page_article_type ?>" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
 							</ul>
 						</nav>
 					</ul>
@@ -74,3 +75,9 @@ include_once('./controller/news_list.php');
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	$('img').error(function(){
+		$(this).attr('src', "./view/imgs/error.jpg");
+		$(this).css("width",'200px');
+	});
+</script>

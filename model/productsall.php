@@ -50,8 +50,9 @@ function search_productsall_by_title($input){
     return run_sql($sql,true);
 }
 //lwx:根据关键字查询匹配的产品标题并分页
-function search_paged_productsall_by_title($title,$startIndex,$pageSize){
-    return run_sql("peoductsall","title LIKE $title",false,$startIndex,$pageSize);
+function search_paged_productsall_by_title($title,$page,$pageSize){
+    $startIndex=($page-1)*$pageSize;
+    return db_pages("productsall","title LIKE '%$title%'",false,$startIndex,$pageSize);
 }
 //lwx:返回分类信息
 function get_productsall_type(){
@@ -69,12 +70,14 @@ function get_productsall_by_fatherid($id){
     return run_sql($sql,true);
 }
 //lwx:无条件分页查询
-function get_paged_productsall($startIndex,$pageSize){
-    return db_pages('productsall',false,false,$startIndex,$pageSize);
+function get_paged_productsall($type,$page,$pageSize){
+    $startIndex=($page-1)*$pageSize;
+    return db_pages('productsall','type='.$type,'create_date',$startIndex,$pageSize);
 }
 //lwx:指定条件分页查询（指定产品类型）
-function get_paged_productsall_by_fatherid($type,$startIndex,$pageSize){
-    return db_pages('productsall','father_id=$type',false,$startIndex,$pageSize);
+function get_paged_productsall_by_fatherid($father_id,$page,$pageSize){
+   $startIndex=($page-1)*$pageSize;
+   return db_pages('productsall','father_id='.$father_id,'create_date',$startIndex,$pageSize);
 }
 //lwx:
 //id:id;    title:型号名;  html_path:html路径;   productType:所属分类;   company:所属公司
@@ -97,9 +100,28 @@ function get_fatherid_productsall($id){
     return run_sql($sql,true);
 }
 //获取某个类型下的产品条数
-function get_count_by_fatherId($father_id){
-    $sql = "SELECT COUNT(*) FROM productsall WHERE father_id=$father_id";
-    return run_sql($sql,true);
+function get_product_count_by_fatherId($father_id=0){
+    $sql = "SELECT COUNT(*) as count FROM productsall";
+    if($father_id!=0){
+        $sql=$sql." WHERE father_id=".$father_id;
+    }
+    $countStr=run_sql($sql,true);
+    $countStr=$countStr[0]['count'];
+    return intval($countStr);
+}
+//获取某个类型下的产品条数
+function get_all_products_count(){
+    $sql = "SELECT COUNT(*) as count FROM productsall WHERE type=2";
+    $countStr=run_sql($sql,true);
+    $countStr=$countStr[0]['count'];
+    return intval($countStr);
+}
+//获取某个类型下的产品条数
+function get_product_count_by_title($input){
+    $sql = "SELECT COUNT(*) as count FROM productsall WHERE title LIKE '%$input%'";
+    $countStr=run_sql($sql,true);
+    $countStr=$countStr[0]['count'];
+    return intval($countStr);
 }
 ?>
 

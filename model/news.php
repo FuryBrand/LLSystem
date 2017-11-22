@@ -51,6 +51,13 @@ function get_news_counts($type=0){
 	$countStr=$countStr[0]['count'];
 	return intval($countStr);
 }
+//ly:返回搜索的新闻数量
+function get_news_counts_by_title($input){
+	$sql="SELECT COUNT(*) as count FROM news WHERE title LIKE '%$input%'";
+	$countStr=run_sql($sql,true);
+	$countStr=$countStr[0]['count'];
+	return intval($countStr);
+}
 //lwx:分页查询
 function get_paged_news($page,$pageSize,$newsType=0){
 	//传入需要第几页数据,实际转换成数据库需要的startIndex
@@ -72,7 +79,7 @@ function search_news_by_title($input){
 //lwx:根据条件分页查询（指定新闻标题）
 function get_paged_news_by_title($page,$pageSize,$title){
 	$startIndex=($page-1)*$pageSize;
-    return db_pages('news','title LIKE $title',false,$startIndex,$pageSize);
+    return db_pages('news','title LIKE "%'.$title.'%"','create_date',$startIndex,$pageSize);
 }
 ?>
 
