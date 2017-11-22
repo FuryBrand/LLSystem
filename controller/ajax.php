@@ -169,10 +169,10 @@ $type = $_POST["type"];//0产品，1新闻
 $keyword = $_POST["keyword"];
 $url = null;
 if($type=="1"){
-  $url = Project_Folder_Name."\\article_list.php?isNews=true&keyword=".$keyword;
+  $url = Project_Folder_Name."\\article_list.php?isNews=true&from=".$type."&keyword=".$keyword;
   header('Location: '.$url);
 } else if($type=="0"){
-  $url = Project_Folder_Name."\\article_list.php?isNews=false&keyword=".$keyword;
+  $url = Project_Folder_Name."\\article_list.php?isNews=false&from=".$type."&keyword=".$keyword;
   header('Location: '.$url);
 }
 return;
