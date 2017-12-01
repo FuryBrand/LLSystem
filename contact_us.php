@@ -23,8 +23,11 @@
 		<?php include('./view/header.php') ?>
 		<?php include('./view/slider.php') ?>
 		<div class="row margin-top30">
-			<?php include('./view/newgallery.php') ?>
-			<?php include('./view/news.php') ?>
+			<div class="t1 f-20">盛达杰森（北京）自动化设备有限公司</div>
+                <div class="p f-16">
+                    地址：北京市经济技术开发区文昌大道8号<br>邮编：100176<br>电话：+86 10 57846789<br>传真：+86 10 57840299
+				</div>
+                                
 		</div>	
 	</div>
 	<?php include('./view/footer.php') ?>

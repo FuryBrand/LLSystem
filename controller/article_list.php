@@ -1,12 +1,15 @@
 <?php 
 include_once($_SERVER['DOCUMENT_ROOT'].'/LLsystem/config.php');
 $isNews='false';
+$imgPath;
 if(array_key_exists("isNews",$_GET)){
 	$isNews=$_GET["isNews"];
 }
 if($isNews=="true"){
+	$imgPath=News_Thumb;
 	include_once(Root_Path."/model/news.php");
 }else{
+	$imgPath=productsall_Thumb;
 	include_once(Root_Path."/model/productsall.php");
 }
 

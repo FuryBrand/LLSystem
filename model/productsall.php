@@ -123,5 +123,10 @@ function get_product_count_by_title($input){
     $countStr=$countStr[0]['count'];
     return intval($countStr);
 }
+//lwx:获取最新的4个产品
+function get_lastest_productsall(){
+	$sql="SELECT * FROM productsall WHERE type=2 ORDER BY create_date DESC LIMIT 4";
+	return run_sql($sql,true);
+}
 ?>
 

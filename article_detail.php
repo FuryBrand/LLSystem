@@ -5,18 +5,21 @@ if(!array_key_exists('id', $_GET)){
 	include_once(Root_Path."./404.html");
 	die();
 }
+$filePath;
 $pageId=$_GET['id'];
 $isNews='false';
 if(array_key_exists("isNews",$_GET)){
 	$isNews=$_GET["isNews"];
 }
 if($isNews=="true"){
+	$filePath=News_File;
 	include_once(Root_Path."/model/news.php");
 	include_once(Root_Path."/model/fk_news_type.php");
 	$article_type=get_fk_news_type();
 	$articles=get_news_by_id($pageId);
 
 }else{
+	$filePath=productsall_File;
 	include_once(Root_Path."/model/productsall.php");
 	$articles=get_productsall_by_id($pageId);
 }
@@ -70,10 +73,12 @@ $back=true;
 			<div class="panel panel-default news-left-up" style="margin-bottom:10px">
 				<div style="margin:0 30px 0 27px" class="panel-body">
 					<h3 style="text-align:center;margin:20px"><?php echo $articles[0]['title'] ?></h3>
-					<?php include(News_File.$articles[0]['content']) ?>
+					<?php include($filePath.$articles[0]['content']) ?>
 					<div class="clearfix">
 						<span class="left">发布时间: <?php echo date("Y-m-d",strtotime($articles[0]['create_date'])) ?></span>
-						<span class="right" >类型: <?php echo $articles[0]['name'] ?></span>
+						<?php if($filePath==News_File){?>
+							<span class="right" >类型: <?php echo $articles[0]['name'] ?></span>
+						<?php } ?>
 					</div>
 				</div>
 			</div>
