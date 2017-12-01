@@ -29,7 +29,7 @@ $news_list=get_lastest_news();
 	<?php for($i=0;$i<count($news_list);$i++){ ?>
 	<div class="news-title row">
 		<div class="col-xs-9">
-			<a href="<?php echo $news_list[$i]['content'] ?>" target="_blank">
+			<a href="http://localhost/LLSystem/article_detail.php?isNews=true&id=<?php echo $news_list[$i]['id'] ?>&type=0">
 				<?php echo $news_list[$i]['title'] ?>
 			</a>
 		</div>

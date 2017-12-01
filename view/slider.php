@@ -17,7 +17,7 @@ $all_slides=get_all_slideshow();
 	<ul class="slides">
 		<?php for($i=0;$i<count($all_slides);$i++){ ?>
 		<li>
-			<a href="<?php echo $all_slides[$i]['url'] ?>" target="_blank">
+			<a href="<?php echo $all_slides[$i]['url'] ?>">
 				<img class="responsive" src="<?php echo Slider_Img.$all_slides[$i]['path'] ?>">
 			</a>
 		</li>

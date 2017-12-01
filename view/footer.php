@@ -46,22 +46,24 @@
     <img src="./view/imgs/wx.jpg" style="margin-left:10px">
     <span class="foot-text">
         <div class="hrefs">
+        <!--
             <a href="http://www.naura.com/index.php/other/sitemap.html">网站地图</a>
             <i>|</i>
             <a href="http://www.naura.com/index.php/video/index.html">视频中心</a>
             <i>|</i>
-            <a href="http://www.naura.com/index.php/contact/index.html">联系我们</a>
+        -->
+            <a href="http://localhost/LLSystem/contact_us.php">联系我们</a>
             <i>|</i>
-            <a href="http://www.naura.com/index.php/other/legal.html">法律声明</a>
+            <a href="http://localhost/LLSystem/legal.php">法律声明</a>
             <i>|</i>
-            <a href="http://www.naura.com/index.php/other/privacy.html">隐私条款</a>
+            <a href="http://localhost/LLSystem/privacy.php">隐私条款</a>
         </div>
         <div>
             <span>办公地址：北京市经济技术开发区文昌大道8号</span>
         </div>
         <div class="copyright">
             <div>京ICP备05072291-1号</div>
-            <div>Copyright © 2016 .NAURA  All right  reserved.</div>
+            <div>Copyright©2017 All right  reserved.</div>
         </div>
     </span>
 </div>
