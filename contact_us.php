@@ -28,7 +28,8 @@
                     地址：北京市经济技术开发区文昌大道8号<br>邮编：100176<br>电话：+86 10 57846789<br>传真：+86 10 57840299
 				</div>
                                 
-		</div>	
+		</div>
+		<img  style="CURSOR: pointer" onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=1058573409&o=www.baidu.com&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');"  border="0" SRC=http://wpa.qq.com/pa?p=1:1058573409:1 alt="点击这里给我发消息">	
 	</div>
 	<?php include('./view/footer.php') ?>
 </body>

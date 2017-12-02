@@ -3,7 +3,9 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/LLsystem/config.php');
 if($isNews=="true"){//新闻页,一级子菜单
 	include_once(Root_Path."/model/fk_news_type.php");
 	$article_type=get_fk_news_type();
+	$href="./article_list.php";
 }else{//产品页,二级子菜单
+	$href="./products_list.php";
 	include_once(Root_Path."/model/productsall.php");
 	$productsall_type=get_productsall_type();
 	$article_type=[];

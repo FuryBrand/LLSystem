@@ -21,7 +21,7 @@ include_once(Root_Path.'/controller/leftNav.php');
 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
 	<ul class="types">
 		<li style="background-color:#008cd6;color:white;border:0">资讯类别</li>
-		<a href="./article_list.php?isNews=<?php echo $isNews ?>&amp;type=0"><li style="cursor:pointer" class="<?php $page_article_type==0? print 'active': print '' ?>">全部</li></a>
+		<a href="<?php echo $href ?>?isNews=<?php echo $isNews ?>&amp;type=0"><li style="cursor:pointer" class="<?php $page_article_type==0? print 'active': print '' ?>">全部</li></a>
 		<?php for($i=0;$i<count($article_type);$i++){
 			if($article_type[$i]['id']==-1){ //产品的二级列表?>
 			<li style="cursor:pointer;position:relative" class="ev_arrow">
@@ -39,7 +39,7 @@ include_once(Root_Path.'/controller/leftNav.php');
 					$sub=$article_type[$i]['subType'];
 					for($j=0;$j<count($sub);$j++){ ?>
 					<li class='<?php $page_article_type==$sub[$j]['id']? print'active' : print '' ?>'>
-						<a href="./article_list.php?isNews=<?php echo $isNews ?>&amp;type=<?php echo $sub[$j]['id'] ?>" >
+						<a href="<?php echo $href ?>?isNews=<?php echo $isNews ?>&amp;type=<?php echo $sub[$j]['id'] ?>" >
 							<?php echo $sub[$j]['title'] ?>
 						</a>
 					</li>

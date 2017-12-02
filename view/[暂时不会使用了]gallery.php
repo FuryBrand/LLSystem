@@ -38,7 +38,7 @@ $products=get_all_products();
 		<?php for($i=0;$i<count($products);$i++){ ?>
 		<div class="gallery">
 			<div class="wrap">
-				<a href="<?php echo $products[$i]['html_path'] ?>" target="_blank">
+				<a href="<?php echo $products[$i]['html_path'] ?>" >
 					<img src="<?php print Product_Img.($i+1) ?>.<?php echo $products[$i]['type'] ?>" >
 					<div class="text"><?php echo $products[$i]['title'] ?></div>
 				</a>

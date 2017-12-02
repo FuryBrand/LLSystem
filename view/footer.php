@@ -52,11 +52,11 @@
             <a href="http://www.naura.com/index.php/video/index.html">视频中心</a>
             <i>|</i>
         -->
-            <a href="http://localhost/LLSystem/contact_us.php">联系我们</a>
+            <a href="./contact_us.php">联系我们</a>
             <i>|</i>
-            <a href="http://localhost/LLSystem/legal.php">法律声明</a>
+            <a href="./legal.php">法律声明</a>
             <i>|</i>
-            <a href="http://localhost/LLSystem/privacy.php">隐私条款</a>
+            <a href="./privacy.php">隐私条款</a>
         </div>
         <div>
             <span>办公地址：北京市经济技术开发区文昌大道8号</span>

@@ -172,7 +172,7 @@ if($type=="1"){
   $url = Project_Folder_Name."\\article_list.php?isNews=true&from=".$type."&keyword=".$keyword;
   header('Location: '.$url);
 } else if($type=="0"){
-  $url = Project_Folder_Name."\\article_list.php?isNews=false&from=".$type."&keyword=".$keyword;
+  $url = Project_Folder_Name."\\products_list.php?isNews=false&from=".$type."&keyword=".$keyword;
   header('Location: '.$url);
 }
 return;
