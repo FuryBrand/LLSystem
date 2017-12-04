@@ -11,9 +11,9 @@ if(array_key_exists('id', $_GET)){
 	$series=get_series_from_productsall_by_companyid($companyid[0]['father_id']);
 }
 ?>
-<link href="./UEditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+<link href="./UEditor/themes/default/css/ueditor.css" type="text/css" rel="stylesheet">
 <script type="text/javascript" charset="utf-8" src="./UEditor/ueditor.config.js"></script>
-<script type="text/javascript" charset="utf-8" src="./UEditor/ueditor.all.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="./UEditor/ueditor.all.js"></script>
 <script type="text/javascript" src="./UEditor/lang/zh-cn/zh-cn.js"></script>
 <style>
 #form *{
@@ -71,7 +71,7 @@ if(array_key_exists('id', $_GET)){
     	$conent='.'.Productsall_File.$productsall[0]["content"];
     	?>
     	um.ready(function() { //因此要加一个ready方法,当他完成加载时再向ue中写入文件
-    		um.setContent('<?php echo file_get_contents($conent)?>'); 
+    		um.setContent(`<?php echo file_get_contents($conent)?>`); 
     	});
     	<?php } ?>
     	/*um.ready(function() { //因此要加一个ready方法,当他完成加载时再向ue中写入文件
@@ -166,7 +166,6 @@ function selectCompany(){
 		data:{id:companyid}
 	})
 	.done(function(data){
-		console.log(data['succ']);
 		$("#series").empty();
 		$("#series").append("<option>-请选择所属系列-</option>");
 		for(var i=0;i<data['succ'].length;i++){

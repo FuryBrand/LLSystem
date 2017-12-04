@@ -63,7 +63,7 @@ include_once('./controller/article_list.php');
 		border: 1px solid #DBDBDB;
 		display: block;
 		position: relative;
-		max-height: 200px;
+		height: 200px;
 	}
 	/*.main2-list-item-pic {
 		width: 100%;
@@ -96,7 +96,7 @@ include_once('./controller/article_list.php');
 					$href="./article_detail.php?isNews=".$isNews."&id=".$article_list[$i]['id']."&type=".$page_article_type."&from=".$from;
 					?>
 					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="margin:20px 0">
-						<a href="<?php echo $href ?>" class="main2-list-item" style="text-align:center">
+						<a href="<?php echo $href ?>" class="main2-list-item" style="text-align:center;overflow:hidden">
 							<img src="<?php echo $imgPath.$article_list[$i]['thumb'];?>" style="width:100%;" />
 							<h2 class="main2-list-item-txt1 thide"><?php echo $article_list[$i]['title'] ?></h2>
 						</a>
