@@ -1,0 +1,79 @@
+.service-content table {
+    background-color: #ffffff;
+}
+.service-content table {
+    background-color: #ffffff;
+}
+.service-content table tr td img {
+    padding-top: 30px;
+}
+.service-content table tr td p {
+    font-size: 16px;
+}
+.service-content p {
+    font-size: 20px;
+    padding-top: 30px;
+}
+.service-content p {
+    font-size: 20px;
+    padding-top: 30px;
+}
+.service-content table tr td {
+    border: 1px solid #f5f5f5;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+/*problems*/
+.problems-left ul li {
+    height: 50px;
+    line-height: 50px;
+}
+.problems-left .nav-pills li a {
+    border-radius: 0;
+    font-size: 18px;
+    padding: 0;
+}
+.problems-right .panel {
+    background-color: #f5f5f5;
+    border: none;
+}
+.problems-right h4 {
+    color: #019AE1;
+    font-weight: bold;
+    text-indent: 38px;
+}
+.problems-right p {
+    text-indent: 38px;
+    letter-spacing: 3px;
+    font-size: 16px;
+    line-height: 28px;
+}
+#commonHelpNav li{
+    width: 220px;
+    margin: auto;
+}
+#commonHelpNav li a{
+    font-size: 14px;
+    display: block;
+    padding-left:80px;
+}
+#commonHelpNav li a:hover{
+    font-size: 14px;
+    color: #019AE1;
+    background-color: #DEF4FF;
+}
+#commonHelpNav .active{
+    background-color: #DEF4FF;
+    color: #019AE1;
+}
+#commonHelpNav .active a{
+    color: #019AE1;
+}
+#commonHelpNav .title{
+    font-size: 16px;
+    margin:20px auto;
+    width: 220px;
+    padding-left: 80px;
+    color: #019AE1;
+}
