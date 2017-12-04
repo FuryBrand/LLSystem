@@ -11165,7 +11165,7 @@ UE.commands['insertimage'] = {
                 unhtmlData(ci);
 
                 str = '<img src="' + ci.src + '" ' + (ci._src ? ' _src="' + ci._src + '" ' : '') +
-                    (ci.width ? 'width="' + ci.width + '" ' : '') +
+                    (ci.width ? 'width="' + ci.width + '" ' : 'style="width:100%"') +
                     (ci.height ? ' height="' + ci.height + '" ' : '') +
                     (ci['floatStyle'] == 'left' || ci['floatStyle'] == 'right' ? ' style="float:' + ci['floatStyle'] + ';"' : '') +
                     (ci.title && ci.title != "" ? ' title="' + ci.title + '"' : '') +
@@ -11182,7 +11182,7 @@ UE.commands['insertimage'] = {
                 for (var i = 0; ci = opt[i++];) {
                     unhtmlData(ci);
                     str = '<p ' + (ci['floatStyle'] == 'center' ? 'style="text-align: center" ' : '') + '><img src="' + ci.src + '" ' +
-                        (ci.width ? 'width="' + ci.width + '" ' : '') + (ci._src ? ' _src="' + ci._src + '" ' : '') +
+                        (ci.width ? 'width="' + ci.width + '" ' : 'style="width:100%"') + (ci._src ? ' _src="' + ci._src + '" ' : '') +
                         (ci.height ? ' height="' + ci.height + '" ' : '') +
                         ' style="' + (ci['floatStyle'] && ci['floatStyle'] != 'center' ? 'float:' + ci['floatStyle'] + ';' : '') +
                         (ci.border || '') + '" ' +

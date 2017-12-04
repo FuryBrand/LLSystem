@@ -23,27 +23,27 @@
 	</div>
 	<div class="row">
 		<div class='col-lg-3'>
-			<div>
+			<div style="margin:15px 0">
 				<input type="button" class="btn btn-danger" value="删除所选公司" onclick="delCompany()"/>
 			</div>
 			<div>
 				<input type="text" style="width:70%;height:34px" id="addCompany" placeholder="请输入新的公司">
 				<input type="button" class="btn btn-info" value="添加" onclick="newCompany()"/>
 			</div>
-			<div>
+			<div style="margin:10px 0">
 				<input type="text" style="width:70%;height:34px" id="editCompany" placeholder="修改公司名称">
 				<input type="button" class="btn btn-info" value="修改" onclick="updateCompany()"/>
 			</div>
 		</div>
 		<div class='col-lg-3'>
-			<div>
+			<div style="margin:15px 0">
 				<input type="button" class="btn btn-danger" value="删除所选系列" onclick="delSeries()"/>
 			</div>
 			<div>
-				<input type="text" style="width:70%;height:34px" id="addSeries" placeholder="请输入新的系列">
+				<input type="text" style="width:70%;height:34px" id="addSeries" placeholder="请输入新的系列" >
 				<input type="button" class="btn btn-info" value="添加" onclick="newSeries()"/>
 			</div>
-			<div>
+			<div style="margin:10px 0">
 				<input type="text" style="width:70%;height:34px" id="editSeries" placeholder="修改系列名称">
 				<input type="button" class="btn btn-info" value="修改" onclick="updateSeries()"/>
 			</div>

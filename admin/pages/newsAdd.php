@@ -11,9 +11,9 @@ if(array_key_exists('id', $_GET)){
 	$news=get_news_by_id($_GET['id']);
 }
 ?>
-<link href="./UEditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+<link href="./UEditor/themes/default/css/ueditor.css" type="text/css" rel="stylesheet">
 <script type="text/javascript" charset="utf-8" src="./UEditor/ueditor.config.js"></script>
-<script type="text/javascript" charset="utf-8" src="./UEditor/ueditor.all.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="./UEditor/ueditor.all.js"></script>
 <script type="text/javascript" src="./UEditor/lang/zh-cn/zh-cn.js"></script>
 <style>
 	#form *{
@@ -61,7 +61,7 @@ if(array_key_exists('id', $_GET)){
     	$conent='.'.News_File.$news[0]["content"];
     	?>
     	um.ready(function() { //因此要加一个ready方法,当他完成加载时再向ue中写入文件
-    		um.setContent('<?php echo file_get_contents($conent)?>'); 
+    		um.setContent(`<?php echo file_get_contents($conent)?>`); 
     	});
     	<?php } ?>
     	/**/
