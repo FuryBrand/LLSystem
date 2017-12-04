@@ -41,8 +41,7 @@ if(array_key_exists('id', $_GET)){
 					<?php } ?>
 				</select>
 				<select id="series">
-					<option>-请选择所属系列-</option>
-
+					<option value="-1">-请选择所属系列-</option>
 					<?php 
 					if(is_edit){
 						for($i=0;$i<count($series);$i++){ ?>
@@ -83,13 +82,13 @@ if(array_key_exists('id', $_GET)){
  //ue.setContent('');在这里直接写是错误的,估计是ue还未加载完,导致报错Cannot set property 'innerHTML' of undefined
 
  $("#upload").click(function () {
-	if($("#title").val()==''){
+	if(!$("#title").val()){
 		alert("请填写title");
 		return false;
-	} if($("#series").val()==''){
+	}else if($("#series").val()=='-1'){
 		alert("请选择产品所属系列，如没有要选择的系列，请先去分类管理中添加")
 		return false;
-	}else if($("#thumbFile").get(0).files[0]==''){
+	}else if(!$("#thumbFile").get(0).files[0]){
 		alert("请上传产品缩略图");
 		return false;
 	}
