@@ -70,7 +70,7 @@ $products=get_lastest_productsall();
 		<div class="">
 			<div class="">
 				<a href="http://localhost/LLSystem/article_detail.php?isNews=false&id=<?php echo $products[$i]['id'] ?>&type=0" class="main2-list-item">
-					<div class="main2-list-item-pic" style="background: url(<?php echo productsall_Thumb.$products[$i]['thumb'];?>) no-repeat center center; background-size: cover;"></div>
+					<div class="main2-list-item-pic" style="background: url(<?php echo Productsall_Thumb.$products[$i]['thumb'];?>) no-repeat center center; background-size: cover;"></div>
 					<h2 class="main2-list-item-txt1 thide"><?php echo $products[$i]['title'] ?></h2>
 				</a>
 			</div>

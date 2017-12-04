@@ -16,12 +16,12 @@ if(array_key_exists('id', $_GET)){
 <script type="text/javascript" charset="utf-8" src="./UEditor/ueditor.all.min.js"></script>
 <script type="text/javascript" src="./UEditor/lang/zh-cn/zh-cn.js"></script>
 <style>
-#form *{
-	font-size: 16px;
-}
-#form .row{
-	margin: 15px auto;
-}
+	#form *{
+		font-size: 16px;
+	}
+	#form .row{
+		margin: 15px auto;
+	}
 </style>
 <form enctype="multipart/form-data" id="form">
 	<div class="form-group">
@@ -73,48 +73,58 @@ if(array_key_exists('id', $_GET)){
  $("#upload").click(function () {
  	var formData = new FormData(),
  	content=um.getContent();
- 	formData.append("title", $("#title").val());
- 	formData.append("type", $("#news_type").val());
- 	formData.append("thumb", $("#thumbFile").get(0).files[0]);
- 	formData.append("content", content);
- 	<?php if($is_edit){ ?>
- 		formData.append("id", <?php echo $news[0]['id'] ?>);
- 		formData.append("thumbName", "<?php echo $news[0]['thumb'] ?>");
+ 	if(!$("#title").val()){
+ 		alert("请输入新闻标题!");
+ 		return false;
+ 	}
+ 	<?php if(!$is_edit){ ?>
+ 		if(!$("#thumbFile").get(0).files[0]){
+ 			alert("请上传上传标题图片!");
+ 			return false;
+ 		}
  		<?php } ?>
- 		$.ajax({
- 			type: "POST",
- 			url: "../controller/ajax.php?fun=<?php $is_edit? print 'update':print 'add' ?>_news",
- 			dataType: 'json',
- 			processData: false,
- 			contentType: false,  
- 			cache: false,
- 			data:formData
- 		}).done(function (data) {
- 			<?php if($is_edit){ ?>
- 				alert("修改成功!");
- 				window.location.href='./index.php?page=newsList';
- 			<?php }else{ ?>
- 				alert("添加成功!");
- 			window.location.reload();
- 				<?php } ?>
- 			
- 		}).fail(function (jqXHR, textStatus) {
- 			alert("添加失败!");
- 			console.log(jqXHR);
- 		});
- 	});
+ 		formData.append("title", $("#title").val());
+ 		formData.append("type", $("#news_type").val());
+ 		formData.append("thumb", $("#thumbFile").get(0).files[0]);
+ 		formData.append("content", content);
+ 		<?php if($is_edit){ ?>
+ 			formData.append("id", <?php echo $news[0]['id'] ?>);
+ 			formData.append("thumbName", "<?php echo $news[0]['thumb'] ?>");
+ 			<?php } ?>
+ 			$.ajax({
+ 				type: "POST",
+ 				url: "../controller/ajax.php?fun=<?php $is_edit? print 'update':print 'add' ?>_news",
+ 				dataType: 'json',
+ 				processData: false,
+ 				contentType: false,  
+ 				cache: false,
+ 				data:formData
+ 			}).done(function (data) {
+ 				<?php if($is_edit){ ?>
+ 					alert("修改成功!");
+ 					window.location.href='./index.php?page=newsList';
+ 					<?php }else{ ?>
+ 						alert("添加成功!");
+ 						window.location.reload();
+ 						<?php } ?>
+ 						
+ 					}).fail(function (jqXHR, textStatus) {
+ 						alert("添加失败!");
+ 						console.log(jqXHR);
+ 					});
+ 				});
 
- function preview(file){  
- 	var prevImg = $('#thumb');  
- 	if (file.files && file.files[0]){  
- 		var reader = new FileReader();  
- 		reader.onload = function(evt){  
- 			prevImg.attr('src',evt.target.result);  
- 		}    
- 		reader.readAsDataURL(file.files[0]);  
- 	}  
+function preview(file){  
+	var prevImg = $('#thumb');  
+	if (file.files && file.files[0]){  
+		var reader = new FileReader();  
+		reader.onload = function(evt){  
+			prevImg.attr('src',evt.target.result);  
+		}    
+		reader.readAsDataURL(file.files[0]);  
+	}  
 	else{  //低版本ie
 				//prevDiv.innerHTML = '<div class="img" style="filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src=\'' + file.value + '\'"></div>'; 
 			}  
 		}  
-		</script>
+	</script>

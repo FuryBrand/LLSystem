@@ -9,7 +9,7 @@ if($isNews=="true"){
 	$imgPath=News_Thumb;
 	include_once(Root_Path."/model/news.php");
 }else{
-	$imgPath=productsall_Thumb;
+	$imgPath=Productsall_Thumb;
 	include_once(Root_Path."/model/productsall.php");
 }
 

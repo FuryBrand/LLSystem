@@ -1,7 +1,7 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/LLsystem/config.php');
-include_once(Root_Path."/model/products.php");
-$products=get_all_products();
+include_once(Root_Path."/model/productsall.php");
+$products=get_lastest_productsall();
 ?>
 <style>
 	.gallery{
@@ -38,8 +38,8 @@ $products=get_all_products();
 		<?php for($i=0;$i<count($products);$i++){ ?>
 		<div class="gallery">
 			<div class="wrap">
-				<a href="<?php echo $products[$i]['html_path'] ?>" >
-					<img src="<?php print Product_Img.($i+1) ?>.<?php echo $products[$i]['type'] ?>" >
+				<a href="article_detail.php?isNews=false&id=<?php echo $products[$i]['id'] ?>&type=0" >
+					<img src="<?php echo Productsall_Thumb.$products[$i]['thumb'];?>" >
 					<div class="text"><?php echo $products[$i]['title'] ?></div>
 				</a>
 			</div>

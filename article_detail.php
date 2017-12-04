@@ -19,7 +19,7 @@ if($isNews=="true"){
 	$articles=get_news_by_id($pageId);
 
 }else{
-	$filePath=productsall_File;
+	$filePath=Productsall_File;
 	include_once(Root_Path."/model/productsall.php");
 	$articles=get_productsall_by_id($pageId);
 }

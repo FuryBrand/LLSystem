@@ -55,7 +55,7 @@ if(array_key_exists('id', $_GET)){
 		<div class="row">
 			<div class="col-xs-2">上传标题图片:</div>
 			<div class="col-xs-2">
-				<img src="<?php $is_edit? print '.'.productsall_Thumb.$productsall[0]['thumb']:print './images/upload.png' ?>"  style="width:100%" id="thumb">
+				<img src="<?php $is_edit? print '.'.Productsall_Thumb.$productsall[0]['thumb']:print './images/upload.png' ?>"  style="width:100%" id="thumb">
 				<input name="thumb" id="thumbFile" type="file" onchange="preview(this)">
 			</div>
 		</div>
@@ -68,7 +68,7 @@ if(array_key_exists('id', $_GET)){
     //实例化编辑器
     var um = UE.getEditor('editor',{zIndex:0});
 	<?php if($is_edit){
-    	$conent='.'.productsall_File.$productsall[0]["content"];
+    	$conent='.'.Productsall_File.$productsall[0]["content"];
     	?>
     	um.ready(function() { //因此要加一个ready方法,当他完成加载时再向ue中写入文件
     		um.setContent('<?php echo file_get_contents($conent)?>'); 
