@@ -213,6 +213,32 @@ $valArr = array($title,"2",$series,$htmlName,$picName);
 $res=add_productsall($valArr);
 $res=['succ'=>$res];
 break;
+//lwx:修改产品
+case "edit_productsall":
+//保存图片到文件夹
+$fileName = $_POST['file'];
+$picName=$_POST['oldThumb'];
+if(array_key_exists('thumb',$_FILES)&&array_key_exists('oldThumb',$_POST)){
+  if($_FILES['thumb']['name']!=$_POST['oldThumb']){
+    $file = $_FILES['thumb'];
+    $extension=explode(".",$file['name'])[1];
+    $picName=$fileName.'.'.$extension;
+    move_uploaded_file($file['tmp_name'],PHP_Productsall_Thumb.$picName);
+  }
+}
+//保存详细信息到html文件
+$content=$_POST['content'];
+$file = fopen(PHP_Productsall_File.$fileName, "w") or die("Unable to open file!");
+fwrite($file, $content);
+fclose($file);
+//保存到数据库
+$title = $_POST["title"];
+$series = $_POST["series"];
+$id = $_POST["id"];
+$valArr = array($title,$series,$picName,$id);
+$res=add_productsall($valArr);
+$res=['succ'=>$res];
+break;
 case "del_news_byid":
 $id=$_POST["id"];
 $res=del_news($id);

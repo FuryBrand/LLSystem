@@ -20,8 +20,8 @@ function del_productsall($id){
     return db_delete("productsall",$id);
 }
 //lwx:改
-function update_productsall($type,$title,$html_path,$id){
-    $sql="UPDATE productsall SET type='".$type."', title='".$title."' ,content='".$html_path."' WHERE id='".$id."'";
+function update_productsall($title,$pid,$thumb,$id){
+    $sql="UPDATE productsall SET title='".$title."',father_id='".$pid."' ,thumb='".$thumb."' WHERE id='".$id."'";
     return run_sql($sql);
 }
 //lwx:改某一字段

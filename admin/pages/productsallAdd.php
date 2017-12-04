@@ -93,6 +93,33 @@ if(array_key_exists('id', $_GET)){
 		alert("请上传产品缩略图");
 		return;
 	}
+	<?php if($is_edit){ ?>
+		
+		var formData = new FormData(),
+		content=um.getContent();
+		formData.append("id",<?php print $_GET['id'] ?>);
+		formData.append("oldThumb",<?php print $productsall[0]['thumb'] ?>);
+		formData.append("file",<?php print $productsall[0]["content"] ?>);
+		formData.append("title", $("#title").val());
+		formData.append("series", $("#series").val());
+		formData.append("thumb", $("#thumbFile").get(0).files[0]);
+		formData.append("content", content);
+		$.ajax({
+			type: "POST",
+			url: "../controller/ajax.php?fun=edit_productsall",
+			dataType: 'json',
+			processData: false,
+			contentType: false,  
+			cache: false,
+			data:formData
+		}).done(function (data) {
+			alert("修改成功!");
+			window.location.reload();
+		}).fail(function (jqXHR, textStatus) {
+			alert("修改失败!");
+			console.log(jqXHR);
+		});
+ 	<?php }else{ ?>
  	var formData = new FormData(),
  	content=um.getContent();
  	formData.append("title", $("#title").val());
@@ -114,6 +141,7 @@ if(array_key_exists('id', $_GET)){
  		alert("添加失败!");
  		console.log(jqXHR);
  	});
+	 <?php } ?>
  });
 
  function preview(file){  
