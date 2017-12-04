@@ -12,9 +12,8 @@ if(array_key_exists('id', $_GET)){
 }
 ?>
 <link href="./UEditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
-<script type="text/javascript" src="./UEditor/third-party/template.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="./UEditor/umeditor.config.js"></script>
-<script type="text/javascript" charset="utf-8" src="./UEditor/umeditor.js"></script>
+<script type="text/javascript" charset="utf-8" src="./UEditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="./UEditor/ueditor.all.min.js"></script>
 <script type="text/javascript" src="./UEditor/lang/zh-cn/zh-cn.js"></script>
 <style>
 #form *{
@@ -67,7 +66,7 @@ if(array_key_exists('id', $_GET)){
 </form>
 <script type="text/javascript">
     //实例化编辑器
-    var um = UM.getEditor('editor',{zIndex:0});
+    var um = UE.getEditor('editor',{zIndex:0});
 	<?php if($is_edit){
     	$conent='.'.productsall_File.$productsall[0]["content"];
     	?>

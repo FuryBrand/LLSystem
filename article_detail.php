@@ -41,6 +41,8 @@ $back=true;
 <script type="text/javascript" src="./view/js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="./view/js/tether.min.js"></script>
 <script type="text/javascript" src="./view/js/bootstrap.min.js"></script>
+<script type="text/javascript" src=".admin/UEditor/third-party/video-js/video.js"></script>
+<script src="http://cdn.bootcss.com/html5media/1.1.8/html5media.min.js"></script>
 <style type="text/css">
 	.types{
 
