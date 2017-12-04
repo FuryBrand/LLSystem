@@ -235,8 +235,7 @@ fclose($file);
 $title = $_POST["title"];
 $series = $_POST["series"];
 $id = $_POST["id"];
-$valArr = array($title,$series,$picName,$id);
-$res=add_productsall($valArr);
+$res = update_productsall($title,$series,$picName,$id);
 $res=['succ'=>$res];
 break;
 case "del_news_byid":

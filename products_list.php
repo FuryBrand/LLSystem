@@ -108,13 +108,13 @@ include_once('./controller/article_list.php');
 						<ul class="list-inline text-center">
 							<nav>
 								<ul class="pagination" style="margin:0 auto">
-									<li><a href="./article_list.php?isNews=<?php echo $isNews ?>&amp;keyword=<?php echo $keyword ?>&amp;page=1&amp;type=<?php echo $page_article_type ?>&amp;from=<?php echo $from ?>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+									<li><a href="./products_list.php?isNews=<?php echo $isNews ?>&amp;keyword=<?php echo $keyword ?>&amp;page=1&amp;type=<?php echo $page_article_type ?>&amp;from=<?php echo $from ?>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
 									<?php for($i=0;$i<$pages;$i++){ ?>
 									<li class="<?php ($i+1)==$current_page? print 'active' : print '' ?>">
-										<a href="./article_list.php?isNews=<?php echo $isNews ?>&amp;keyword=<?php echo $keyword ?>&amp;page=<?php echo ($i+1).'&type='.$page_article_type ?>&amp;from=<?php echo $from ?>"><?php echo ($i+1) ?></a>
+										<a href="./products_list.php?isNews=<?php echo $isNews ?>&amp;keyword=<?php echo $keyword ?>&amp;page=<?php echo ($i+1).'&type='.$page_article_type ?>&amp;from=<?php echo $from ?>"><?php echo ($i+1) ?></a>
 									</li>
 									<?php } ?>
-									<li><a href="./article_list.php?isNews=<?php echo $isNews ?>&amp;keyword=<?php echo $keyword ?>&amp;page=<?php echo $pages ?>&amp;type=<?php echo $page_article_type ?>&amp;from=<?php echo $from ?>" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+									<li><a href="./products_list.php?isNews=<?php echo $isNews ?>&amp;keyword=<?php echo $keyword ?>&amp;page=<?php echo $pages ?>&amp;type=<?php echo $page_article_type ?>&amp;from=<?php echo $from ?>" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
 								</ul>
 							</nav>
 						</ul>

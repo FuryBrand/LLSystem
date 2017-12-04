@@ -1,6 +1,6 @@
 	<?php
 	include_once("./controller/utils.php");
-	var_dump(is_mobile_request());
+	//var_dump(is_mobile_request());
 	 if(is_mobile_request()){ ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 	<?php }else{ ?>

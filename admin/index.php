@@ -63,7 +63,7 @@
                 </ul>
               </li>
 
-              <li id="prodPic"><a href="./index.php?page=prodPic"><i class="fa fa-picture-o"></i><span>产品展示图</span></a></li>
+              <!--<li id="prodPic"><a href="./index.php?page=prodPic"><i class="fa fa-picture-o"></i><span>产品展示图</span></a></li>-->
               <li id="changePwd"><a href="./index.php?page=changePwd"><i class="fa fa-key"></i><span>修改密码</span></a></li>
               <li id=""><a href="#" onclick="delCookie('user')"><i class="fa fa-sign-in"></i> <span>安全退出</span></a></li>
             </ul>

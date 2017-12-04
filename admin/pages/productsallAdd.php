@@ -75,7 +75,7 @@ if(array_key_exists('id', $_GET)){
     	});
     	<?php } ?>
     	/*um.ready(function() { //因此要加一个ready方法,当他完成加载时再向ue中写入文件
-    		um.setContent('<?php echo file_get_contents("./contents.html")?>'); 
+    		um.setContent('<?php //echo file_get_contents("./contents.html")?>'); 
     	});*/
 //实例化编辑器
 //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
@@ -85,21 +85,21 @@ if(array_key_exists('id', $_GET)){
  $("#upload").click(function () {
 	if($("#title").val()==''){
 		alert("请填写title");
-		return;
-	}else if($("#series").val()==''){
+		return false;
+	} if($("#series").val()==''){
 		alert("请选择产品所属系列，如没有要选择的系列，请先去分类管理中添加")
-		return;
+		return false;
 	}else if($("#thumbFile").get(0).files[0]==''){
 		alert("请上传产品缩略图");
-		return;
+		return false;
 	}
 	<?php if($is_edit){ ?>
 		
 		var formData = new FormData(),
 		content=um.getContent();
-		formData.append("id",<?php print $_GET['id'] ?>);
-		formData.append("oldThumb",<?php print $productsall[0]['thumb'] ?>);
-		formData.append("file",<?php print $productsall[0]["content"] ?>);
+		formData.append("id","<?php print $_GET['id'] ?>");
+		formData.append("oldThumb","<?php print $productsall[0]['thumb'] ?>");
+		formData.append("file","<?php print $productsall[0]["content"] ?>");
 		formData.append("title", $("#title").val());
 		formData.append("series", $("#series").val());
 		formData.append("thumb", $("#thumbFile").get(0).files[0]);
