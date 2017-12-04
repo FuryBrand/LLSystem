@@ -59,30 +59,26 @@ include_once('./controller/article_list.php');
 		position: relative;
 	}
 	.main2-list-item {
-    float: left;
-    width: 250px;
-    overflow: hidden;
-    height: 150px;
-    border: 1px solid #DBDBDB;
-    display: block;
-    margin-left: 20px;
-    margin-top: 20px;
-    position: relative;
+		width: 100%;
+		border: 1px solid #DBDBDB;
+		display: block;
+		position: relative;
+		max-height: 200px;
 	}
-	.main2-list-item-pic {
-    width: 100%;
-    height: 100%;
-	}
+	/*.main2-list-item-pic {
+		width: 100%;
+		height: 100%;
+	}*/
 	.main2-list-item-txt1 {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    left: 0;
-    background: url(./view/imgs/opacity-black50.png) repeat;
-    line-height: 40px;
-    color: #fff;
-    text-align: center;
-    font-size: 16px;
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		left: 0;
+		background: url(./view/imgs/opacity-black50.png) repeat;
+		line-height: 40px;
+		color: #fff;
+		text-align: center;
+		font-size: 16px;
 	}
 	.thide {
 		overflow: hidden;
@@ -95,31 +91,30 @@ include_once('./controller/article_list.php');
 	<div class="row">
 		<?php include_once('./view/leftNav.php') ?>
 		<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<div style="font-size:0">
-						<?php for($i=0;$i<count($article_list);$i++){ 
-							$href="./article_detail.php?isNews=".$isNews."&id=".$article_list[$i]['id']."&type=".$page_article_type;
-							?>
-								<a href="<?php echo $href ?>" class="main2-list-item">
-									<div class="main2-list-item-pic" style="background: url(<?php echo $imgPath.$article_list[$i]['thumb'];?>) no-repeat center center; background-size: cover;"></div>
-									<h2 class="main2-list-item-txt1 thide"><?php echo $article_list[$i]['title'] ?></h2>
-								</a>
-						<?php } ?>
+			<div class="row panel panel-default news-left-up" style="margin-bottom:10px">
+				<?php for($i=0;$i<count($article_list);$i++){ 
+					$href="./article_detail.php?isNews=".$isNews."&id=".$article_list[$i]['id']."&type=".$page_article_type."&from=".$from;
+					?>
+					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="margin:20px 0">
+						<a href="<?php echo $href ?>" class="main2-list-item" style="text-align:center">
+							<img src="<?php echo $imgPath.$article_list[$i]['thumb'];?>" style="width:100%;" />
+							<h2 class="main2-list-item-txt1 thide"><?php echo $article_list[$i]['title'] ?></h2>
+						</a>
 					</div>
-		</div>
-				<div style="margin-top: 0px;" class="panel panel-default news-left-down">
+					<?php } ?>
+				</div>
+				<div style="margin-top: 0px;" class="row panel panel-default news-left-down">
 					<div class="panel-body">
 						<ul class="list-inline text-center">
 							<nav>
 								<ul class="pagination" style="margin:0 auto">
-									<li><a href="./article_list.php?isNews=<?php echo $isNews ?>&amp;keyword=<?php echo $keyword ?>&amp;page=1&amp;type=<?php echo $page_article_type ?>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+									<li><a href="./article_list.php?isNews=<?php echo $isNews ?>&amp;keyword=<?php echo $keyword ?>&amp;page=1&amp;type=<?php echo $page_article_type ?>&amp;from=<?php echo $from ?>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
 									<?php for($i=0;$i<$pages;$i++){ ?>
 									<li class="<?php ($i+1)==$current_page? print 'active' : print '' ?>">
-										<a href="./article_list.php?isNews=<?php echo $isNews ?>&amp;keyword=<?php echo $keyword ?>&amp;page=<?php echo ($i+1).'&type='.$page_article_type ?>"><?php echo ($i+1) ?></a>
+										<a href="./article_list.php?isNews=<?php echo $isNews ?>&amp;keyword=<?php echo $keyword ?>&amp;page=<?php echo ($i+1).'&type='.$page_article_type ?>&amp;from=<?php echo $from ?>"><?php echo ($i+1) ?></a>
 									</li>
 									<?php } ?>
-									<li><a href="./article_list.php?isNews=<?php echo $isNews ?>&amp;keyword=<?php echo $keyword ?>&amp;page=<?php echo $pages ?>&amp;type=<?php echo $page_article_type ?>" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+									<li><a href="./article_list.php?isNews=<?php echo $isNews ?>&amp;keyword=<?php echo $keyword ?>&amp;page=<?php echo $pages ?>&amp;type=<?php echo $page_article_type ?>&amp;from=<?php echo $from ?>" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
 								</ul>
 							</nav>
 						</ul>
@@ -127,12 +122,10 @@ include_once('./controller/article_list.php');
 				</div>
 			</div>
 		</div>
-		</div>
 	</div>
-</div>
-<script type="text/javascript">
-	$('img').error(function(){
-		$(this).attr('src', "./view/imgs/error.jpg");
-		$(this).css("width",'200px');
-	});
-</script>
+	<script type="text/javascript">
+		$('img').error(function(){
+			$(this).attr('src', "./view/imgs/error.jpg");
+			$(this).css("width",'200px');
+		});
+	</script>

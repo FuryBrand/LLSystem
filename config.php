@@ -7,8 +7,8 @@ define('Slider_Img',"./admin/images/slider/");
 define('News_Thumb',"./resource/newsThumb/");
 define('News_File',"./resource/newsFile/");
 define('News_Page_Size',6);
-define('productsall_Thumb',"./resource/productsallThumb/");
-define('productsall_File',"./resource/productsallFile/");
+define('Productsall_Thumb',"./resource/productsallThumb/");
+define('Productsall_File',"./resource/productsallFile/");
 //后端php用
 define('Type4Product',2);
 define('PHP_Product_Img_Path',Root_Path."/admin/images/product/");
@@ -16,6 +16,6 @@ define('PHP_Slider_Img',Root_Path."/admin/images/slider/");
 define('PHP_News_Thumb',Root_Path."/resource/newsThumb/");
 define('PHP_News_File',Root_Path."/resource/newsFile/");
 define('PHP_News_UM_Img',"../../../resource/UMFile/");
-define('PHP_productsall_Thumb',Root_Path."/resource/productsallThumb/");
-define('PHP_productsall_File',Root_Path."/resource/productsallFile/");
+define('PHP_Productsall_Thumb',Root_Path."/resource/productsallThumb/");
+define('PHP_Productsall_File',Root_Path."/resource/productsallFile/");
 ?>

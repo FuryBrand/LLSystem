@@ -1,10 +1,11 @@
-<?php include_once("./config.php"); 
+<?php 
+include_once("./config.php"); 
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
 	<title>盛达杰森(北京)自动化设备有限公司</title>
 	<meta name="description" content="">
 	<meta name="keywords" content="">
@@ -23,7 +24,7 @@
 		<?php include('./view/header.php') ?>
 		<?php include('./view/slider.php') ?>
 		<div class="row margin-top30">
-			<?php include('./view/newgallery.php') ?>
+			<?php include('./view/gallery.php') ?>
 			<?php include('./view/news.php') ?>
 		</div>	
 	</div>

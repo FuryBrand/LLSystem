@@ -38,7 +38,7 @@ include_once('./controller/article_list.php');
 		<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
 			<div class="panel panel-default news-left-up" style="margin-bottom:10px">
 				<?php for($i=0;$i<count($article_list);$i++){ 
-					$href="./article_detail.php?isNews=".$isNews."&id=".$article_list[$i]['id']."&type=".$page_article_type;
+					$href="./article_detail.php?isNews=".$isNews."&id=".$article_list[$i]['id']."&type=".$page_article_type."&from=".$from;
 				?>
 				<div style="margin:0 30px 0 27px" class="panel-body">
 					<a href="<?php echo $href ?>">
@@ -60,13 +60,13 @@ include_once('./controller/article_list.php');
 					<ul class="list-inline text-center">
 						<nav>
 							<ul class="pagination" style="margin:0 auto">
-								<li><a href="./article_list.php?isNews=<?php echo $isNews ?>&amp;keyword=<?php echo $keyword ?>&amp;page=1&amp;type=<?php echo $page_article_type ?>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+								<li><a href="./article_list.php?isNews=<?php echo $isNews ?>&amp;keyword=<?php echo $keyword ?>&amp;page=1&amp;type=<?php echo $page_article_type ?>&amp;from=<?php echo $from ?>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
 								<?php for($i=0;$i<$pages;$i++){ ?>
 								<li class="<?php ($i+1)==$current_page? print 'active' : print '' ?>">
-									<a href="./article_list.php?isNews=<?php echo $isNews ?>&amp;keyword=<?php echo $keyword ?>&amp;page=<?php echo ($i+1).'&type='.$page_article_type ?>"><?php echo ($i+1) ?></a>
+									<a href="./article_list.php?isNews=<?php echo $isNews ?>&amp;keyword=<?php echo $keyword ?>&amp;page=<?php echo ($i+1).'&type='.$page_article_type ?>&amp;from=<?php echo $from ?>"><?php echo ($i+1) ?></a>
 								</li>
 								<?php } ?>
-								<li><a href="./article_list.php?isNews=<?php echo $isNews ?>&amp;keyword=<?php echo $keyword ?>&amp;page=<?php echo $pages ?>&amp;type=<?php echo $page_article_type ?>" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+								<li><a href="./article_list.php?isNews=<?php echo $isNews ?>&amp;keyword=<?php echo $keyword ?>&amp;page=<?php echo $pages ?>&amp;type=<?php echo $page_article_type ?>&amp;from=<?php echo $from ?>" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
 							</ul>
 						</nav>
 					</ul>
