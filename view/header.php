@@ -1,6 +1,6 @@
 	<?php
-	include_once("./controller/utils.php");
-	//var_dump(is_mobile_request());
+	include_once($_SERVER['DOCUMENT_ROOT'].'/LLsystem/config.php');
+	include_once(Root_Path."/controller/utils.php");
 	 if(is_mobile_request()){ ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 	<?php }else{ ?>
@@ -44,6 +44,5 @@
 		</div>
 	</div>
 	<?php 
-	include_once($_SERVER['DOCUMENT_ROOT'].'/LLsystem/config.php');
 	include_once(Root_Path.'/view/navbar.php') 
 	?>
