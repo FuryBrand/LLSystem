@@ -1,5 +1,5 @@
-<?php include_once($_SERVER['DOCUMENT_ROOT'].'/LLsystem/config.php'); ?>
-<?php include_once(Root_Path.'\model\productsall.php') ?>
+<?php include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php'); ?>
+<?php include_once(Root_Path.'/model/productsall.php') ?>
 <?php
 $company=get_company_from_productsall();
 $is_edit=false;

@@ -1,4 +1,4 @@
-<?php include('/pages/islogin.php') ?>
+<?php include('./pages/islogin.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

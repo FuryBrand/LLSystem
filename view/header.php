@@ -1,5 +1,5 @@
 	<?php
-	include_once($_SERVER['DOCUMENT_ROOT'].'/LLsystem/config.php');
+	include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php');
 	include_once(Root_Path."/controller/utils.php");
 	 if(is_mobile_request()){ ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">

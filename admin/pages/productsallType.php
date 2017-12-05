@@ -1,5 +1,5 @@
 	<?php
-	include_once($_SERVER['DOCUMENT_ROOT'].'/LLsystem/config.php');
+	include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php');
 	include_once(Root_Path."/model/productsall.php");
 	$company=get_company_from_productsall();
 	?>

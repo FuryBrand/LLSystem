@@ -1,6 +1,6 @@
-<?php include_once($_SERVER['DOCUMENT_ROOT'].'/LLsystem/config.php'); ?>
-<?php include_once(Root_Path.'\admin\pages\islogin.php') ?>
-<?php include_once(Root_Path.'\model\navbar.php') ?>
+<?php include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php'); ?>
+<?php include_once(Root_Path.'/admin/pages/islogin.php') ?>
+<?php include_once(Root_Path.'/model/navbar.php') ?>
 <?php 
 $navs=get_nav();
 $first_nav=array();

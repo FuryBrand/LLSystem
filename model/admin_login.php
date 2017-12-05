@@ -1,4 +1,4 @@
-<?php include(dirname(__FILE__)."\base.php");?>
+<?php include(dirname(__FILE__)."/base.php");?>
 <?php 
 function get_user($uname,$pwd){
 	$pwd=md5(md5($pwd));

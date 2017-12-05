@@ -1,5 +1,5 @@
 <?php 
-include_once($_SERVER['DOCUMENT_ROOT'].'/LLsystem/config.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php');
 $isNews='false';
 $imgPath;
 if(array_key_exists("isNews",$_GET)){

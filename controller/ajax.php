@@ -1,5 +1,5 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'].'/LLsystem/config.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php');
 include_once(Root_Path."/model/admin_login.php");
 include_once(Root_Path."/model/navbar.php");
 include_once(Root_Path."/model/slideshow.php");

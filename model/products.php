@@ -1,4 +1,4 @@
-<?php include_once(dirname(__FILE__)."\base.php");?>
+<?php include_once(dirname(__FILE__)."/base.php");?>
 <?php
 //lwx:增
 function add_products($valArr){

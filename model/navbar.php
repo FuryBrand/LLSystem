@@ -1,4 +1,4 @@
-<?php include_once(dirname(__FILE__)."\base.php");?>
+<?php include_once(dirname(__FILE__)."/base.php");?>
 <?php
 ////////针对单一问题的特定方法///////
 function get_nav(){

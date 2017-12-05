@@ -1,5 +1,5 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'].'/LLsystem/config.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php');
 include_once(Root_Path."/model/productsall.php");
 $productsall=get_all_productsall_forAdminPage();
 ?>

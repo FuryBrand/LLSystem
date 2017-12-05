@@ -1,5 +1,5 @@
 <?php 
-include_once($_SERVER['DOCUMENT_ROOT'].'/LLsystem/config.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php');
 
 if(!array_key_exists('id', $_GET)){
 	include_once(Root_Path."./404.html");

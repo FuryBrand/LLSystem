@@ -1,5 +1,5 @@
 <?php 
-include_once($_SERVER['DOCUMENT_ROOT'].'/LLsystem/config.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php');
 include(Root_Path."/model/productsall.php");
 $keyword = false;
 if(array_key_exists("keyword",$_GET)){
