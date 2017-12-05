@@ -28,12 +28,12 @@ $news_list=get_lastest_news();
 	<h3 class="title"><span style="border-bottom:2px solid #0094ff">最新资讯</span></h3>
 	<?php for($i=0;$i<count($news_list);$i++){ ?>
 	<div class="news-title row">
-		<div class="col-xs-9">
+		<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7 ellipsis">
 			<a href="./article_detail.php?isNews=true&id=<?php echo $news_list[$i]['id'] ?>&type=0">
 				<?php echo $news_list[$i]['title'] ?>
 			</a>
 		</div>
-		<div class="col-xs-3" style="font-size:14px">
+		<div class="col-lg-3 col-md-3 col-sm-4 col-xs-5" style="font-size:14px">
 			<?php echo date("Y-m-d",strtotime($news_list[$i]['create_date'])) ?>
 		</div>
 	</div>

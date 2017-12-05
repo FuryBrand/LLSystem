@@ -30,6 +30,3 @@ include_once("./config.php");
 	</div>
 	<?php include('./view/footer.php') ?>
 </body>
-<script type="text/javascript">
-
-</script>

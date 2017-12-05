@@ -12,7 +12,6 @@ $products=get_lastest_productsall();
 	}
 	.gallery img{
 		width: 100%;
-		height: 100%;
 	}
 	.gallery .text{
 		font-size: 18px;
@@ -31,6 +30,8 @@ $products=get_lastest_productsall();
 		margin-right:10px;
 		height: 100%;
 		position: relative;
+		border:1px solid #e3e3e3;
+		overflow: hidden;
 	}
 </style>
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

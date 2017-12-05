@@ -619,7 +619,7 @@ hr{
 
 @media (max-width: 540px) {
     .text {
-        padding-top: 22%;
+        /*padding-top: 22%;*/
     }
 }
 
@@ -628,8 +628,8 @@ hr{
 
 @media (max-width: 320px) {
     .text {
-        padding-top: 10px;
-        width: 60%;
+        /*padding-top: 10px;
+        width: 60%;*/
     }
 }
 

@@ -65,4 +65,13 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/LLsystem/config.php');
 		<?php include('./view/footer.php') ?>
 	</div>
 </body>
+<script type="text/javascript">
+	$(function(){
+		var hash=location.hash;
+		if(hash){
+			$("#commonHelpNav").find("a[href="+hash+"]").click();
+			//$(hash).parent("li").click();
+		}
+	})
+</script>
 </html>
