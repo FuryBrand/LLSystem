@@ -11,6 +11,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php');
 	<link href="./view/css/service.css" rel="stylesheet">
 	<link href="./view/css/base.css" rel="stylesheet">
 	<script type="text/javascript" src="./view/js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="./view/js/utils.js"></script>
 	<script type="text/javascript" src="./view/js/tether.min.js"></script>
 	<script type="text/javascript" src="./view/js/bootstrap.min.js"></script>
 	<style>
@@ -67,10 +68,9 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php');
 </body>
 <script type="text/javascript">
 	$(function(){
-		var hash=location.hash;
-		if(hash){
-			$("#commonHelpNav").find("a[href="+hash+"]").click();
-			//$(hash).parent("li").click();
+		var page=getQueryString('page');
+		if(page){
+			$("#commonHelpNav").find("a[href=#"+page+"]").click();
 		}
 	})
 </script>
