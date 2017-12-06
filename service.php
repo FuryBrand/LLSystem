@@ -54,10 +54,10 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php');
 			<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
 			<div id="content" class="tab-content" style="min-height:500px">
 					<?php
-					include_once('.\static\pages\help\welcome.html');
-					include_once('.\static\pages\help\contact_us.html');
-					include_once('.\static\pages\help\legal.html');
-					include_once('.\static\pages\help\privacy.html');
+					include_once('./static/pages/help/welcome.html');
+					include_once('./static/pages/help/contact_us.html');
+					include_once('./static/pages/help/legal.html');
+					include_once('./static/pages/help/privacy.html');
 					?>
 				</div>
 			</div>
