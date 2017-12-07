@@ -17,7 +17,20 @@
   <link href="css/style-responsive.css" rel="stylesheet">
 
   <script src="js/jquery-1.10.2.min.js"></script>
-
+  <style type="text/css">
+  div.validate-error {
+    color: #f00;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  label.error {
+    color: #f00;
+  }
+  input.error, select.error, textarea.error {
+    border: 1px solid red;
+    background-color: #fff6f6;
+  }
+  </style>
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
