@@ -19,30 +19,30 @@
 	}
 	?>
 	<div class="row margin-top30">
-		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-			<img src="./view/imgs/logo.png" style="width:100%">
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-5">
+			<img src="./view/imgs/newlogo.png" style="height:74px">
 		</div>
-		<div class="col-sm-offset-1 col-lg-5 col-md-5 col-sm-5 col-xs-12 margin-top10">
-			<form method="post" action="./controller/ajax.php?fun=search">
-				<div class="search">
-					<input type="radio" name="type" value="0" id="product" <?php ($hasKeyword&&$from=="0"||!$hasKeyword)?print 'checked' : "" ?>>
-					<label for="product" class="margin-right10">产品</label>
-					<input type="radio" name="type" value="1" id="news" <?php ($hasKeyword&&$from=="1")?print 'checked' : "" ?>>
-					<label for="news">新闻</label>
-				</div>
-				<div class="margin-top10">
-					<div class="row">
-						<div class="col-xs-8">
-							<input type="text" name="keyword" value="<?php ($hasKeyword)?print $keyword : '' ?>" placeholder="请输入关键字" style="width:100%;height:40px">
-						</div>
-						<div class="col-xs-4">
-							<input type="submit" value="搜索" class="btn btn-info" style="height:40px">
-						</div>
+		<div class="col-lg-6 col-md-5 col-sm-6 col-xs-7 margin-top10">
+			<div class="col-xs-12" >
+				<form method="post" action="./controller/ajax.php?fun=search">
+				<div style="float:right">
+					<div class="search">
+						<input type="radio" name="type" value="0" id="product" <?php ($hasKeyword&&$from=="0"||!$hasKeyword)?print 'checked' : "" ?>>
+						<label for="product" >产品</label>
+						<input type="radio" name="type" value="1" id="news" <?php ($hasKeyword&&$from=="1")?print 'checked' : "" ?>>
+						<label for="news">新闻</label>
+						<input type="text" name="keyword" value="<?php ($hasKeyword)?print $keyword : '' ?>" placeholder="关键字" style="width:40%;height:25px">
+						<input type="submit" value="搜索" style="width:50px;height:25px">
 					</div>
 				</div>
-			</form>
+				</form>
+			</div>
 		</div>
 	</div>
-	<?php 
-	include_once(Root_Path.'/view/navbar.php') 
-	?>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<?php 
+					include_once(Root_Path.'/view/navbar.php') 
+					?>
+		</div>
+	</div>

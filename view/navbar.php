@@ -13,6 +13,7 @@ $navList=nav_list();
 		height: auto;
 	}
 	nav.navbar.bootsnav{
+		font-size:14px;
 		border: none;
 	}
 	.navbar-nav{
@@ -69,7 +70,7 @@ $navList=nav_list();
 		nav.navbar.bootsnav ul.nav > li > a{ margin: 0; }
 	}
 </style>
-<nav class="navbar navbar-default navbar-mobile bootsnav">
+<nav class="navbar navbar-default navbar-mobile bootsnav navbar-right" style="margin:0px 0px 0px 0px">
 	<ul class="nav navbar-nav" data-in="fadeInDown" data-out="fadeOutUp">
 		<?php for($i=0;$i<count($navList);$i++){ 
 			if(count($navList[$i])<=1){ ?>

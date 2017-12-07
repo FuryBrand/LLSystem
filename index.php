@@ -16,7 +16,7 @@ include_once("./config.php");
 	<script type="text/javascript" src="./view/js/bootstrap.min.js"></script>
 	<style>
 		.search input{ width:15px; height: 15px; }
-		.search label{ font-size: 16px; }
+		.search label{ font-size: 12px; }
 	</style>
 </head>
 <body>
