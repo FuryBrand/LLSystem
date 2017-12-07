@@ -25,11 +25,6 @@ $products=get_lastest_productsall();
 		bottom: 0;
 		width: 100%;
 		margin-right: 10px;
-		transform: translateY(100%);
-		transition:all 0.4s;
-	}
-	.gallery .text.trans{
-		transform: translateY(0);
 	}
 	.wrap{
 		margin-right:10px;
@@ -53,12 +48,3 @@ $products=get_lastest_productsall();
 		<?php } ?>
 	</div>
 </div>
-<script type="text/javascript">
-	$(function(){
-		$(".gallery .wrap").hover(function(e){
-			$(e.currentTarget).find(".text").addClass('trans');
-		},function(e){
-			$(e.currentTarget).find(".text").removeClass('trans');
-		});
-	})
-</script>
