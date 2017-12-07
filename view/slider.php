@@ -37,6 +37,7 @@ $all_slides=get_all_slideshow();
 	$(function() {
 		$("#slider").easySlider( {
 			slideSpeed: 500,
+			pause:5000,
 			autoSlide: true,
 			paginationSpacing: "15px",
 			paginationDiameter: "10px",

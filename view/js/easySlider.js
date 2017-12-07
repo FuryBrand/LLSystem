@@ -23,7 +23,8 @@
 				paginationPositionFromBottom: "0px",
 				controlsClass: ".controls",
 				slidesClass: ".slides",
-				paginationClass: ".pagination"
+				paginationClass: ".pagination",
+				pause:0
 			};
 
 		// The actual plugin constructor
@@ -221,7 +222,7 @@
 					
 					var stop = setInterval(function() {
 					      	slide();
-					    	}, 1500); 
+					    	}, _this.settings.pause); 
 					              
 					function slide() {
 						if (_this.slideParameters.getAutoStatus.call(_this) === false) {
