@@ -45,7 +45,7 @@ $navList=nav_list();
 		font-size: 16px;
 		font-weight: 500;
 		position: absolute;
-		top: 35%;
+		top: 28%;
 		right: 10%;
 		transition: all 0.4s ease 0s;
 	}
