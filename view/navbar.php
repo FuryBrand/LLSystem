@@ -91,7 +91,6 @@ $navList=nav_list();
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					<?php echo $navList[$i][0]["name"] ?>
-					<b class="caret"></b>
 				</a>
 				<ul class="dropdown-menu">
 					<?php for($j=1;$j<count($navList[$i]);$j++){?>
