@@ -1,4 +1,4 @@
-<?php include_once(dirname(__FILE__)."\base.php");?>
+<?php include_once(dirname(__FILE__)."/base.php");?>
 <?php
 //ly:查询所有新闻分类
 function get_fk_news_type(){
