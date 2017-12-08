@@ -103,7 +103,7 @@
  				digits: 'Only numbers'
  			},
  			password: {
- 				required: 'This field is required',
+ 				required: '该字段为必填项',
  				min: 'This field must contain at least {characters} characters',
  				max: 'This field must not contain more than {characters} characters',
  				match: 'The passwords do not match'
@@ -117,7 +117,7 @@
  				required: 'Choose a field from the list'
  			},
  			textarea: {
- 				required: 'This field is required',
+ 				required: '该字段为必填项',
  				min: 'This field must contain at least {characters} characters',
  				max: 'This field must not contain more than {characters} characters',
  				url: 'Website is not valid'
@@ -161,9 +161,9 @@
  			$(error).addClass('validator-error').html(text);
  			
  			if ($(element).attr('data-error-position') == undefined) {
- 				var errorPosition = 'before';
+ 				var errorPosition = 'after';
  				if ($(this).is('input') && $(this).attr('type') == 'checkbox') {
- 					errorPosition = 'before label';
+ 					errorPosition = 'after label';
  				}
  			} else {
  				errorPosition = $(element).attr('data-error-position');
@@ -380,10 +380,10 @@ removeErrors: function (form) {
 	}
 };
 
-$(function () {
-	$('form.validator').each(function () {
-		$(this).submit(function () {
+/*$(function () {
+	$('.validator').each(function () {
+		$(this).click(function () {
 			return Validator.validate(this);
 		});
 	});
-});
+});*/

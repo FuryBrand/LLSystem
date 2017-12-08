@@ -18,18 +18,18 @@
 
   <script src="js/jquery-1.10.2.min.js"></script>
   <style type="text/css">
-  div.validate-error {
-    color: #f00;
-    font-size: 12px;
-    font-weight: bold;
-  }
-  label.error {
-    color: #f00;
-  }
-  input.error, select.error, textarea.error {
-    border: 1px solid red;
-    background-color: #fff6f6;
-  }
+    div.validator-error {
+      color: #f00;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    label.error {
+      color: #f00;
+    }
+    input.error, select.error, textarea.error {
+      border: 1px solid red;
+      background-color: #fff6f6;
+    }
   </style>
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -157,40 +157,43 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/modernizr.min.js"></script>
     <script src="js/jquery.nicescroll.js"></script>
+    <script src="js/fm.validator.js"></script>
     <!--common scripts for all pages-->
     <script src="js/scripts.js"></script>
 
     <script type="text/javascript">
-    function delCookie(name)
-    {
-      var exp = new Date();
-      exp.setTime(exp.getTime() + (-1 * 24 * 60 * 60 * 1000));
-      var cval=getCookie(name);
-      if(cval!=null){
-        document.cookie= name + "="+cval+"; expires="+exp.toGMTString()+"; path=/";
+      function delCookie(name)
+      {
+        var exp = new Date();
+        exp.setTime(exp.getTime() + (-1 * 24 * 60 * 60 * 1000));
+        var cval=getCookie(name);
+        if(cval!=null){
+          document.cookie= name + "="+cval+"; expires="+exp.toGMTString()+"; path=/";
+        }
+        window.location.href='./login.php';
       }
-      window.location.href='./login.php';
-    }
-    function getCookie(name)
-    {
-      var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
-      if(arr=document.cookie.match(reg))
-        return unescape(arr[2]);
-      else
-        return null;
-    }
+      function getCookie(name)
+      {
+        var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+        if(arr=document.cookie.match(reg))
+          return unescape(arr[2]);
+        else
+          return null;
+      }
 
-    function GetQueryString(name)
-    {
-     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-     var r = window.location.search.substr(1).match(reg);
-     if(r!=null)return  unescape(r[2]); return null;
-   }
+      function GetQueryString(name)
+      {
+       var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+       var r = window.location.search.substr(1).match(reg);
+       if(r!=null)return  unescape(r[2]); return null;
+     }
 
-   $(function(){
-    var page=GetQueryString('page');
-    $("#"+page).addClass("active").parents(".menu-list").addClass('nav-active');
-  });
+     $(function(){
+      var page=GetQueryString('page');
+      $("#"+page).addClass("active").parents(".menu-list").addClass('nav-active');
+
+      Validator.language = 'zh-cn';
+    });
    </script>
  </body>
  </html>
