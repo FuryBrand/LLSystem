@@ -31,8 +31,8 @@ $navList=nav_list();
 		color: #34c9dd;
 	}
 	nav.navbar.bootsnav ul.nav > li{
-		background: #f4f4f4;
-		/*height:60px;*/
+		/*background: #f4f4f4;
+		height:60px;*/
 	}
 	.nav > li.active{
 		color: #34c9dd;
