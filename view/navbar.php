@@ -22,10 +22,20 @@ $navList=nav_list();
 	nav.navbar.bootsnav ul.nav > li > a{
 		color: #474747;
 		text-transform: uppercase;
-		padding: 30px;
+		padding: 20px 30px;
+		font-family:"Microsoft Yahei",arial,"\5b8b\4f53";
+		display: block;
+		font-size: 16px;
 	}
-	nav.navbar.bootsnav ul.nav > li:hover{
+	nav.navbar.bootsnav ul.nav > li.active > a{
+		color: #34c9dd;
+	}
+	nav.navbar.bootsnav ul.nav > li{
 		background: #f4f4f4;
+		/*height:60px;*/
+	}
+	.nav > li.active{
+		color: #34c9dd;
 	}
 	.nav > li:after{
 		content: "";
