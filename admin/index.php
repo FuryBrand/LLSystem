@@ -1,3 +1,4 @@
+<?php include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php'); ?>
 <?php include('./pages/islogin.php') ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +10,7 @@
   <meta name="author" content="ThemeBucket">
   <link rel="shortcut icon" href="#" type="image/png">
 
-  <title>欢迎使用SJAE后台管理系统</title>
+  <title>欢迎使用<?php echo Site_Name ?>后台管理系统</title>
   <link href="../view/css/base.css" rel="stylesheet">
 
   <!--common-->
@@ -155,7 +156,8 @@
         </div>
         <!--footer section start-->
         <footer style="position:fixed">
-          <div style="color:#65CEA7;">盛达杰森(北京)自动化设备有限公司后台管理系统</div>
+          <div style="color:#65CEA7;position:absolute;left:10px;bottom:5px"><?php echo Site_Name ?>后台管理系统</div>
+          <div style="color:#65CEA7;position:absolute;right:10px;bottom:5px"><?php echo Site_Version ?></div>
         </footer>
         <!--footer section end-->
 
@@ -204,7 +206,8 @@
    $(function(){
     var page=GetQueryString('page');
     $("#"+page).addClass("active").parents(".menu-list").addClass('nav-active');
-
+    //修复footer长度为屏幕宽度的bug,TODO:left-side始终被footer覆盖,不论z-index是多少
+    $('footer').width($('.wrapper').width());
     Validator.language = 'zh-cn';
   });
    </script>

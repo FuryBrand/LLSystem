@@ -31,7 +31,7 @@ function get_news_by_type($typeid){
 }
 //lwx:返回所有新闻
 function get_all_news(){
-	$sql = "SELECT a.id,a.title,a.content,a.create_date,a.type,a.thumb,b.name FROM news a LEFT JOIN fk_news_type b ON a.type=b.id";
+	$sql = "SELECT a.id,a.title,a.content,a.create_date,a.type,a.thumb,b.name FROM news a LEFT JOIN fk_news_type b ON a.type=b.id ORDER BY create_date DESC";
 	return run_sql($sql,true);
 }
 

@@ -1,5 +1,4 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php');
 include_once(Root_Path."/model/productsall.php");
 $productsall=get_all_productsall_forAdminPage();
 ?>
@@ -23,7 +22,7 @@ $productsall=get_all_productsall_forAdminPage();
 			<div class="col-xs-2"><?php echo $productsall[$i]['productType'] ?></div>
 			<div class="col-xs-2"><?php echo $productsall[$i]['company'] ?></div>
 			<div class="col-xs-2">
-				<input type="button" class="btn btn-warning" value="修改" onclick="update_productsall(<?php echo $productsall[$i]['id'] ?>)"/>
+				<input type="button" class="btn btn-warning" value="修改" style="margin-right:10px" onclick="update_productsall(<?php echo $productsall[$i]['id'] ?>)"/>
 				<input type="button" class="btn btn-danger" value="删除" onclick="del_productsall(<?php echo $productsall[$i]['id'] ?>)"/>
 			</div>
 		</div>

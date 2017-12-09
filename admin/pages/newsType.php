@@ -1,5 +1,4 @@
 	<?php
-	include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php');
 	include_once(Root_Path."/model/fk_news_type.php");
 	$news_type=get_fk_news_type();
 	?>
@@ -27,63 +26,63 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-		function updateNewsType(id) {
-			var name = $("#newsType"+id).val();		
-			$.ajax({
-				type: "POST",
-				url: "../controller/ajax.php?fun=update_news_type",
-				dataType: 'json',
-				data:{name:name,id:id}
-			}).done(function (data) {
-				if(data.succ){
-					window.location.reload();
-				}
-			}).fail(function (jqXHR, textStatus) {
-				alert("更新失败!")
-				console.log(jqXHR);
-			});
-		}
-
-		function newType(){
-			if(!Validator.validate('.validator')){
-				return false;
+	function updateNewsType(id) {
+		var name = $("#newsType"+id).val();		
+		$.ajax({
+			type: "POST",
+			url: "../controller/ajax.php?fun=update_news_type",
+			dataType: 'json',
+			data:{name:name,id:id}
+		}).done(function (data) {
+			if(data.succ){
+				window.location.reload();
 			}
-			var name = $("#addNewsType").val();	
-			$.ajax({
-				type: "POST",
-				url: "../controller/ajax.php?fun=add_news_type",
-				dataType: 'json',
-				data:{name:name}
-			}).done(function (data) {
-				if(data.succ){
-					window.location.reload();
-				}
-			}).fail(function (jqXHR, textStatus) {
-				alert("添加失败!")
-				console.log(jqXHR);
-			});
+		}).fail(function (jqXHR, textStatus) {
+			alert("更新失败!")
+			console.log(jqXHR);
+		});
+	}
+
+	function newType(){
+		if(!Validator.validate('.validator')){
+			return false;
 		}
-
-		function delNewsType(id){
-			if(window.confirm("确认删除这条内容吗?")){
-				$.ajax({
-					url: '../controller/ajax.php?fun=del_news_type',
-					type: 'POST',
-					dataType: 'json',
-					data:{id:id}
-				})
-				.done(function(data) {
-					if(data.succ>0){
-						window.location.reload();
-					}else{
-						alert('删除失败,请重试!');
-					}
-
-				})
-				.fail(function(a,b,c) {
-					alert("删除错误!");
-					console.log(a.responseText);
-				})
+		var name = $("#addNewsType").val();	
+		$.ajax({
+			type: "POST",
+			url: "../controller/ajax.php?fun=add_news_type",
+			dataType: 'json',
+			data:{name:name}
+		}).done(function (data) {
+			if(data.succ){
+				window.location.reload();
 			}
-		}  
+		}).fail(function (jqXHR, textStatus) {
+			alert("添加失败!")
+			console.log(jqXHR);
+		});
+	}
+
+	function delNewsType(id){
+		if(window.confirm("确认删除这条内容吗?")){
+			$.ajax({
+				url: '../controller/ajax.php?fun=del_news_type',
+				type: 'POST',
+				dataType: 'json',
+				data:{id:id}
+			})
+			.done(function(data) {
+				if(data.succ>0){
+					window.location.reload();
+				}else{
+					alert('删除失败,请重试!');
+				}
+
+			})
+			.fail(function(a,b,c) {
+				alert("删除错误!");
+				console.log(a.responseText);
+			})
+		}
+	}  
 	</script>

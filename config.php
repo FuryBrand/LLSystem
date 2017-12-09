@@ -1,6 +1,8 @@
-<?php 
+<?php
 define('Root_Path',dirname(__FILE__));
 define('Project_Folder_Name',"/LLSystem");
+define('Site_Name','兄弟门户');
+define('Site_Version','Ver-1.1');
 //前台html用
 define('Product_Img',"./admin/images/product/");
 define('Slider_Img',"./resource/slider/");

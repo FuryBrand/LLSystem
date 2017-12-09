@@ -1,4 +1,3 @@
-<?php include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php'); ?>
 <?php include_once(Root_Path.'/model/productsall.php') ?>
 <?php
 $company=get_company_from_productsall();
@@ -37,7 +36,7 @@ if(array_key_exists('id', $_GET)){
 		<div class="row">
 			<div class="col-xs-2">产品所属:</div>
 			<div class="col-xs-6">
-				<select id="company" class="form-style" onchange="selectCompany()" data-required>
+				<select id="company" class="form-style" style="margin-right:10px" onchange="selectCompany()" data-required>
 					<option value>-请选择所属公司-</option>
 					<?php for($i=0;$i<count($company);$i++){ ?>
 					<option value="<?php echo $company[$i]['id']?>" <?php $is_edit&&$company[$i]['id']==$companyid[0]['father_id']? print 'selected':print ''; ?> > <?php echo $company[$i]['title'] ?></option>
