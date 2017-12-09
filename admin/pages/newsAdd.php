@@ -31,13 +31,13 @@ if(array_key_exists('id', $_GET)){
 		<div class="row">
 			<div class="col-xs-2">新闻标题:</div>
 			<div class="col-xs-6">
-				<input name="title" type="text" style="width:100%;" class="form-control" id="title" value="<?php $is_edit? print $news[0]['title']:print '' ?>" data-required >
+				<input name="title" type="text" style="width:100%;" class="form-style" id="title" value="<?php $is_edit? print $news[0]['title']:print '' ?>" data-required >
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-xs-2">新闻类型:</div>
 			<div class="col-xs-6">
-				<select id="news_type" data-required>
+				<select id="news_type" class="form-style" data-required>
 					<option value>请选择</option>
 					<?php for($i=0;$i<count($types);$i++){ ?>
 					<option value="<?php echo $types[$i]['id'] ?>" <?php $is_edit&&$types[$i]['id']==$news[0]['type']? print 'selected':print '' ?> ><?php echo $types[$i]['name'] ?></option>

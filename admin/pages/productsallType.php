@@ -9,14 +9,14 @@
 	</div>
 	<div class="row" style="margin-bottom:20px;">
 		<div class='col-lg-3'>
-			<select id="company" multiple="multiple" size="<?php echo count($company);?>" onclick="selectCompany()">
+			<select id="company" multiple="multiple" class="form-style" size="<?php echo count($company);?>" onclick="selectCompany()">
 				<?php for($i=0;$i<count($company);$i++){ ?>
 				<option value ="<?php echo $company[$i]['id']?>"><?php echo $company[$i]['title']?></option>
 				<?php } ?>
 			</select>
 		</div>
 		<div class='col-lg-3'>
-			<select id="series" multiple="multiple" size="<?php echo count($company);?>" onclick="selectSeries()">
+			<select id="series" class="form-style" multiple="multiple" size="<?php echo count($company);?>" onclick="selectSeries()">
 			<option>请先选择公司</option>
 			</select>
 		</div>
@@ -27,11 +27,11 @@
 				<input type="button" class="btn btn-danger" value="删除所选公司" onclick="delCompany()"/>
 			</div>
 			<div>
-				<input type="text" style="width:70%;height:34px" id="addCompany" placeholder="请输入新的公司">
+				<input type="text" class="form-style" style="width:70%;height:34px" id="addCompany" placeholder="请输入新的公司">
 				<input type="button" class="btn btn-info" value="添加" onclick="newCompany()"/>
 			</div>
 			<div style="margin:10px 0">
-				<input type="text" style="width:70%;height:34px" id="editCompany" placeholder="修改公司名称">
+				<input type="text" class="form-style" style="width:70%;height:34px" id="editCompany" placeholder="修改公司名称">
 				<input type="button" class="btn btn-info" value="修改" onclick="updateCompany()"/>
 			</div>
 		</div>
@@ -40,11 +40,11 @@
 				<input type="button" class="btn btn-danger" value="删除所选系列" onclick="delSeries()"/>
 			</div>
 			<div>
-				<input type="text" style="width:70%;height:34px" id="addSeries" placeholder="请输入新的系列" >
+				<input type="text" class="form-style" style="width:70%;height:34px" id="addSeries" placeholder="请输入新的系列" >
 				<input type="button" class="btn btn-info" value="添加" onclick="newSeries()"/>
 			</div>
 			<div style="margin:10px 0">
-				<input type="text" style="width:70%;height:34px" id="editSeries" placeholder="修改系列名称">
+				<input type="text" class="form-style" style="width:70%;height:34px" id="editSeries" placeholder="修改系列名称">
 				<input type="button" class="btn btn-info" value="修改" onclick="updateSeries()"/>
 			</div>
 		</div>

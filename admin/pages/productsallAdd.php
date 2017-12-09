@@ -31,19 +31,19 @@ if(array_key_exists('id', $_GET)){
 		<div class="row">
 			<div class="col-xs-2">产品名称:</div>
 			<div class="col-xs-6">
-				<input name="title" type="text" style="width:100%;" class="form-control" id="title" placeholder="" value="<?php $is_edit? print $productsall[0]['title']:print '' ?>" data-required >
+				<input name="title" type="text" style="width:100%;" class="form-style" id="title" placeholder="" value="<?php $is_edit? print $productsall[0]['title']:print '' ?>" data-required >
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-xs-2">产品所属:</div>
 			<div class="col-xs-6">
-				<select id="company" onchange="selectCompany()" data-required>
+				<select id="company" class="form-style" onchange="selectCompany()" data-required>
 					<option value>-请选择所属公司-</option>
 					<?php for($i=0;$i<count($company);$i++){ ?>
 					<option value="<?php echo $company[$i]['id']?>" <?php $is_edit&&$company[$i]['id']==$companyid[0]['father_id']? print 'selected':print ''; ?> > <?php echo $company[$i]['title'] ?></option>
 					<?php } ?>
 				</select>
-				<select id="series" data-required>
+				<select id="series" class="form-style" data-required>
 					<option value>-请选择所属系列-</option>
 					<?php 
 					if(is_edit){

@@ -14,19 +14,21 @@
 
 	</style>
 	<div class="changepwd validator">
-		<input type="password" name="newpwd" id="newpwd" placeholder="请输入新密码" data-required>
-		<input type="password" id="newpwd1" placeholder="请再输入一次" data-required>
+		<input type="password"  class="form-style" name="newpwd" id="newpwd" placeholder="请输入新密码" data-required>
+		<input type="password" class="form-style" id="newpwd1" placeholder="请再输入一次" data-required>
 		<input type="button" onclick="changepwd()" value="修改" class="btn btn-info">
 	</div>
 	<script type="text/javascript">
 	function changepwd(id){
 		var newpwd=$("#newpwd").val();
 		var newpwd1=$("#newpwd1").val();
-		if((newpwd!==newpwd1)||!Validator.validate('.validator')){
+		if(!Validator.validate('.validator')){
+			return false;
+		}
+		if((newpwd!==newpwd1)){
 			alert("两次密码不一致,请重新输入!");
 			$("#newpwd").val("");
-			$("#newpwd1").val("");
-			return false;
+			$("#newpwd1").val("");	
 		}
 		$.ajax({
 			url: '../controller/ajax.php?fun=changepwd',

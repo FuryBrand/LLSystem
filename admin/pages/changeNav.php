@@ -11,8 +11,8 @@ for($i=0;$i<count($navs);$i++){
 }
 ?>
 <div class='row'>
-	<div class='col-lg-3 font-size16' div='height:34px'>
-		一级导航名称: <select id="first_nav" onchange="select()" class=" margin-bottom10" style='height:34px'>
+	<div class='col-lg-3 font-size16 ' div='height:34px'>
+		一级导航名称: <select id="first_nav" onchange="select()" class=" margin-bottom10 form-style" style='height:34px'>
 		<option value='-1'>请选择</option>
 		<?php for($i=0;$i<count($first_nav);$i++){ ?>
 		<option value="<?php echo $first_nav[$i]['id']?>">
