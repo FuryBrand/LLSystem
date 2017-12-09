@@ -94,7 +94,8 @@
  		},
  		'zh-cn': {
  			textbox: {
- 				required: '该字段为必填项',
+ 				fileRequired:'请选择文件',
+ 				required: '请填写此项内容',
  				min: 'This field must contain at least {characters} characters',
  				max: 'This field must not contain more than {characters} characters',
  				email: 'Email is not valid',
@@ -114,7 +115,7 @@
  				required: 'This checkbox is required'
  			},
  			select: {
- 				required: 'Choose a field from the list'
+ 				required: '请从列表中选择一个内容'
  			},
  			textarea: {
  				required: '该字段为必填项',
@@ -195,11 +196,15 @@
 
  		$(form).find('input, select, textarea').each(function () {
  			var regex = null;
-			// Input[type=text]
-			if ($(this).is('input') && ($(this).attr('type') == 'text' || $(this).attr('type') == undefined)) {
+			// Input[type=text],Input[type=file]
+			if ($(this).is('input') && ($(this).attr('type') == 'file'||$(this).attr('type') == 'text' || $(this).attr('type') == undefined)) {
 				// required
 				if ($(this).attr('data-required') != undefined && $(this).val() == '' && $(this).attr('data-required-if') == undefined) {
-					Validator.showError(this, Validator.languages[Validator.language].textbox.required);
+					if($(this).attr('type') == 'file'){
+						Validator.showError(this, Validator.languages[Validator.language].textbox.fileRequired);				
+					}else{
+						Validator.showError(this, Validator.languages[Validator.language].textbox.required);
+					}
 					hasErrors = true;
 				}
 				// required-if & required-if-value

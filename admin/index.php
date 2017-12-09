@@ -22,6 +22,7 @@
       color: #f00;
       font-size: 12px;
       font-weight: bold;
+      margin: 5px 0;
     }
     label.error {
       color: #f00;

@@ -19,8 +19,8 @@
 	</div>
 	<?php } ?>
 	<div class="row">
-		<div class='col-lg-3'>
-			<input type="text" style="width:100%;height:34px" id="addNewsType" placeholder="请输入新的分类">
+		<div class='col-lg-3 validator'>
+			<input type="text" style="width:100%;height:34px" id="addNewsType" placeholder="请输入新的分类" data-required>
 		</div>
 		<div class='col-lg-1'>
 			<input type="button" id="btn<?php echo$i ?>" class="btn btn-info" value="添加" onclick="newType()"/>
@@ -45,6 +45,9 @@
 		}
 
 		function newType(){
+			if(!Validator.validate('.validator')){
+				return false;
+			}
 			var name = $("#addNewsType").val();	
 			$.ajax({
 				type: "POST",
