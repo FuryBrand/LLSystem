@@ -68,8 +68,14 @@ $navList=nav_list();
 		nav.navbar.bootsnav ul.nav > li:hover{ background: #f6f6f6; }
 		nav.navbar.bootsnav ul.nav > li > a{ margin: 0; }
 	}
+	@media (max-width: 768px){
+		.navbar-right {
+			float: none !important;
+			margin-right: -15px;
+		}
+	}
 </style>
-<nav class="navbar navbar-default navbar-mobile bootsnav">
+<nav class="navbar navbar-default navbar-mobile bootsnav navbar-right">
 	<ul class="nav navbar-nav" data-in="fadeInDown" data-out="fadeOutUp">
 		<?php for($i=0;$i<count($navList);$i++){ 
 			if(count($navList[$i])<=1){ ?>
