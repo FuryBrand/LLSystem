@@ -79,7 +79,7 @@ $navList=nav_list();
 		nav.navbar.bootsnav ul.nav > li:hover{ background: #f6f6f6; }
 		nav.navbar.bootsnav ul.nav > li > a{ margin: 0; }
 	}
-	@media (min-width: 768px){
+	@media (max-width: 768px){
 		.navbar-right {
 			float: none !important;
 			margin-right: -15px;
