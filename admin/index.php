@@ -175,6 +175,7 @@
     <script src="js/fm.validator.js"></script>
     <!--common scripts for all pages-->
     <script src="js/scripts.js"></script>
+    <script src="../view/js/utils.js"></script>
 
     <script type="text/javascript">
     function delCookie(name)

@@ -7,13 +7,17 @@ for($i=0;$i<count($navs);$i++){
 		array_push($first_nav, $navs[$i]);
 	}
 }
+$first_nav_id="";
+if(array_key_exists('first_nav_id', $_GET)){
+	$first_nav_id=$_GET['first_nav_id'];
+}
 ?>
 <div class='row'>
 	<div class='col-lg-3 font-size16 ' div='height:34px'>
 		一级导航名称: <select id="first_nav" onchange="select()" class=" margin-bottom10 form-style" style='height:34px'>
 		<option value='-1'>请选择</option>
 		<?php for($i=0;$i<count($first_nav);$i++){ ?>
-		<option value="<?php echo $first_nav[$i]['id']?>">
+		<option value="<?php echo $first_nav[$i]['id']?>" <?php $first_nav_id==$first_nav[$i]['id']?print 'selected':'' ?>>
 			<?php echo $first_nav[$i]['name']?>
 		</option>
 		<?php } ?>
@@ -32,12 +36,15 @@ for($i=0;$i<count($navs);$i++){
 <div id="second_nav">
 	<div id="secNavItem"></div>
 	<div class='row hide validator' style='margin:10px;font-size:16px' id="secNavAdd">
-		<div class='col-lg-3'><input type='text' style='height:34px' id='newNav' placeholder='请输入新的名称' data-required /></div>
-		<div class='col-lg-3'><input type='text' style='height:34px' id='href' placeholder='请输入链接地址' data-required /></div>
+		<div class='col-lg-3'><input type='text' style='height:34px' id='newNav' class="form-style" placeholder='请输入新的名称' data-required /></div>
+		<div class='col-lg-3'><input type='text' style='height:34px' id='href' class="form-style" placeholder='请输入链接地址' data-required /></div>
 		<div class='col-lg-2'><button class='btn btn-info' id="addSubNav" onclick='addName()'>添加</button></div>
 	</div>
 </div>
 <script type="text/javascript">
+	$(function(){
+		select();
+	})
 	function select(){
 		var pid=$("#first_nav").val(),
 		secNavItem=$("#secNavItem"),
@@ -94,6 +101,7 @@ for($i=0;$i<count($navs);$i++){
 	function updateName(firstNav,id){
 		var name=prompt("标签名"),
 		href=prompt("链接地址");
+		pid = $("#first_nav").val();
 		if(firstNav){
 			id = $("#first_nav").val();
 		}
@@ -106,7 +114,7 @@ for($i=0;$i<count($navs);$i++){
 			})
 			.done(function(data) {
 				if(data.succ>0){
-					window.location.reload();
+					window.location.href='./index.php?page=changeNav&first_nav_id='+pid;
 				}else{
 					alert('更新失败,请重试!');
 				}
@@ -120,6 +128,7 @@ for($i=0;$i<count($navs);$i++){
 	}
 
 	function deleteNav(firstNav,id){
+		pid=$("#first_nav").val();
 		if(firstNav){
 			id=$("#first_nav").val();
 		}
@@ -132,7 +141,7 @@ for($i=0;$i<count($navs);$i++){
 			})
 			.done(function(data) {
 				if(data.succ>0){
-					window.location.reload();
+					window.location.href='./index.php?page=changeNav&first_nav_id='+pid;
 				}else{
 					alert('删除失败,请重试!');
 				}
@@ -171,7 +180,7 @@ for($i=0;$i<count($navs);$i++){
 		})
 		.done(function(data) {
 			if(data.succ>0){
-				window.location.reload();
+				window.location.href='./index.php?page=changeNav&first_nav_id='+pid;
 			}else{
 				alert('添加失败,请重试!');
 			}
