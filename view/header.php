@@ -45,7 +45,7 @@
 				<input type="submit" value="搜索" class="btn btn-info" style="width:60px;height:30px;line-height:10px;vertical-align: top;">
 			</form>
 		</div>
-		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 		<?php include_once(Root_Path.'/view/navbar.php') ?>
 		</div>
 	</div>
