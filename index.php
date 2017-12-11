@@ -14,10 +14,6 @@ include_once("./config.php");
 	<script type="text/javascript" src="./view/js/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="./view/js/tether.min.js"></script>
 	<script type="text/javascript" src="./view/js/bootstrap.min.js"></script>
-	<style>
-		.search input{ width:15px; height: 15px; }
-		.search label{ font-size: 16px; }
-	</style>
 </head>
 <body>
 	<div class="container">

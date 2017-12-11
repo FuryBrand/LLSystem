@@ -19,17 +19,20 @@
 	}
 	?>
 	<style type="text/css">
-	.logo-height{
-        	height:88px;
-        }
-	@media (max-width: 769px) {
-        .right-text{
-        	text-align: left;
-        }
-        .logo-height{
-        	height:auto;
-        }
-    }
+		.logo-height{
+			height:88px;
+		}
+		.search input{ width:15px; height: 15px; }
+		.search label{ font-size: 12px; }    
+		@media (max-width: 769px) {
+			.right-text{
+				text-align: left;
+			}
+			.logo-height{
+				height:auto;
+				width: 100%
+			}
+		}
 	</style>
 	<div class="row margin-top30">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -46,6 +49,6 @@
 			</form>
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-		<?php include_once(Root_Path.'/view/navbar.php') ?>
+			<?php include_once(Root_Path.'/view/navbar.php') ?>
 		</div>
 	</div>
