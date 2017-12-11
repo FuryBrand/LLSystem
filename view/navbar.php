@@ -79,6 +79,12 @@ $navList=nav_list();
 		nav.navbar.bootsnav ul.nav > li:hover{ background: #f6f6f6; }
 		nav.navbar.bootsnav ul.nav > li > a{ margin: 0; }
 	}
+	@media (min-width: 768px){
+		.navbar-right {
+			float: none !important;
+			margin-right: -15px;
+		}
+	}
 </style>
 <nav class="navbar navbar-default navbar-mobile bootsnav navbar-right" style="margin:0px 0px 0px 0px">
 	<ul class="nav navbar-nav" data-in="fadeInDown" data-out="fadeOutUp">
