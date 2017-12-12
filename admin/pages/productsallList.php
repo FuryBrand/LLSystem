@@ -23,7 +23,7 @@ $productsall=get_all_productsall_forAdminPage();
 			<div class="col-xs-2"><?php echo $productsall[$i]['company'] ?></div>
 			<div class="col-xs-2">
 				<input type="button" class="btn btn-warning" value="修改" style="margin-right:10px" onclick="update_productsall(<?php echo $productsall[$i]['id'] ?>)"/>
-				<input type="button" class="btn btn-danger" value="删除" onclick="del_productsall(<?php echo $productsall[$i]['id'] ?>)"/>
+				<input type="button" class="btn btn-danger" value="删除" onclick="del_productsall('<?php echo $productsall[$i]['thumb'] ?>',<?php echo $productsall[$i]['id'] ?>)"/>
 			</div>
 		</div>
 		<?php } ?>
@@ -33,13 +33,13 @@ $productsall=get_all_productsall_forAdminPage();
 	function update_productsall(id){
 		window.location.href="./index.php?page=productsallAdd&id="+id;
 	}
-	function del_productsall(id){
+	function del_productsall(pic,id){
 		if(window.confirm("确认删除这条内容吗？")){
 			$.ajax({
-				url: '../controller/ajax.php?fun=del_productsall_byid',
+				url: '../controller/ajax.php?fun=del_productsall_by_id',
 				type:'POST',
 				dataType:'json',
-				data:{"id":id}
+				data:{id:id,pic:pic}
 			})
 			.done(function(data){
 				if(data.succ>0){

@@ -25,7 +25,7 @@ $news=get_all_news();
 			<div class="col-xs-2"><?php echo $news[$i]['name'] ?></div>
 			<div class="col-xs-2">
 				<input type="button" class="btn btn-warning" value="修改" onclick="update_news(<?php echo $news[$i]['id'] ?>)"/>
-				<input type="button" class="btn btn-danger" value="删除" onclick="del_news(<?php echo $news[$i]['id'] ?>)"/>
+				<input type="button" class="btn btn-danger" value="删除" onclick="del_news('<?php echo $news[$i]['thumb'] ?>',<?php echo $news[$i]['id'] ?>)"/>
 			</div>
 		</div>
 		<?php } ?>
@@ -35,13 +35,13 @@ $news=get_all_news();
 	function update_news(id){
 		window.location.href="./index.php?page=newsAdd&id="+id;
 	}
-	function del_news(id){
+	function del_news(pic,id){
 		if(window.confirm("确认删除这条内容吗？")){
 			$.ajax({
-				url: '../controller/ajax.php?fun=del_news_byid',
+				url: '../controller/ajax.php?fun=del_news_by_id',
 				type:'POST',
 				dataType:'json',
-				data:{"id":id}
+				data:{id:id,pic:pic}
 			})
 			.done(function(data){
 				if(data.succ>0){

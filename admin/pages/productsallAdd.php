@@ -90,7 +90,7 @@ if(array_key_exists('id', $_GET)){
  	<?php if($is_edit){ ?>
 
  		var formData = new FormData(),
- 		content=um.getContent();
+ 		content=ue.getContent();
  		formData.append("id","<?php print $_GET['id'] ?>");
  		formData.append("oldThumb","<?php print $productsall[0]['thumb'] ?>");
  		formData.append("file","<?php print $productsall[0]["content"] ?>");
@@ -115,7 +115,7 @@ if(array_key_exists('id', $_GET)){
  		});
  		<?php }else{ ?>
  			var formData = new FormData(),
- 			content=um.getContent();
+ 			content=ue.getContent();
  			formData.append("title", $("#title").val());
  			formData.append("series", $("#series").val());
  			formData.append("thumb", $("#thumbFile").get(0).files[0]);

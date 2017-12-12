@@ -10,57 +10,57 @@ include_once(Root_Path."/model/productsall.php");
 $fun=$_GET['fun'];
 $res="";
 switch ($fun){
-  case "changepwd":
-  $newpwd=$_POST["newpwd"];
-  $uname=$_COOKIE['user'];
-  $res=update_pwd($uname,$newpwd);
-  $res=['succ'=>$res];
-  break;
-  case "login":
-  $uname=$_POST["uname"];
-  $pwd=$_POST["pwd"];
-  $res=get_user($uname,$pwd);
-  if(count($res)!=1){
-    $res=["succ"=>false,"errcode"=>-1];
-  }else{
-   $res=["succ"=>true,"errcode"=>-1];
- }
- break;
- case "add_nav":
- $name=$_POST["name"];
- $href=$_POST["href"];
- $pid=$_POST["pid"];
- $res=add_nav($name,$href,$pid);
- $res=['succ'=>$res];
- break;
- case "delete_nav":
- $id=$_POST["id"];
- $res=delete_nav($id);
- $res=['succ'=>$res];
- break;
- case "update_nav":
- $id=$_POST["id"];
- $name=$_POST["name"];
- $href=$_POST["href"];
- $res=update_nav($name,$href,$id);
- $res=['succ'=>$res];
- break;
- case "get_second_nav":
- $pid=$_POST["pid"];
- $res=get_second_nav($pid);
- break;
- case "add_slider_pic":
+	case "changepwd":
+	$newpwd=$_POST["newpwd"];
+	$uname=$_COOKIE['user'];
+	$res=update_pwd($uname,$newpwd);
+	$res=['succ'=>$res];
+	break;
+	case "login":
+	$uname=$_POST["uname"];
+	$pwd=$_POST["pwd"];
+	$res=get_user($uname,$pwd);
+	if(count($res)!=1){
+		$res=["succ"=>false,"errcode"=>-1];
+	}else{
+		$res=["succ"=>true,"errcode"=>-1];
+	}
+	break;
+	case "add_nav":
+	$name=$_POST["name"];
+	$href=$_POST["href"];
+	$pid=$_POST["pid"];
+	$res=add_nav($name,$href,$pid);
+	$res=['succ'=>$res];
+	break;
+	case "delete_nav":
+	$id=$_POST["id"];
+	$res=delete_nav($id);
+	$res=['succ'=>$res];
+	break;
+	case "update_nav":
+	$id=$_POST["id"];
+	$name=$_POST["name"];
+	$href=$_POST["href"];
+	$res=update_nav($name,$href,$id);
+	$res=['succ'=>$res];
+	break;
+	case "get_second_nav":
+	$pid=$_POST["pid"];
+	$res=get_second_nav($pid);
+	break;
+	case "add_slider_pic":
  //$url=$_POST['url'];
- if(array_key_exists('file',$_FILES)){
-  $file = $_FILES['file'];
-  $extension=explode(".",$file['name'])[1];
-  $fileName=time().'.'.$extension;
-  move_uploaded_file($file['tmp_name'],PHP_Slider_Img.$fileName);
-  if(is_file(PHP_Slider_Img.$fileName)){
-    $res=["succ"=>true,"fileName"=>$fileName];
-  }else{
+	if(array_key_exists('file',$_FILES)){
+		$file = $_FILES['file'];
+		$extension=explode(".",$file['name'])[1];
+		$fileName=time().'.'.$extension;
+		move_uploaded_file($file['tmp_name'],PHP_Slider_Img.$fileName);
+		if(is_file(PHP_Slider_Img.$fileName)){
+			$res=["succ"=>true,"fileName"=>$fileName];
+		}else{
     $res=["succ"=>false,"errcode"=>1];//1表示上传失败
-  }
+}
 }else{
   $res=["succ"=>false,"errcode"=>2];//2表示未找到文件
 }
@@ -73,17 +73,21 @@ break;
 break;
 case "del_slideshow":
 $id=$_POST["id"];
+$pic=$_POST["pic"];
 $res=del_slideshow($id);
+if(is_file(PHP_Slider_Img.$pic)){
+	unlink(PHP_Slider_Img.$pic);
+}
 break;
 case "update_products":
 //上传图片到文件夹
 $id=$_POST["id"];
 $extension=$_POST["ext"];
 if(array_key_exists('pic',$_FILES)){
-  $file = $_FILES['pic'];
-  $extension=explode(".",$file['name'])[1];
-  $fileName=$id.'.'.$extension;
-  move_uploaded_file($file['tmp_name'],PHP_Product_Img_Path.$fileName);
+	$file = $_FILES['pic'];
+	$extension=explode(".",$file['name'])[1];
+	$fileName=$id.'.'.$extension;
+	move_uploaded_file($file['tmp_name'],PHP_Product_Img_Path.$fileName);
 }
 
 //写入内容到数据库
@@ -114,10 +118,10 @@ case "update_news":
 $fileName = $_POST['thumbName'];
 $fileName = explode(".",$fileName)[0];
 if(array_key_exists('thumb',$_FILES)){
-  $file = $_FILES['thumb'];
-  $extension=explode(".",$file['name'])[1];
-  $picName=$fileName.'.'.$extension;
-  move_uploaded_file($file['tmp_name'],PHP_News_Thumb.$picName);
+	$file = $_FILES['thumb'];
+	$extension=explode(".",$file['name'])[1];
+	$picName=$fileName.'.'.$extension;
+	move_uploaded_file($file['tmp_name'],PHP_News_Thumb.$picName);
 }
 
 //保存详细信息到html文件
@@ -135,19 +139,29 @@ $res=['succ'=>$res];
 break;
   //lwx:根据id删除新闻
 case "del_news_by_id":
-$id = $_POST["id"];
+//删除数据库
+$id = $_POST["id"]; 
 $res=del_news($id);
 $res=['succ'=>$res];
+//删除文件
+$pic=$_POST["pic"];
+$html=explode(".",$pic)[0].'.html';
+if(is_file(PHP_News_Thumb.$pic)){
+	$del_pic=unlink(PHP_News_Thumb.$pic);
+}
+if(is_file(PHP_News_File.$html)){
+	$del_html=unlink(PHP_News_File.$html);
+}
 break;
 case "add_news":
 //保存图片到文件夹
 $fileName = time();
 $picName="";
 if(array_key_exists('thumb',$_FILES)){
-  $file = $_FILES['thumb'];
-  $extension=explode(".",$file['name'])[1];
-  $picName=$fileName.'.'.$extension;
-  move_uploaded_file($file['tmp_name'],PHP_News_Thumb.$picName);
+	$file = $_FILES['thumb'];
+	$extension=explode(".",$file['name'])[1];
+	$picName=$fileName.'.'.$extension;
+	move_uploaded_file($file['tmp_name'],PHP_News_Thumb.$picName);
 }
 
 //保存详细信息到html文件
@@ -169,19 +183,28 @@ $type = $_POST["type"];//0产品，1新闻
 $keyword = $_POST["keyword"];
 $url = null;
 if($type=="1"){
-  $url = Project_Folder_Name."\\article_list.php?isNews=true&from=".$type."&keyword=".$keyword;
-  header('Location: '.$url);
+	$url = Project_Folder_Name."\\article_list.php?isNews=true&from=".$type."&keyword=".$keyword;
+	header('Location: '.$url);
 } else if($type=="0"){
-  $url = Project_Folder_Name."\\products_list.php?isNews=false&from=".$type."&keyword=".$keyword;
-  header('Location: '.$url);
+	$url = Project_Folder_Name."\\products_list.php?isNews=false&from=".$type."&keyword=".$keyword;
+	header('Location: '.$url);
 }
 return;
 break;
 //lwx:通过id删除产品
-case "del_productsall_byid":
-$id=$_POST["id"];
+case "del_productsall_by_id":
+$id=$_POST["id" ];
 $res=del_productsall($id);
 $res=['succ'=>$res];
+//删除文件
+$pic=$_POST["pic"];
+$html=explode(".",$pic)[0].'.html';
+if(is_file(PHP_Productsall_Thumb.$pic)){
+	$del_pic=unlink(PHP_Productsall_Thumb.$pic);
+}
+if(is_file(PHP_Productsall_File.$html)){
+	$del_html=unlink(PHP_Productsall_File.$html);
+}
 break;
 //lwx:获取指定公司下的产品系列
 case "get_series_from_productsall":
@@ -195,10 +218,10 @@ case "add_productsall":
 $fileName = time();
 $picName="";
 if(array_key_exists('thumb',$_FILES)){
-  $file = $_FILES['thumb'];
-  $extension=explode(".",$file['name'])[1];
-  $picName=$fileName.'.'.$extension;
-  move_uploaded_file($file['tmp_name'],PHP_Productsall_Thumb.$picName);
+	$file = $_FILES['thumb'];
+	$extension=explode(".",$file['name'])[1];
+	$picName=$fileName.'.'.$extension;
+	move_uploaded_file($file['tmp_name'],PHP_Productsall_Thumb.$picName);
 }
 //保存详细信息到html文件
 $content=$_POST['content'];
@@ -219,12 +242,12 @@ case "edit_productsall":
 $fileName = $_POST['file'];
 $picName=$_POST['oldThumb'];
 if(array_key_exists('thumb',$_FILES)&&array_key_exists('oldThumb',$_POST)){
-  if($_FILES['thumb']['name']!=$_POST['oldThumb']){
-    $file = $_FILES['thumb'];
-    $extension=explode(".",$file['name'])[1];
-    $picName=$fileName.'.'.$extension;
-    move_uploaded_file($file['tmp_name'],PHP_Productsall_Thumb.$picName);
-  }
+	if($_FILES['thumb']['name']!=$_POST['oldThumb']){
+		$file = $_FILES['thumb'];
+		$extension=explode(".",$file['name'])[1];
+		$picName=$fileName.'.'.$extension;
+		move_uploaded_file($file['tmp_name'],PHP_Productsall_Thumb.$picName);
+	}
 }
 //保存详细信息到html文件
 $content=$_POST['content'];
@@ -236,11 +259,6 @@ $title = $_POST["title"];
 $series = $_POST["series"];
 $id = $_POST["id"];
 $res = update_productsall($title,$series,$picName,$id);
-$res=['succ'=>$res];
-break;
-case "del_news_byid":
-$id=$_POST["id"];
-$res=del_news($id);
 $res=['succ'=>$res];
 break;
 //lwx:修改产品所属的公司类型的名称
@@ -261,10 +279,10 @@ case "del_company":
 $id=$_POST["id"];
 $can = can_del_from_productsall($id);
 if($can=="true"){
-  del_productsall($id);
-  $res=['succ'=>$res];
+	del_productsall($id);
+	$res=['succ'=>$res];
 }else{
-  $res=['cannotdel'=>$res];
+	$res=['cannotdel'=>$res];
 }
 break;
 //lwx:删除产品所属
@@ -272,10 +290,10 @@ case "del_series":
 $id = $_POST["id"];
 $can = can_del_from_productsall($id);
 if($can=="true"){
-  del_productsall($id);
-  $res=['succ'=>$res];
+	del_productsall($id);
+	$res=['succ'=>$res];
 }else{
-  $res=['cannotdel'=>$res];
+	$res=['cannotdel'=>$res];
 }
 break;
 //lwx:添加系列

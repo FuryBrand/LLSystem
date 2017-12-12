@@ -28,13 +28,13 @@ $all_slides=get_all_slideshow();
 </div>
 <?php for($i=0;$i<count($all_slides);$i++){ ?>
 <div class="row">
-	<div class="col-xs-4"><img class="width50" src="./images/slider/<?php echo $all_slides[$i]['path'] ?>" /></div>
+	<div class="col-xs-4"><img class="width50" src="<?php echo Admin_Slider_Img.$all_slides[$i]['path'] ?>" /></div>
 	<div class="col-xs-4">
 		<a href="<?php echo $all_slides[$i]['url'] ?>" target="_blank">
 			<?php echo $all_slides[$i]['url'] ?></a>
 		</div>
 		<div class="col-xs-2">
-			<button class="btn btn-danger" onclick="delSlide(<?php echo $all_slides[$i]['id'] ?>)">删除</button>
+			<button class="btn btn-danger" onclick="delSlide('<?php echo $all_slides[$i]['path'] ?>',<?php echo $all_slides[$i]['id'] ?>)">删除</button>
 		</div>
 	</div>
 	<hr/>
@@ -99,13 +99,13 @@ $all_slides=get_all_slideshow();
 			});
 		});
 
-function delSlide(id){
+function delSlide(pic,id){
 	if(confirm("确认删除该条轮播图?")){
 		$.ajax({
 			url: '../controller/ajax.php?fun=del_slideshow',
 			type: 'POST',
 			dataType: 'json',
-			data:{id:id}
+			data:{id:id,pic:pic}
 		})
 		.done(function(data) {
 			if(data){

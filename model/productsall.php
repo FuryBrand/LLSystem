@@ -82,7 +82,7 @@ function get_paged_productsall_by_fatherid($father_id,$page,$pageSize){
 //lwx:
 //id:id;    title:型号名;  html_path:html路径;   productType:所属分类;   company:所属公司
 function get_all_productsall_forAdminPage(){
-    $sql="SELECT c.id,c.title,c.content,c.productType,d.title company FROM(SELECT a.id,a.title,a.content,b.title productType,b.father_id pid FROM productsall a LEFT JOIN productsall b ON a.father_id=b.id WHERE a.type=2) c LEFT JOIN productsall d ON c.pid=d.id ORDER BY company,c.productType";
+    $sql="SELECT c.id,c.title,c.content,c.productType,c.thumb,d.title company FROM(SELECT a.id,a.title,a.content,a.thumb,b.title productType,b.father_id pid FROM productsall a LEFT JOIN productsall b ON a.father_id=b.id WHERE a.type=2) c LEFT JOIN productsall d ON c.pid=d.id ORDER BY company,c.productType";
     return run_sql($sql,true);
 }
 //lwx:返回company

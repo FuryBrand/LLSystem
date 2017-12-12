@@ -11,6 +11,8 @@ define('News_File',"./resource/newsFile/");
 define('News_Page_Size',6);
 define('Productsall_Thumb',"./resource/productsallThumb/");
 define('Productsall_File',"./resource/productsallFile/");
+//admin html用
+define('Admin_Slider_Img',"../resource/slider/");
 //后端php用
 define('Type4Product',2);
 define('PHP_Product_Img_Path',Root_Path."/admin/images/product/");
