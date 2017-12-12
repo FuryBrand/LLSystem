@@ -1,5 +1,4 @@
 <?php
-header('Content-type: text/html; charset=utf-8');
 //1.统计当前网站在线人数
 function olNum(){
     $online_log = "online.txt"; //保存人数的文件,

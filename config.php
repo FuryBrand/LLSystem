@@ -15,6 +15,7 @@ define('Productsall_File',"./resource/productsallFile/");
 define('Admin_Slider_Img',"../resource/slider/");
 //后端php用
 define('Type4Product',2);
+define('PHP_Product_Resource',Root_Path."/resource/");
 define('PHP_Product_Img_Path',Root_Path."/admin/images/product/");
 define('PHP_Slider_Img',Root_Path."/resource/slider/");
 define('PHP_News_Thumb',Root_Path."/resource/newsThumb/");
