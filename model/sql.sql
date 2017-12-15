@@ -109,8 +109,10 @@ CREATE TABLE `admin_login` (
 -- 正在导出表  sjae.admin_login 的数据：~0 rows (大约)
 /*!40000 ALTER TABLE `admin_login` DISABLE KEYS */;
 INSERT INTO `admin_login` (`id`, `name`, `pwd`) VALUES
-  (1, 'll', '3049a1f0f1c808cdaa4fbed0e01649b1');
-
+  (1, 'admin', '3049a1f0f1c808cdaa4fbed0e01649b1');
+  
+INSERT INTO `admin_login` (`id`, `name`, `pwd`) VALUES
+  (2, 'll', '3049a1f0f1c808cdaa4fbed0e01649b1');
 
 -- 导出  表 sjae.news_type 结构
 CREATE TABLE IF NOT EXISTS `fk_news_type` (
