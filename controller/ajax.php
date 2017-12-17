@@ -10,6 +10,12 @@ include_once(Root_Path."/model/productsall.php");
 $fun=$_GET['fun'];
 $res="";
 switch ($fun){
+  case "add_Slider_id":
+  $id = $_POST['id'];
+  if (isset($id)){
+    echo `$id`;
+  }
+  break;  
   case "changepwd":
   $newpwd=$_POST["newpwd"];
   $uname=$_COOKIE['user'];
