@@ -20,7 +20,8 @@ include_once("./config.php");
 	</style>
 </head>
 <body>
-	<div class="container">
+	<!--<div class="container">-->
+	<div>
 		<?php include('./view/header.php') ?>
 		<?php include('./view/slider.php') ?>
 		<div class="row margin-top30">

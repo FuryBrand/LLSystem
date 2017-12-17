@@ -55,8 +55,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12 xs-center">
-                <img src="./view/imgs/wxlogo.png">
-                <img src="./view/imgs/wx.jpg">
+            <div> &nbsp</div>
+                <img src="./view/imgs/icon.png">
             </div>
             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 xs-center">
                 <div style="height:50px;margin-top:15px;">
@@ -68,14 +68,14 @@
                     <a href="./service.php?page=privacy">隐私条款</a>
                 </div>
                 <div>
-                    <span>办公地址：北京市经济技术开发区文昌大道8号</span>
+                    <span>办公地址：北京市经济技术开发区荣华南路10号院5号楼5层608室</span>
                 </div>
             </div>
         </div>
         <div class="col-lg-5 col-md-4 col-sm-12 col-xs-12" style="padding-right:0">
            <div class="copyright xs-center">
-            <div>京ICP备05072291-1号</div>
-            <div>Copyright©2017 All right  reserved.</div>
+            <div> &nbsp</div>
+            <div>京ICP备05072291-1号Copyright©2018 All right  reserved.</div>
         </div>
     </div>
 </div>

@@ -56,7 +56,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php');
 			<div id="content" class="tab-content" style="min-height:500px">
 					<?php
 					include_once('./static/pages/help/welcome.html');
-					include_once('./static/pages/help/contact_us.html');
+					include_once('./static/pages/help/contact_us.php');
 					include_once('./static/pages/help/legal.html');
 					include_once('./static/pages/help/privacy.html');
 					?>
