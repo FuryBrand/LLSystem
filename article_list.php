@@ -31,7 +31,7 @@ include_once('./controller/article_list.php');
 		color:#008cd6;
 	}
 </style>
-<div class="container news_list">
+<div class="container-fluid news_list">
 	<?php include_once("./view/header.php") ?>
 	<div class="row">
 		<?php include_once('./view/leftNav.php') ?>

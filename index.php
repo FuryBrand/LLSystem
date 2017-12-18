@@ -21,7 +21,7 @@ include_once("./config.php");
 </head>
 <body>
 	<!--<div class="container">-->
-	<div>
+	<div class="container-fluid">
 		<?php include('./view/header.php') ?>
 		<?php include('./view/slider.php') ?>
 		<div class="row margin-top30">

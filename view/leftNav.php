@@ -9,11 +9,11 @@ include_once(Root_Path.'/controller/leftNav.php');
 		border-width: 6px;
 		position: absolute;
 		top: 20px;
-		margin-left: -65px;
+		margin-left: -165px;
 	}
 	.arrow.arrowed {
 		border-color:#999 transparent transparent;
-		margin-left: -70px;
+		margin-left: -165px;
 		margin-top: 2px;
 	}
 }

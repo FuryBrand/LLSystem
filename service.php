@@ -30,7 +30,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php');
 	</style>
 </head>
 <body>
-	<div class="container">
+	<div class="container-fluid">
 		<?php include(Root_Path.'/view/header.php') ?>
 		<div class="row">
 			<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 problems-left">
