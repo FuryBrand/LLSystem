@@ -38,10 +38,10 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php');
 					<div class="title">
 						帮助中心
 					</div>
-					<li role="presentation" class="active">
+					<li role="presentation">
 						<a href="#introduce" aria-controls="introduce" role="tab" data-toggle="tab">公司介绍</a>
 					</li>
-					<li role="presentation" class="active">
+					<li role="presentation">
 						<a href="#promise" aria-controls="promise" role="tab" data-toggle="tab">售后服务承诺</a>
 					</li>
 					<li role="presentation">
