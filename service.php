@@ -39,7 +39,10 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php');
 						帮助中心
 					</div>
 					<li role="presentation" class="active">
-						<a href="#welcome" aria-controls="welcome" role="tab" data-toggle="tab">欢迎使用</a>
+						<a href="#introduce" aria-controls="introduce" role="tab" data-toggle="tab">公司介绍</a>
+					</li>
+					<li role="presentation" class="active">
+						<a href="#promise" aria-controls="promise" role="tab" data-toggle="tab">售后服务承诺</a>
 					</li>
 					<li role="presentation">
 						<a href="#contact_us" aria-controls="contact_us" role="tab" data-toggle="tab">联系我们</a>
@@ -55,7 +58,8 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php');
 			<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
 			<div id="content" class="tab-content" style="min-height:500px">
 					<?php
-					include_once('./static/pages/help/welcome.html');
+					include_once('./static/pages/help/introduce.html');
+					include_once('./static/pages/help/promise.html');
 					include_once('./static/pages/help/contact_us.php');
 					include_once('./static/pages/help/legal.html');
 					include_once('./static/pages/help/privacy.html');

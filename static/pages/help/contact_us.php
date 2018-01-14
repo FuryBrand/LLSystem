@@ -1,13 +1,25 @@
 <div id="contact_us" role="tabpanel" class="tab-pane">
 	<div class="row margin-bottom20">
-		<div class="t1 f-20">盛达杰森（北京）自动化设备有限公司</div>
+		<div class="t1 f-20">北京总部</div>
 		<div class="p f-16">
-			地址：北京市经济技术开发区荣华南路10号院5号楼5层608室<br>邮编：100176<br>电话：+86 010 67631299<br>传真：+86 010 67631299-801
+			地址：北京市北京亦庄经济技术开发区荣华南路10号院荣华鑫泰大厦5-608<br>电话：010-67631299<br>传真：010-67631299-801<br>QQ：2853811798
 		</div>
 
 	</div>
-	<img  style="CURSOR: pointer" onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=1058573409&o=www.baidu.com&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');"  border="0" SRC=http://wpa.qq.com/pa?p=1:1058573409:1 alt="点击这里给我发消息">	
 	<div class="container">
 		<?php include('./static/pages/help/baidumap.html') ?>
+	</div>
+	<br>
+	<div class="row margin-bottom20">
+		<div class="t1 f-20">天津办事处</div>
+		<div class="p f-16">
+		地址：天津市津南区双港科技园天宇荣昌创意园1-2-401<br>电话：022-28757762<br>传真：022-28757762<br>联系人：王经理<br>手机：18911077780<br>QQ：2853811937
+		</div>
+	</div>
+	<div class="row margin-bottom20">
+		<div class="t1 f-20">承德办事处</div>
+		<div class="p f-16">
+		地址：承德市双滦区双塔山镇万和城水源地小区3-1-101<br>电话：0314-5560529<br>传真：0314-5560529<br>联系人：王经理<br>手机：18911077791<br>QQ：2853811947   
+		</div>
 	</div>
 </div>
