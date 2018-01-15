@@ -95,7 +95,7 @@ $navList=nav_list();
 			</li>
 			<?php }else{ ?>
 			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				<a href="<?php echo $navList[$i][0]['href'] ?>" class="dropdown-toggle" data-toggle="dropdown">
 					<?php echo $navList[$i][0]["name"] ?>
 				</a>
 				<ul class="dropdown-menu">

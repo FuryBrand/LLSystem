@@ -122,6 +122,7 @@ include_once('./controller/article_list.php');
 				</div>
 			</div>
 		</div>
+		<?php include_once("./view/footer.php") ?>
 	</div>
 	<script type="text/javascript">
 		$('img').error(function(){
