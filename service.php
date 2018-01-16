@@ -15,22 +15,22 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php');
 	<script type="text/javascript" src="./view/js/tether.min.js"></script>
 	<script type="text/javascript" src="./view/js/bootstrap.min.js"></script>
 	<style>
-		.search input{ width:15px; height: 15px; }
-		.search label{ font-size: 16px; }
-		#content p{
-			text-indent: 2rem;
-			font-size: 16px;
-			margin-bottom: 20px;
-			line-height: 30px;
-		}
-		#content h1{
-			text-align: center;
-			margin-bottom: 30px;
-		}
+	.search input{ width:15px; height: 15px; }
+	.search label{ font-size: 16px; }
+	#content p{
+		text-indent: 2rem;
+		font-size: 16px;
+		margin-bottom: 20px;
+		line-height: 30px;
+	}
+	#content h1{
+		text-align: center;
+		margin-bottom: 30px;
+	}
 	</style>
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="container">
 		<?php include(Root_Path.'/view/header.php') ?>
 		<div class="row">
 			<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 problems-left">
@@ -56,7 +56,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php');
 				</ul>
 			</div>
 			<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-			<div id="content" class="tab-content" style="min-height:500px">
+				<div id="content" class="tab-content" style="min-height:500px">
 					<?php
 					include_once('./static/pages/help/introduce.html');
 					include_once('./static/pages/help/promise.html');
@@ -67,15 +67,17 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php');
 				</div>
 			</div>
 		</div>
+	</div>
+	<div>
 		<?php include('./view/footer.php') ?>
 	</div>
 </body>
 <script type="text/javascript">
-	$(function(){
-		var page=getQueryString('page');
-		if(page){
-			$("#commonHelpNav").find("a[href=#"+page+"]").click();
-		}
-	})
+$(function(){
+	var page=getQueryString('page');
+	if(page){
+		$("#commonHelpNav").find("a[href=#"+page+"]").click();
+	}
+})
 </script>
 </html>
