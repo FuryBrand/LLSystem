@@ -23,7 +23,7 @@ $navList=nav_list();
 		color: #474747;
 		text-transform: uppercase;
 		padding: 20px 30px;
-		font-family:"Microsoft Yahei",arial,"\5b8b\4f53";
+		font-family:"Microsoft Yahei Light",arial,"\5b8b\4f53";
 		display: block;
 		font-size: 16px;
 	}
