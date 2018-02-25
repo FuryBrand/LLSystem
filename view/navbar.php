@@ -51,7 +51,10 @@ $navList=nav_list();
 		width: 100%;
 	}
 	nav.navbar.bootsnav ul.nav > li.dropdown > a.dropdown-toggle:after{
-		content: "+";
+		/*将导航栏的用于标识子菜单的+号去掉*/
+		/* content: "+"; */
+		content:"";
+
 		font-family: 'FontAwesome';
 		font-size: 16px;
 		font-weight: 500;
@@ -61,7 +64,10 @@ $navList=nav_list();
 		transition: all 0.4s ease 0s;
 	}
 	nav.navbar.bootsnav ul.nav > li.dropdown.on > a.dropdown-toggle:after{
-		content: "\f105";
+		/* 将导航栏展开后的子菜单标识的下箭头去掉 */
+		/* content: "\f105"; */
+		content:"";
+
 		transform: rotate(90deg);
 	}
 	.dropdown-menu.multi-dropdown{
