@@ -298,6 +298,34 @@ $title = $_POST["editSeries"];
 $res = update_onefiled_productsall($id,"title",$title);
 $res=['succ'=>$res];
 break;
+//添加长图片
+case "add_long_pic":
+ $picName=$_GET['para'];
+ //$url=$_POST['url'];
+ if(array_key_exists('file',$_FILES)){
+  $file = $_FILES['file'];
+  //$extension=explode(".",$file['name'])[1];
+  switch($picName){
+    case 'pic_about_us':
+      $fileName="pic_about_us.jpg";
+    break;
+    case 'pic_news_list':
+      $fileName="pic_news_list.jpg";
+    break;
+    case 'pic_product_list':
+      $fileName="pic_product_list.jpg";
+    break;
+  }
+  move_uploaded_file($file['tmp_name'],PHP_Long_Pic.$fileName);
+  if(is_file(PHP_Long_Pic.$fileName)){
+    $res=["succ"=>true,"fileName"=>$fileName];
+  }else{
+    $res=["succ"=>false,"errcode"=>1];//1表示上传失败
+  }
+}else{
+  $res=["succ"=>false,"errcode"=>2];//2表示未找到文件
+}
+break;
 }
 echo json_encode($res);
 ?>

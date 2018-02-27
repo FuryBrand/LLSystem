@@ -33,7 +33,8 @@ include_once('./controller/article_list.php');
 </style>
 <div class="container-fluid news_list">
 	<?php include_once("./view/header.php") ?>
-	<div class="row">
+	<?php include('./view/pic_news_list.php') ?>
+	<div class="row" style="margin-top:30px">
 		<?php include_once('./view/leftNav.php') ?>
 		<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
 			<div class="panel panel-default news-left-up" style="margin-bottom:10px">

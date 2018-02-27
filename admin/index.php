@@ -48,6 +48,7 @@
               <li id="welcome"><a href="./index.php?page=welcome"><i class="fa fa-smile-o"></i><span>欢迎使用</span></a></li>
               <li id="changeNav"><a href="./index.php?page=changeNav"><i class="fa fa-list-ul"></i><span>导航栏</span></a></li>
               <li id="sliderUpload"><a href="./index.php?page=sliderUpload"><i class="fa fa-film"></i><span>轮播图</span></a></li>
+              <li id="changePic"><a href="./index.php?page=changePic"><i class="fa fa-film"></i><span>修改长图</span></a></li>
               <li class="menu-list"><a href=""><i class="fa fa-columns"></i> <span>新闻管理</span></a>
                 <ul class="sub-menu-list">
                   <li id="newsType"><a href="./index.php?page=newsType">分类</a></li>
@@ -56,6 +57,13 @@
                 </ul>
               </li>
               <li class="menu-list"><a href=""><i class="fa fa-archive"></i> <span>产品管理</span></a>
+                <ul class="sub-menu-list">
+                  <li id="productsallType"><a href="./index.php?page=productsallType">分类</a></li>
+                  <li id="productsallList"><a href="./index.php?page=productsallList">列表</a></li>
+                  <li id="productsallAdd"><a href="./index.php?page=productsallAdd">添加</a></li>
+                </ul>
+              </li>
+                            <li class="menu-list"><a href=""><i class="fa fa-archive"></i> <span>产品管理</span></a>
                 <ul class="sub-menu-list">
                   <li id="productsallType"><a href="./index.php?page=productsallType">分类</a></li>
                   <li id="productsallList"><a href="./index.php?page=productsallList">列表</a></li>
@@ -117,6 +125,9 @@
               break;
               case 'productsallAdd':
               include("./pages/productsallAdd.php");
+              break;
+              case 'changePic':
+              include("./pages/changePic.php");
               break;
             }
           }else{

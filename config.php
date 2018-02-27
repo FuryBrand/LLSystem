@@ -13,6 +13,7 @@ define('Productsall_File',"./resource/productsallFile/");
 define('Type4Product',2);
 define('PHP_Product_Img_Path',Root_Path."/admin/images/product/");
 define('PHP_Slider_Img',Root_Path."/resource/slider/");
+define('PHP_Long_Pic',Root_Path."/resource/pictures/");
 define('PHP_News_Thumb',Root_Path."/resource/newsThumb/");
 define('PHP_News_File',Root_Path."/resource/newsFile/");
 define('PHP_News_UM_Img',"../../../resource/UMFile/");

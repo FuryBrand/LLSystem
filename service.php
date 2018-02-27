@@ -32,7 +32,8 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php');
 <body>
 	<div class="container">
 		<?php include(Root_Path.'/view/header.php') ?>
-		<div class="row">
+		<?php include('./view/pic_about_us.php') ?>
+		<div class="row" style="margin-top:30px">
 			<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 problems-left">
 				<ul id="commonHelpNav" class="text-left">
 					<div class="title">
