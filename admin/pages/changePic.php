@@ -15,14 +15,17 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php');
 </style> 
 <div class="row" style="margin-bottom:15px">
 	<div class="col-xs-3">
-		<span id="upload">上传长图</span>
+	</div>
+</div>
+<form id="upload-form" action="ajax.php?fun=add_long_pic" method="post" enctype="multipart/form-data">
+	<input type="file" id="upload" name="upload" />
 		<select id="picName">
  			<option value ="pic_about_us">“关于我们”</option>
   			<option value ="pic_news_list">“新闻列表”</option>
   			<option value="pic_product_list">“商品列表”</option>
 		</select>
-	</div>
-</div>
+	<input type="submit" value="上传" />
+</form>
 仅支持jpg格式图片
 	<script>
 		$(function () {

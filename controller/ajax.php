@@ -300,7 +300,7 @@ $res=['succ'=>$res];
 break;
 //添加长图片
 case "add_long_pic":
- $picName=$_GET['para'];
+ $picName=$_POST['picName'];
  //$url=$_POST['url'];
  if(array_key_exists('file',$_FILES)){
   $file = $_FILES['file'];
