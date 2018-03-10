@@ -17,9 +17,9 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php');
 	<div class="col-xs-3">
 	</div>
 </div>
-<form id="upload-form" action="ajax.php?fun=add_long_pic" method="post" enctype="multipart/form-data">
-	<input type="file" id="upload" name="upload" />
-		<select id="picName">
+<form id="upload-form" action="../controller/ajax.php?fun=add_long_pic" method="post" enctype="multipart/form-data">
+	<input type="file" id="file" name="file" />
+		<select name="picName">
  			<option value ="pic_about_us">“关于我们”</option>
   			<option value ="pic_news_list">“新闻列表”</option>
   			<option value="pic_product_list">“商品列表”</option>

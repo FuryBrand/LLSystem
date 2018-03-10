@@ -308,19 +308,20 @@ case "add_long_pic":
   switch($picName){
     case 'pic_about_us':
       $fileName="pic_about_us.jpg";
-    break;
-    case 'pic_news_list':
+      break;
+      case 'pic_news_list':
       $fileName="pic_news_list.jpg";
-    break;
-    case 'pic_product_list':
+      break;
+      case 'pic_product_list':
       $fileName="pic_product_list.jpg";
-    break;
-  }
-  move_uploaded_file($file['tmp_name'],PHP_Long_Pic.$fileName);
-  if(is_file(PHP_Long_Pic.$fileName)){
-    $res=["succ"=>true,"fileName"=>$fileName];
-  }else{
-    $res=["succ"=>false,"errcode"=>1];//1表示上传失败
+      break;
+    }
+    move_uploaded_file($_FILES['file']['tmp_name'],PHP_Long_Pic.$fileName);
+    header('Location: ../admin/index.php?page=changePic');
+    if(is_file(PHP_Long_Pic.$fileName)){
+      $res=["succ"=>true,"fileName"=>PHP_Long_Pic.$fileName,"file"=>is_file($_FILES['file']['tmp_name'])];
+    }else{
+      $res=["succ"=>false,"errcode"=>1];//1表示上传失败
   }
 }else{
   $res=["succ"=>false,"errcode"=>2];//2表示未找到文件
