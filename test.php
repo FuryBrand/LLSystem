@@ -17,6 +17,7 @@
 	</style>
 </head>
 <body>
+
 <form action="" method="post">
         商品名称：<input type="title" name="title">
         <a href="https://www.baidu.com/s?wd=%E5%95%86%E5%93%81%E7%B1%BB%E5%88%AB&tn=44039180_cpr&fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1dBm1cvPj79myDLuHfknHDz0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EPHcdPj6LnH0v" target="_blank" class="baidu-highlight">商品类别</a>：    <select name="pice">
