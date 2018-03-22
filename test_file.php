@@ -62,16 +62,17 @@ foreach ($arr as $v)
 ?>
 <script>
  $(".dir").dblclick(function(){
+  alert("xixi");
   var url = $(this).attr("url");
   $.ajax({
    url:"./ajax.php?fun=fileList",
    data:{url:url},
    type:"POST",
    dataType:"TEXT",
-   success:function(data)
+   /* success:function(data)
    {
     window.location.href="test_file.php" rel="external nofollow" rel="external nofollow" rel="external nofollow" rel="external nofollow" ;
-   }
+   } */
   });
  })
  $("#shang").dblclick(function(){
@@ -81,10 +82,10 @@ foreach ($arr as $v)
    data:{url:url},
    type:"POST",
    dataType:"TEXT",
-   success:function(data)
+   /* success:function(data)
    {
     window.location.href="wenwen.php" rel="external nofollow" rel="external nofollow" rel="external nofollow" rel="external nofollow" ;
-   }
+   } */
   });
  })
   $(".sc").click(function(){
@@ -97,9 +98,9 @@ foreach ($arr as $v)
     data: {url: url},
     type: "POST",
     dataType: "TEXT",
-    success: function (data) {
+    /* success: function (data) {
      window.location.href = "wenwen.php";
-    }
+    } */
    });
    }
   })
