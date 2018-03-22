@@ -32,14 +32,14 @@
 session_start();
 //定义文件目录
 $fname = "./adminfj_1.0/data/nfs";
+//如果session里面的不为空，则将初始的路径记录下来。
 if(!empty($_SESSION["fname"]))
 {
- //如果session里面的不为空
  $fname = $_SESSION["fname"];
 }
 //上一级的目录
 $pname = dirname($fname);
-if(realpath($fname)=="F:\\QQPCMgr\\WWW\\wenjian")
+if(realpath($fname)=="C:\\xampp\\htdocs\\LLSystem\\adminfj_1.0\\data\\nfs")
 {}
 else {
  echo "<div id='shang' url='{$pname}'>返回上一级</div>";
@@ -64,13 +64,13 @@ foreach ($arr as $v)
  $(".dir").dblclick(function(){
   var url = $(this).attr("url");
   $.ajax({
-   url:"chuli.php",
+   url:"./ajax.php?fun=fileList",
    data:{url:url},
    type:"POST",
    dataType:"TEXT",
    success:function(data)
    {
-    window.location.href="wenwen.php" rel="external nofollow" rel="external nofollow" rel="external nofollow" rel="external nofollow" ;
+    window.location.href="test_file.php" rel="external nofollow" rel="external nofollow" rel="external nofollow" rel="external nofollow" ;
    }
   });
  })

@@ -327,6 +327,11 @@ case "add_long_pic":
   $res=["succ"=>false,"errcode"=>2];//2表示未找到文件
 }
 break;
+//文件列表前台显示
+case "fileList":
+session_start();
+$url = $_POST["url"];
+$_SESSION["fname"] = $url;
 }
 echo json_encode($res);
 ?>
