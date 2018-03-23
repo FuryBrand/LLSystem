@@ -62,48 +62,54 @@ foreach ($arr as $v)
 ?>
 <script>
  $(".dir").dblclick(function(){
-  alert("xixi");
   var url = $(this).attr("url");
+  alert(url);
   $.ajax({
-   url:"./ajax.php?fun=fileList",
-   data:{url:url},
+   url:"./controller/ajax.php?fun=fileList",
    type:"POST",
-   dataType:"TEXT",
+   dataType:"json",
+   data:{url:url},
    /* success:function(data)
    {
     window.location.href="test_file.php" rel="external nofollow" rel="external nofollow" rel="external nofollow" rel="external nofollow" ;
    } */
+  })
+  .done(function(data) {
+				if(data.succ>0){
+					window.location.reload();
+				}else{
+					alert('打开失败，请重试');
+				}
+			})
+  .fail(function(a,b,c){
+      alert('出现错误！');
+      console.log(a.responseText);
   });
  })
  $("#shang").dblclick(function(){
   var url = $(this).attr("url");
   $.ajax({
-   url:"chuli.php",
-   data:{url:url},
+   url:"./controller/ajax.php?fun=fileList",
    type:"POST",
-   dataType:"TEXT",
+   dataType:"json",
+   data:{url:url},
    /* success:function(data)
    {
     window.location.href="wenwen.php" rel="external nofollow" rel="external nofollow" rel="external nofollow" rel="external nofollow" ;
    } */
+  })
+  .done(function(data) {
+				if(data.succ>0){
+					window.location.reload();
+				}else{
+					alert('打开失败，请重试');
+				}
+			})
+  .fail(function(a,b,c){
+      alert('出现错误！');
+      console.log(a.responseText);
   });
  })
-  $(".sc").click(function(){
-   //确认删除提示
-   var av = confirm("确定要删除");
-   if(av){
-   var url = $(this).attr("url");
-   $.ajax({
-    url: "shan.php",
-    data: {url: url},
-    type: "POST",
-    dataType: "TEXT",
-    /* success: function (data) {
-     window.location.href = "wenwen.php";
-    } */
-   });
-   }
-  })
 </script>
 </body>
 </html>
