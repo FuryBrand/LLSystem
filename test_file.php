@@ -51,7 +51,7 @@ else {
 $arr = glob($fname."/*");
 foreach ($arr as $v)
 {
- $v = iconv("GB2312", "UTF-8", $v);  
+ //$v = iconv("GB2312", "UTF-8", $v);  
  //从完整路径中取文件名
  //$name = basename($v);
  $pattern = "#^\.+.+/#i";
