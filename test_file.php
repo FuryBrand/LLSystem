@@ -43,7 +43,7 @@ if(!empty($_SESSION["fname"]))
 }
 //上一级的目录
 $pname = dirname($fname);
-if(realpath($fname)==dirname(__FILE__)."\\adminfj_1.0\\data\\nfs")
+if(realpath($fname)==dirname(__FILE__).DIRECTORY_SEPARATOR."adminfj_1.0".DIRECTORY_SEPARATOR."data".DIRECTORY_SEPARATOR."nfs")
 {}
 else {
  echo "<div id='shang' url='{$pname}'>返回上一级</div>";
