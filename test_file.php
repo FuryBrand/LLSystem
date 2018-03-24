@@ -28,7 +28,10 @@
  </style>
 </head>
 <body>
+
 <?php
+echo "\.txt";
+echo "\\.txt";
 session_start();
 //定义文件目录
 $fname = "./adminfj_1.0/data/nfs";
@@ -48,14 +51,17 @@ else {
 $arr = glob($fname."/*");
 foreach ($arr as $v)
 {
+ $v = iconv("GB2312", "UTF-8", $v);  
  //从完整路径中取文件名
- $name = basename($v);
+ //$name = basename($v);
+ $pattern = "#^\.+.+/#i";
+ $name = preg_replace($pattern,'', $v);
  if(is_dir($v)){
   echo "<div class='item dir' url='{$v}'>{$name}</div>";
  }
  else {
   echo "<div class='item' url='{$v}'>{$name}
-<input type='button' value='删除' url='{$v}' class='sc'/>
+  <a href='{$v}' target='_blank'><img src='./view/imgs/download1.jpg'></a>
 </div>";
  }
 }
@@ -63,16 +69,11 @@ foreach ($arr as $v)
 <script>
  $(".dir").dblclick(function(){
   var url = $(this).attr("url");
-  alert(url);
   $.ajax({
    url:"./controller/ajax.php?fun=fileList",
    type:"POST",
    dataType:"json",
    data:{url:url},
-   /* success:function(data)
-   {
-    window.location.href="test_file.php" rel="external nofollow" rel="external nofollow" rel="external nofollow" rel="external nofollow" ;
-   } */
   })
   .done(function(data) {
 				if(data.succ>0){
