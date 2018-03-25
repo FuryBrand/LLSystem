@@ -315,6 +315,9 @@ case "add_long_pic":
       case 'pic_product_list':
       $fileName="pic_product_list.jpg";
       break;
+      case 'pic_download_center':
+      $fileName="pic_download_center.jpg";
+      break;
     }
     move_uploaded_file($_FILES['file']['tmp_name'],PHP_Long_Pic.$fileName);
     header('Location: ../admin/index.php?page=changePic');

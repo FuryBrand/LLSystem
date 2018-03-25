@@ -23,6 +23,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/LLSystem/config.php');
  			<option value ="pic_about_us">“关于我们”</option>
   			<option value ="pic_news_list">“新闻列表”</option>
   			<option value="pic_product_list">“商品列表”</option>
+			<option value="pic_download_center">“下载中心”</option>   
 		</select>
 	<input type="submit" value="上传" />
 </form>
