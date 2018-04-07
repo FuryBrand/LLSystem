@@ -33,7 +33,7 @@
 echo "\.txt";
 echo "\\.txt";
 echo dirname(__FILE__)."\\adminfj_1.0\\data\\nfs"; 
-session_start();
+//session_start();
 //定义文件目录
 $fname = "./adminfj_1.0/data/nfs";
 //如果session里面的不为空，则将初始的路径记录下来。

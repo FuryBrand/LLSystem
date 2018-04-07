@@ -332,7 +332,7 @@ case "add_long_pic":
 break;
 //下载中心文件列表前台显示/返回上一级
 case "fileList":
-session_start();
+//session_start();
 $url = $_POST["url"];
 $_SESSION["fname"] = $url;
 $res=['succ'=>true];

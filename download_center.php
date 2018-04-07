@@ -104,9 +104,9 @@ include_once('./controller/article_list.php');
 	<?php include_once("./view/header.php") ?>
 	<?php include('./view/pic_download_center.php') ?>
 	<div class="row" style="margin-top:30px">
-		<?php //include_once('./view/leftNav.php') ?>
+		<?php include_once('./view/leftNav4download_center.php') ?>
 		<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-			<div class="row panel panel-default news-left-up" style="margin-bottom:10px">
+			<div class="row panel panel-default news-left-up" style="margin-bottom:10px; float: none; display: block; margin-left: auto; margin-right: auto; ">
 				<?php
 					//定义文件目录
 					$fname = "./adminfj_1.0/data/nfs";
@@ -136,7 +136,7 @@ include_once('./controller/article_list.php');
 					}
 					else {
 					echo "<div class='item' url='{$v}'>{$name}
-					<a href='{$v}' target='_blank'><img src='./view/imgs/download1.jpg'></a>
+					<a href='{$v}' target='_blank'>下载</a>
 					</div>";
 					}
 					}
