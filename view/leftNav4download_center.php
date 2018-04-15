@@ -18,9 +18,9 @@ include_once(Root_Path.'/controller/leftNav.php');
 	}
 }
 </style>
-<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" >
 	<ul class="types">
-		<li><p align="left">下载中心：</p></li>
+		<li style="border-style:none;"><p align="left">下载中心：</p></li>
 		<!--<li><p align="left">黄色为文件夹，蓝色为可下载文件</p></li>-->
 	</ul><br>
 <br>
