@@ -300,7 +300,7 @@ $res=['succ'=>$res];
 break;
 //添加长图片
 case "add_long_pic":
- $picName=$_GET['para'];
+ $picName=$_POST['picName'];
  //$url=$_POST['url'];
  if(array_key_exists('file',$_FILES)){
   $file = $_FILES['file'];
@@ -308,23 +308,34 @@ case "add_long_pic":
   switch($picName){
     case 'pic_about_us':
       $fileName="pic_about_us.jpg";
-    break;
-    case 'pic_news_list':
+      break;
+      case 'pic_news_list':
       $fileName="pic_news_list.jpg";
-    break;
-    case 'pic_product_list':
+      break;
+      case 'pic_product_list':
       $fileName="pic_product_list.jpg";
-    break;
-  }
-  move_uploaded_file($file['tmp_name'],PHP_Long_Pic.$fileName);
-  if(is_file(PHP_Long_Pic.$fileName)){
-    $res=["succ"=>true,"fileName"=>$fileName];
-  }else{
-    $res=["succ"=>false,"errcode"=>1];//1表示上传失败
+      break;
+      case 'pic_download_center':
+      $fileName="pic_download_center.jpg";
+      break;
+    }
+    move_uploaded_file($_FILES['file']['tmp_name'],PHP_Long_Pic.$fileName);
+    header('Location: ../admin/index.php?page=changePic');
+    if(is_file(PHP_Long_Pic.$fileName)){
+      $res=["succ"=>true,"fileName"=>PHP_Long_Pic.$fileName,"file"=>is_file($_FILES['file']['tmp_name'])];
+    }else{
+      $res=["succ"=>false,"errcode"=>1];//1表示上传失败
   }
 }else{
   $res=["succ"=>false,"errcode"=>2];//2表示未找到文件
 }
+break;
+//下载中心文件列表前台显示/返回上一级
+case "fileList":
+//session_start();
+$url = $_POST["url"];
+$_SESSION["fname"] = $url;
+$res=['succ'=>true];
 break;
 }
 echo json_encode($res);

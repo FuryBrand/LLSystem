@@ -60,9 +60,11 @@ include_once('./controller/article_list.php');
 							<a href="<?php echo $href ?>">
 								<h4><?php echo $article_list[$i]['title'] ?></h4>
 							</a>
+							<!--
 							<a style="display:block;text-align:center" href="<?php echo $href ?>">
 								<img src="<?php echo $imgPath.$article_list[$i]['thumb'];?>" style="width:100%;" />
 							</a>
+							-->
 							<div class="clearfix">
 								<span class="left"><?php echo date("Y-m-d",strtotime($article_list[$i]['create_date'])) ?></span>
 								<a class="right" href="<?php echo $href ?>">阅读全文 &gt;</a>

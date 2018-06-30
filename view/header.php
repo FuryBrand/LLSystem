@@ -33,7 +33,7 @@
 	</style>
 	<div class="row margin-top30">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-			<a href="/llsystem"><img src="./view/imgs/logo.png" class="logo-height"></a>
+			<a href="/LLSystem"><img src="./view/imgs/logo.png" class="logo-height"></a>
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 			<form method="post" class="search right-text" action="./controller/ajax.php?fun=search">
